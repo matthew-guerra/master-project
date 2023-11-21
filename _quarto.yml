@@ -14,17 +14,17 @@ project:
     - "!bibliography/"
 
 author:
-  - name: Aaron Gullickson
-    orcid: 0000-0001-7237-8131
-    email: aarong@uoregon.edu
-    url: https://aarongullickson.netlify.app/
+  - name: Matthew Guerra
+    orcid: 0009-0003-2658-442X
+    email: mguerra2@uoregon.edu
+    url: 
     attributes:
       corresponding: true
     affiliations:
       - id: uo
         name: University of Oregon
         department: Sociology
-        address: 727 PLC
+        address: 620 PLC
         city: Eugene
         region: OR
         country: USA
