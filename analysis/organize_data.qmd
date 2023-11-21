@@ -1,5 +1,8 @@
 ---
 title: "Organize Data Notebook"
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r}
@@ -10,4 +13,82 @@ source(here("utils","check_packages.R"))
 source(here("utils","functions.R"))
 ```
 
-This quarto doc is used to organize the data.
+# Code below is from previous projet, use and take as neeeded
+
+```{r}
+# Collapse Metro Variable
+DATA$MetroC <- factor(ifelse(DATA$Metro==0,"Unknown",
+                      ifelse(DATA$Metro==1,"not Metropolitan",
+                      ifelse(DATA$Metro>=2 & DATA$Metro<=4,
+                                    "Metropolitan",NA))))
+levels=c("Unknown", "not Metropolitan","Metropolitan")
+
+table(DATA$Metro,DATA$MetroC,exclude = NULL)
+
+# Recode and create gender variable
+
+DATA$Gender <-factor((ifelse(DATA$Sex==2,"Woman",ifelse(DATA$Sex==1,
+                                                        "Man",NA))))
+levels=c("Woman","Man")
+
+table(DATA$Sex,DATA$Gender,exclude = NULL)
+# Recode and Homeland variable
+
+DATA$HomelandP <-factor(ifelse(DATA$Homeland==1,"No",
+                               ifelse(DATA$Homeland==2,"Yes",NA)))
+levels=c("No","Yes")
+
+table(DATA$Homeland,DATA$HomelandP,exclude = NULL)
+
+DATA$HomelandP <-factor(ifelse(DATA$Homeland==1,"No",ifelse(DATA$Homeland==2,
+                                                            "Yes",NA)))
+levels=c("No","Yes")
+
+# Recode Hispan Variable
+DATA$Hispanic <-factor((ifelse(DATA$Hispan==0,"non-Hispanic",
+                              ifelse(DATA$Hispan>=1 & DATA$Hispan<=4,
+                                     "Hispanic", NA))))
+levels=c("non-Hispanic, Hispanic")
+table(DATA$Hispan,DATA$Hispanic, exclude = NULL)
+# Recode Race variable
+DATA$RaceC <-factor(ifelse(DATA$Race==1,"White",
+                  ifelse(DATA$Race==2,"Black",
+                  ifelse(DATA$Race==3,"AIAN",
+                  ifelse(DATA$Race>=4 & DATA$Race<=6,"API",
+                  ifelse(DATA$Race==7,"Other",
+                  ifelse(DATA$Race>=8 & DATA$Race<=9,"Two or more races", 
+                         NA)))))))
+levels=c("White","Black","AIAN","API","Other","Two or more races")
+
+table(DATA$Race,DATA$RaceC, exclude = NULL)
+
+
+#Recode AINA variable
+DATA$AIAN <-factor(ifelse(DATA$AIAN==2,"Yes",
+                          ifelse(DATA$AIAN==1,"No",NA)))
+# Recode and collapse EDUCD variable 
+
+DATA$EducA <- factor(ifelse(DATA$EDUCD>=2 & DATA$EDUCD<=61, "Less than HS",
+                     ifelse(DATA$EDUCD>=62 & DATA$EDUCD<=64, "HS Diploma",
+                     ifelse(DATA$EDUCD>=65 & DATA$EDUCD<=100, "Some College",
+                     ifelse(DATA$EDUCD>=101 & DATA$EDUCD<=116, "College",
+                            NA)))),
+levels=c("Less than HS","HS Diploma","Some College","College"))
+
+
+table(DATA$EDUCD,DATA$EducA, exclude = NULL)
+```
+
+```{r}
+
+#Subset Data
+DATA <- subset(DATA, select=c("Year","Age","Gender","MetroC","HomelandP",
+                       "Hispanic", "RaceC","AIAN","EducA"))
+
+DATA
+```
+
+```{r}
+save(DATA, file=here("data","data_constructed"
+                                ,"analytical_data.RData"))
+```
