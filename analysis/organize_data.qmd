@@ -28,7 +28,7 @@ DATA <- read_fwf("data/data_raw/usa_00011.dat.gz",
 DATA
 ```
 
-# Code below is from previous projet, use and take as neeeded
+# Recoding Variables
 
 ```{r}
 # Collapse Metro Variable
@@ -77,10 +77,6 @@ levels=c("White","Black","AIAN","API","Other","Two or more races")
 
 table(DATA$Race,DATA$RaceC, exclude = NULL)
 
-
-#Recode AINA variable
-DATA$AIAN <-factor(ifelse(DATA$AIAN==2,"Yes",
-                          ifelse(DATA$AIAN==1,"No",NA)))
 # Recode and collapse EDUCD variable 
 
 DATA$EducA <- factor(ifelse(DATA$EDUCD>=2 & DATA$EDUCD<=61, "Less than HS",
