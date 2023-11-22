@@ -13,6 +13,21 @@ source(here("utils","check_packages.R"))
 source(here("utils","functions.R"))
 ```
 
+```{r}
+# loading data into R
+
+DATA <- read_fwf("data/data_raw/usa_00011.dat.gz",
+         col_positions=fwf_positions(start=c(1,55,68,84,85,88,92,96,103,
+                                             112,115),
+                                    end=c(4,55,68,84,87,88,92,98,105,
+                                          114,115),
+                  col_names=c("Year","Metro","Homeland","Sex","Age",
+                              "Race","Hispan","Ancestr1","Ancestr2","EDUCD","QRace")),
+         col_types=cols(.default = "i"),
+         progress=TRUE)
+DATA
+```
+
 # Code below is from previous projet, use and take as neeeded
 
 ```{r}
