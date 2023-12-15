@@ -28,6 +28,13 @@ DATA <- read_fwf("data/data_raw/usa_00011.dat.gz",
 DATA
 ```
 
+# Cleaning
+
+```{r}
+# remove allocated race variables
+DATA <- subset(DATA, QRace ==0)
+```
+
 # Recoding Variables
 
 ```{r}
@@ -47,6 +54,7 @@ DATA$Gender <-factor((ifelse(DATA$Sex==2,"Woman",ifelse(DATA$Sex==1,
 levels=c("Woman","Man")
 
 table(DATA$Sex,DATA$Gender,exclude = NULL)
+
 # Recode and Homeland variable
 
 DATA$HomelandP <-factor(ifelse(DATA$Homeland==1,"No",
@@ -59,12 +67,33 @@ DATA$HomelandP <-factor(ifelse(DATA$Homeland==1,"No",ifelse(DATA$Homeland==2,
                                                             "Yes",NA)))
 levels=c("No","Yes")
 
+# Recode and collapse EDUCD variable 
+
+DATA$EducA <- factor(ifelse(DATA$EDUCD>=2 & DATA$EDUCD<=61, "Less than HS",
+                     ifelse(DATA$EDUCD>=62 & DATA$EDUCD<=64, "HS Diploma",
+                     ifelse(DATA$EDUCD>=65 & DATA$EDUCD<=100, "Some College",
+                     ifelse(DATA$EDUCD>=101 & DATA$EDUCD<=116, "College",
+                            NA)))),
+levels=c("Less than HS","HS Diploma","Some College","College"))
+
+table(DATA$EDUCD,DATA$EducA, exclude = NULL)
+```
+
+```{r}
+# Recode Ancestr1
+
+
+# Recode Ancestr2
+
+# Collapse Ancestr1 and Ancestr2 into 
+
 # Recode Hispan Variable
 DATA$Hispanic <-factor((ifelse(DATA$Hispan==0,"non-Hispanic",
                               ifelse(DATA$Hispan>=1 & DATA$Hispan<=4,
                                      "Hispanic", NA))))
 levels=c("non-Hispanic, Hispanic")
 table(DATA$Hispan,DATA$Hispanic, exclude = NULL)
+
 # Recode Race variable
 DATA$RaceC <-factor(ifelse(DATA$Race==1,"White",
                   ifelse(DATA$Race==2,"Black",
@@ -77,17 +106,6 @@ levels=c("White","Black","AIAN","API","Other","Two or more races")
 
 table(DATA$Race,DATA$RaceC, exclude = NULL)
 
-# Recode and collapse EDUCD variable 
-
-DATA$EducA <- factor(ifelse(DATA$EDUCD>=2 & DATA$EDUCD<=61, "Less than HS",
-                     ifelse(DATA$EDUCD>=62 & DATA$EDUCD<=64, "HS Diploma",
-                     ifelse(DATA$EDUCD>=65 & DATA$EDUCD<=100, "Some College",
-                     ifelse(DATA$EDUCD>=101 & DATA$EDUCD<=116, "College",
-                            NA)))),
-levels=c("Less than HS","HS Diploma","Some College","College"))
-
-
-table(DATA$EDUCD,DATA$EducA, exclude = NULL)
 ```
 
 ```{r}
