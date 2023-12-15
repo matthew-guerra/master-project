@@ -80,9 +80,18 @@ table(DATA$EDUCD,DATA$EducA, exclude = NULL)
 ```
 
 ```{r}
-# Recode Ancestr1
+# Recode Ancestr1 into Meso-Racial Ancestery
 
-
+DATA$Ancestr1 <- factor(ifelse(DATA$Ancestr1<=260 | DATA$Ancestr1==800 |
+                                 DATA$Ancestr1==803, "European",
+                               ifelse(DATA$Ancestr1==900 | DATA$Ancestr1==902,
+                                      "African-American",
+                               ifelse(DATA$Ancestr1>=923 &
+                                               DATA$Ancestr1<=913,
+                                             "American Indian",
+                               ifelse(DATA$Ancestr1)))
+                               
+                     
 # Recode Ancestr2
 
 # Collapse Ancestr1 and Ancestr2 into 
