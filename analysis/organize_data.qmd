@@ -86,16 +86,39 @@ DATA$Ancestr1 <- factor(ifelse(DATA$Ancestr1<=260 | DATA$Ancestr1==800 |
                                  DATA$Ancestr1==803, "European",
                                ifelse(DATA$Ancestr1==900 | DATA$Ancestr1==902,
                                       "African-American",
-                               ifelse(DATA$Ancestr1>=923 &
-                                               DATA$Ancestr1<=913,
+                               ifelse(DATA$Ancestr1>=913 &
+                                               DATA$Ancestr1<=923,
                                              "American Indian",
-                               ifelse(DATA$Ancestr1)))
-                               
+                               ifelse(DATA$Ancestr1>=700 & DATA$Ancestr1<=796,
+                                      "East and SEA",
+                               ifelse(DATA$Ancestr1>=808 & DATA$Ancestr1<=870,
+                                      "Pacific Islander",
+                               ifelse(DATA$Ancestr1,
+                                      "Latin America",
+                               ifelse(DATA$Ancestr1,
+                                      "non-Latin Caribbean",
+                               ifelse(DATA$Ancestr1,
+                                      "North African and Middle Eastern",
+                               ifelse((DATA$Ancestr1,
+                                       "Sub-Saharan African",
+                               ifelse(DATA$Ancestr1,
+                                      "South Asian",
+                               ifelse(DATA$Ancestr1,
+                                      "American",
+                               ifelse(DATA$Ancestr1,
+                                      "Mixture",NA))))))))))))
+levels=c("European","African-American","American Indian","East and SEA","Pacific Islander",
+         "Latin American", "non-Latin Caribbean","North African and Middle Eastern",
+         "Sub-Saharan African","South Asian","American","Mixed")                            
                      
 # Recode Ancestr2
 
 # Collapse Ancestr1 and Ancestr2 into 
 
+
+```
+
+```{r}
 # Recode Hispan Variable
 DATA$Hispanic <-factor((ifelse(DATA$Hispan==0,"non-Hispanic",
                               ifelse(DATA$Hispan>=1 & DATA$Hispan<=4,
@@ -114,15 +137,12 @@ DATA$RaceC <-factor(ifelse(DATA$Race==1,"White",
 levels=c("White","Black","AIAN","API","Other","Two or more races")
 
 table(DATA$Race,DATA$RaceC, exclude = NULL)
-
 ```
 
 ```{r}
-
 #Subset Data
 DATA <- subset(DATA, select=c("Year","Age","Gender","MetroC","HomelandP",
                        "Hispanic", "RaceC","AIAN","EducA"))
-
 DATA
 ```
 
