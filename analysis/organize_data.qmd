@@ -106,7 +106,7 @@ DATA$Rancestry1 <- factor(ifelse(DATA$Ancestr1 >= 001 & DATA$Ancestr1 <= 206 | D
                                 "Latin American", "non-Latin Caribbean", "North African and Middle Eastern",
                                 "Sub-Saharan African", "South Asian", "American", "Mixed"))
 
-# Recode Ancestr2
+# Recode Ancestr2 into Meso-Racial Ancestery
 
 DATA$Rancestry2 <- factor(ifelse(DATA$Ancestr2 >= 001 & DATA$Ancestr2 <= 206 | DATA$Ancestr2 >= 800 & DATA$Ancestr2 <= 803,
                                "European",
@@ -137,7 +137,7 @@ DATA$Rancestry2 <- factor(ifelse(DATA$Ancestr2 >= 001 & DATA$Ancestr2 <= 206 | D
                                 "Latin American", "non-Latin Caribbean", "North African and Middle Eastern",
                                 "Sub-Saharan African", "South Asian", "American", "Mixed"))
 
-# Remove all cases where Rancestry1 or rancestry2 are NA
+# Remove all cases where Rancestry1 or Rancestry2 are NA
 
 DATA <- DATA[complete.cases(DATA$Rancestry1, DATA$Rancestry2), ]
 ```
