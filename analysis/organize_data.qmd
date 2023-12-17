@@ -137,9 +137,9 @@ DATA$Rancestry2 <- factor(ifelse(DATA$Ancestr2 >= 001 & DATA$Ancestr2 <= 206 | D
                                 "Latin American", "non-Latin Caribbean", "North African and Middle Eastern",
                                 "Sub-Saharan African", "South Asian", "American", "Mixed"))
 
-# Collapse Ancestr1 and Ancestr2 into 
+# Remove all cases where Rancestry1 or rancestry2 are NA
 
-
+DATA <- DATA[complete.cases(DATA$Rancestry1, DATA$Rancestry2), ]
 ```
 
 ```{r}
