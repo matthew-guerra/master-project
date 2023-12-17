@@ -62,11 +62,6 @@ DATA$HomelandP <-factor(ifelse(DATA$Homeland==1,"No",
 levels=c("No","Yes")
 
 table(DATA$Homeland,DATA$HomelandP,exclude = NULL)
-
-DATA$HomelandP <-factor(ifelse(DATA$Homeland==1,"No",ifelse(DATA$Homeland==2,
-                                                            "Yes",NA)))
-levels=c("No","Yes")
-
 # Recode and collapse EDUCD variable 
 
 DATA$EducA <- factor(ifelse(DATA$EDUCD>=2 & DATA$EDUCD<=61, "Less than HS",
@@ -82,35 +77,65 @@ table(DATA$EDUCD,DATA$EducA, exclude = NULL)
 ```{r}
 # Recode Ancestr1 into Meso-Racial Ancestery
 
-DATA$Ancestr1 <- factor(ifelse(DATA$Ancestr1<=260 | DATA$Ancestr1==800 |
-                                 DATA$Ancestr1==803, "European",
-                               ifelse(DATA$Ancestr1==900 | DATA$Ancestr1==902,
+DATA$Rancestry1 <- factor(ifelse(DATA$Ancestr1 >= 001 & DATA$Ancestr1 <= 206 | DATA$Ancestr1 >= 800 & DATA$Ancestr1 <= 803,
+                               "European",
+                               ifelse(DATA$Ancestr1 == 900 | DATA$Ancestr1 == 902,
                                       "African-American",
-                               ifelse(DATA$Ancestr1>=913 & DATA$Ancestr1<=923,
-                                      "American Indian",
-                               ifelse(DATA$Ancestr1>=700 & DATA$Ancestr1<=796,
-                                      "East and SEA",
-                               ifelse(DATA$Ancestr1>=808 & DATA$Ancestr1<=870,
-                                      "Pacific Islander",
-                               ifelse(DATA$Ancestr1,
-                                      "Latin American",
-                               ifelse(DATA$Ancestr1,
-                                      "non-Latin Caribbean",
-                               ifelse(DATA$Ancestr1>=400 & DATA$Ancestr1<=496,
-                                      "North African and Middle Eastern",
-                               ifelse((DATA$Ancestr1>=500 & DATA$Ancestr1<=599,
-                                       "Sub-Saharan African",
-                               ifelse(DATA$Ancestr1>=600 & DATA$Ancestr1<=695,
-                                      "South Asian",
-                               ifelse(DATA$Ancestr1>=924 & DATA$Ancestr1<=994,
-                                      "American",
-                               ifelse(DATA$Ancestr1==995,
-                                      "Mixture",NA))))))))))))
-levels=c("European","African-American","American Indian","East and SEA","Pacific Islander",
-         "Latin American", "non-Latin Caribbean","North African and Middle Eastern",
-         "Sub-Saharan African","South Asian","American","Mixed")                            
-                     
+                                      ifelse(DATA$Ancestr1 >= 913 & DATA$Ancestr1 <= 923,
+                                             "American Indian",
+                                             ifelse(DATA$Ancestr1 >= 700 & DATA$Ancestr1 <= 796,
+                                                    "East and SEA",
+                                                    ifelse(DATA$Ancestr1 >= 808 & DATA$Ancestr1 <= 870,
+                                                           "Pacific Islander",
+                                                           ifelse(DATA$Ancestr1 >= 210 & DATA$Ancestr1 <= 275 |
+                                                                      DATA$Ancestr1 >= 360 & DATA$Ancestr1 <= 380,
+                                                                      "Latin American",
+                                                                      ifelse(DATA$Ancestr1 >= 300 & DATA$Ancestr1 <= 337,
+                                                                             "non-Latin Caribbean",
+                                                                             ifelse(DATA$Ancestr1 >= 400 & DATA$Ancestr1 <= 496,
+                                                                                    "North African and Middle Eastern",
+                                                                                    ifelse(DATA$Ancestr1 >= 500 & DATA$Ancestr1 <= 599,
+                                                                                           "Sub-Saharan African",
+                                                                                           ifelse(DATA$Ancestr1 >= 600 & DATA$Ancestr1 <= 695,
+                                                                                                  "South Asian",
+                                                                                                  ifelse(DATA$Ancestr1 >= 924 & DATA$Ancestr1 <= 994,
+                                                                                                         "American",
+                                                                                                         ifelse(DATA$Ancestr1 == 995,
+                                                                                                                "Mixture", NA)))))))))))),
+                     levels = c("European", "African-American", "American Indian", "East and SEA", "Pacific Islander",
+                                "Latin American", "non-Latin Caribbean", "North African and Middle Eastern",
+                                "Sub-Saharan African", "South Asian", "American", "Mixed"))
+
 # Recode Ancestr2
+
+DATA$Rancestry2 <- factor(ifelse(DATA$Ancestr2 >= 001 & DATA$Ancestr2 <= 206 | DATA$Ancestr2 >= 800 & DATA$Ancestr2 <= 803,
+                               "European",
+                               ifelse(DATA$Ancestr2 == 900 | DATA$Ancestr2 == 902,
+                                      "African-American",
+                                      ifelse(DATA$Ancestr2 >= 913 & DATA$Ancestr2 <= 923,
+                                             "American Indian",
+                                             ifelse(DATA$Ancestr2 >= 700 & DATA$Ancestr2 <= 796,
+                                                    "East and SEA",
+                                                    ifelse(DATA$Ancestr2 >= 808 & DATA$Ancestr2 <= 870,
+                                                           "Pacific Islander",
+                                                           ifelse(DATA$Ancestr2 >= 210 & DATA$Ancestr2 <= 275 |
+                                                                      DATA$Ancestr2 >= 360 & DATA$Ancestr2 <= 380,
+                                                                      "Latin American",
+                                                                      ifelse(DATA$Ancestr2 >= 300 & DATA$Ancestr2 <= 337,
+                                                                             "non-Latin Caribbean",
+                                                                             ifelse(DATA$Ancestr2 >= 400 & DATA$Ancestr2 <= 496,
+                                                                                    "North African and Middle Eastern",
+                                                                                    ifelse(DATA$Ancestr2 >= 500 & DATA$Ancestr2 <= 599,
+                                                                                           "Sub-Saharan African",
+                                                                                           ifelse(DATA$Ancestr2 >= 600 & DATA$Ancestr2 <= 695,
+                                                                                                  "South Asian",
+                                                                                                  ifelse(DATA$Ancestr2 >= 924 & DATA$Ancestr2 <= 994,
+                                                                                                         "American",
+                                                                                                         ifelse(DATA$Ancestr2 == 995,
+                                                                                                                "Mixture", NA)))))))))))),
+                     levels = c("European", "African-American", "American Indian", "East and SEA", "Pacific Islander",
+                                "Latin American", "non-Latin Caribbean", "North African and Middle Eastern",
+                                "Sub-Saharan African", "South Asian", "American", "Mixed"))
 
 # Collapse Ancestr1 and Ancestr2 into 
 
