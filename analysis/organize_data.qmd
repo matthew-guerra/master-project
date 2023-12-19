@@ -17,12 +17,12 @@ source(here("utils","functions.R"))
 # loading data into R
 
 DATA <- read_fwf("data/data_raw/usa_00011.dat.gz",
-         col_positions=fwf_positions(start=c(1,55,68,84,85,88,92,96,103,
+         col_positions=fwf_positions(start=c(1,55,68,84,85,89,92,96,103,
                                              112,115),
-                                    end=c(4,55,68,84,87,88,92,98,105,
+                                    end=c(4,55,68,84,87,91,92,98,105,
                                           114,115),
                   col_names=c("Year","Metro","Homeland","Sex","Age",
-                              "Race","Hispan","Ancestr1","Ancestr2","EDUCD","QRace")),
+                              "RaceD","Hispan","Ancestr1","Ancestr2","EDUCD","QRace")),
          col_types=cols(.default = "i"),
          progress=TRUE)
 DATA
@@ -150,7 +150,7 @@ DATA$Hispanic <-factor((ifelse(DATA$Hispan==0,"non-Hispanic",
 levels=c("non-Hispanic, Hispanic")
 table(DATA$Hispan,DATA$Hispanic, exclude = NULL)
 
-# Recode Race variable
+# Recode RaceD variable, since need to seperate PI and Asian 
 DATA$RaceC <-factor(ifelse(DATA$Race==1,"White",
                   ifelse(DATA$Race==2,"Black",
                   ifelse(DATA$Race==3,"AIAN",
