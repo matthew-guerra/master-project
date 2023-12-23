@@ -72,6 +72,13 @@ DATA$EducA <- factor(ifelse(DATA$EDUCD>=2 & DATA$EDUCD<=61, "Less than HS",
 levels=c("Less than HS","HS Diploma","Some College","College"))
 
 table(DATA$EDUCD,DATA$EducA, exclude = NULL)
+
+# Recode Hispan Variable
+DATA$Hispanic <-factor((ifelse(DATA$Hispan==0,"non-Hispanic",
+                              ifelse(DATA$Hispan>=1 & DATA$Hispan<=4,
+                                     "Hispanic", NA))))
+levels=c("non-Hispanic, Hispanic")
+table(DATA$Hispan,DATA$Hispanic, exclude = NULL)
 ```
 
 ```{r}
@@ -143,22 +150,16 @@ DATA <- DATA[complete.cases(DATA$Rancestry1, DATA$Rancestry2), ]
 ```
 
 ```{r}
-# Recode Hispan Variable
-DATA$Hispanic <-factor((ifelse(DATA$Hispan==0,"non-Hispanic",
-                              ifelse(DATA$Hispan>=1 & DATA$Hispan<=4,
-                                     "Hispanic", NA))))
-levels=c("non-Hispanic, Hispanic")
-table(DATA$Hispan,DATA$Hispanic, exclude = NULL)
 
 # Recode RaceD variable, since need to seperate PI and Asian 
-DATA$RaceC <-factor(ifelse(DATA$Race==1,"White",
-                  ifelse(DATA$Race==2,"Black",
-                  ifelse(DATA$Race==3,"AIAN",
-                  ifelse(DATA$Race>=4 & DATA$Race<=6,"API",
-                  ifelse(DATA$Race==7,"Other",
-                  ifelse(DATA$Race>=8 & DATA$Race<=9,"Two or more races", 
+DATA$RaceC <-factor(ifelse(DATA$RaceD==100,"White",
+                  ifelse(DATA$RaceD==200,"Black",
+                  ifelse(DATA$RaceD=>300 & DATA$RaceD<=399,"AIAN",
+                  ifelse(DATA$RaceD>=400 & DATA$RaceD<=679,"Asian",
+                  ifelse(DATA$RaceD=>680 & DATA$RaceD<=699,"Pacific Islander",
+                  ifelse(DATA$RaceD>=8 & DATA$RaceD<=9,"Two or more races", 
                          NA)))))))
-levels=c("White","Black","AIAN","API","Other","Two or more races")
+levels=c("White","Black","AIAN","Asian","Pacific Islander","AIAN & White","Black and AIAN",)
 
 table(DATA$Race,DATA$RaceC, exclude = NULL)
 ```
@@ -166,7 +167,7 @@ table(DATA$Race,DATA$RaceC, exclude = NULL)
 ```{r}
 #Subset Data
 DATA <- subset(DATA, select=c("Year","Age","Gender","MetroC","HomelandP",
-                       "Hispanic", "RaceC","AIAN","EducA"))
+                       "Hispanic", "RaceC", "EducA"))
 DATA
 ```
 
