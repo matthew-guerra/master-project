@@ -81,6 +81,8 @@ levels=c("non-Hispanic, Hispanic")
 table(DATA$Hispan,DATA$Hispanic, exclude = NULL)
 ```
 
+![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAaCAYAAADFTB7LAAAAcElEQVR4Xu3OwQmAQAxE0bClWYCW5N06tM6V2YPg5CjoF/JhLoHAi6iqn9eOefUbqrYvHY0cQDLyAlKRNyARmYA0ZMLRkAlGQyaU72tkAtlim7r/vJqDUDjlKBROOQyFU2icQuMUGqfQuBEaV1XPOwEx96nYACK8+wAAAABJRU5ErkJggg== "Run Current Chunk")
+
 ```{r}
 # Recode Ancestr1 into Meso-Racial Ancestery
 
@@ -150,6 +152,24 @@ DATA <- DATA[complete.cases(DATA$Rancestry1, DATA$Rancestry2), ]
 ```
 
 ```{r}
+#recode into big racial categories
+DATA <- DATA %>%
+  mutate(
+    Rancestry1s = factor(
+      case_when(
+        Rancestry1 %in% c(1, 8) ~ "White",
+        Rancestry1 %in% c(2, 9, 7) ~ "Black",
+        Rancestry1 == 3 ~ "AIAN",
+        Rancestry1 == 5 ~"Pacific Islander",
+        Rancestry1 %in% c(4, 10) ~ "Asian",
+        Rancestry1 == 6 ~ "Latino"
+      ),
+      levels = c("White", "Black", "AIAN","Pacific Islander", "Asian", "Latino")
+    )
+  )
+```
+
+```{r}
 
 # Recode RaceD variable, since need to seperate PI and Asian 
 DATA$RaceC <-factor(ifelse(DATA$RaceD==100,"White",
@@ -165,7 +185,7 @@ table(DATA$Race,DATA$RaceC, exclude = NULL)
 ```
 
 ```{r}
-#Subset Data
+#Subset Data, make sure all variables are here
 DATA <- subset(DATA, select=c("Year","Age","Gender","MetroC","HomelandP",
                        "Hispanic", "RaceC", "EducA"))
 DATA
