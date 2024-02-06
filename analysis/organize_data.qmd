@@ -152,7 +152,7 @@ DATA <- DATA[complete.cases(DATA$Rancestry1, DATA$Rancestry2), ]
 ```
 
 ```{r}
-#recode into big racial categories
+#recode rancestry1 into big racial categories
 DATA <- DATA %>%
   mutate(
     Rancestry1s = ifelse(Rancestry1 %in% c("European", "North African and Middle Eastern"), "White",
@@ -161,6 +161,19 @@ DATA <- DATA %>%
                          ifelse(Rancestry1 %in% c("Pacific Islander"), "PI",
                          ifelse(Rancestry1 %in% c("East and SEA", "South Asian"), "Asian",
                          ifelse(Rancestry1 %in% c("Latin American"), "Latino", NA)))))))
+
+```
+
+```{r}
+#recode rancestry2 into big raacial categories
+DATA <- DATA %>%
+  mutate(
+    Rancestry2s = ifelse(Rancestry2 %in% c("European", "North African and Middle Eastern"), "White",
+                         ifelse(Rancestry2 %in% c("African-American", "non-Latin Caribbean", "Sub-Saharan African"), "Black",
+                         ifelse(Rancestry2 %in% c("American Indian"), "AIAN",
+                         ifelse(Rancestry2 %in% c("Pacific Islander"), "PI",
+                         ifelse(Rancestry2 %in% c("East and SEA", "South Asian"), "Asian",
+                         ifelse(Rancestry2 %in% c("Latin American"), "Latino", NA)))))))
 ```
 
 ```{r}
