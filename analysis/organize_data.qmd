@@ -81,8 +81,6 @@ levels=c("non-Hispanic, Hispanic")
 table(DATA$Hispan,DATA$Hispanic, exclude = NULL)
 ```
 
-![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAaCAYAAADFTB7LAAAAcElEQVR4Xu3OwQmAQAxE0bClWYCW5N06tM6V2YPg5CjoF/JhLoHAi6iqn9eOefUbqrYvHY0cQDLyAlKRNyARmYA0ZMLRkAlGQyaU72tkAtlim7r/vJqDUDjlKBROOQyFU2icQuMUGqfQuBEaV1XPOwEx96nYACK8+wAAAABJRU5ErkJggg== "Run Current Chunk")
-
 ```{r}
 # Recode Ancestr1 into Meso-Racial Ancestery
 
@@ -115,6 +113,8 @@ DATA$Rancestry1 <- factor(ifelse(DATA$Ancestr1 >= 001 & DATA$Ancestr1 <= 206 | D
                                 "Latin American", "non-Latin Caribbean", "North African and Middle Eastern",
                                 "Sub-Saharan African", "South Asian", "American", "Mixed"))
 
+table(DATA$Ancestr1,DATA$Rancestry1, exclude = NULL)
+
 # Recode Ancestr2 into Meso-Racial Ancestery
 
 DATA$Rancestry2 <- factor(ifelse(DATA$Ancestr2 >= 001 & DATA$Ancestr2 <= 206 | DATA$Ancestr2 >= 800 & DATA$Ancestr2 <= 803,
@@ -146,6 +146,8 @@ DATA$Rancestry2 <- factor(ifelse(DATA$Ancestr2 >= 001 & DATA$Ancestr2 <= 206 | D
                                 "Latin American", "non-Latin Caribbean", "North African and Middle Eastern",
                                 "Sub-Saharan African", "South Asian", "American", "Mixed"))
 
+table(DATA$Ancestr2,DATA$Rancestry2, exclude = NULL)
+
 # Remove all cases where Rancestry1 or Rancestry2 are NA
 
 DATA <- DATA[complete.cases(DATA$Rancestry1, DATA$Rancestry2), ]
@@ -162,6 +164,7 @@ DATA <- DATA %>%
                          ifelse(Rancestry1 %in% c("East and SEA", "South Asian"), "Asian",
                          ifelse(Rancestry1 %in% c("Latin American"), "Latino", NA)))))))
 
+table(DATA$Rancestry1,DATA$Rancestry1s, exclude = NULL)
 ```
 
 ```{r}
@@ -174,25 +177,26 @@ DATA <- DATA %>%
                          ifelse(Rancestry2 %in% c("Pacific Islander"), "PI",
                          ifelse(Rancestry2 %in% c("East and SEA", "South Asian"), "Asian",
                          ifelse(Rancestry2 %in% c("Latin American"), "Latino", NA)))))))
+
+table(DATA$Rancestry2,DATA$Rancestry2s, exclude = NULL)
 ```
 
 ```{r}
 
 # Recode RaceD variable, since need to seperate PI and Asian
-#need to fix PI category (Native Hawaiian)
 DATA$RaceC <- factor(ifelse(DATA$RaceD == 100, "White",
                   ifelse(DATA$RaceD == 200, "Black",
                   ifelse(DATA$RaceD >= 300 & DATA$RaceD <= 399, "AIAN",
+                  ifelse(DATA$RaceD >= 680 & DATA$RaceD <= 699 | 
+                           DATA$RaceD == 630,"Pacific Islander",
                   ifelse(DATA$RaceD >= 400 & DATA$RaceD <= 679, "Asian",
-                  ifelse(DATA$RaceD >= 680 & DATA$RaceD <= 699,
-                         "Pacific Islander",
                   ifelse(DATA$RaceD == 802, "White and AIAN",
                   ifelse(DATA$RaceD == 830, "Black and AIAN",
                   ifelse(DATA$RaceD >= 850 & DATA$RaceD <= 854,
                          "AIAN and Asian",
                          NA)))))))))
 
-DATA$RaceC <- factor(DATA$RaceC, levels = c("White", "Black", "AIAN", "Asian", "Pacific Islander", "White and AIAN","Black and AIAN","AIAN and Asian"))
+DATA$RaceC <- factor(DATA$RaceC, levels = c("White", "Black", "AIAN", "Pacific Islander", "Asian", "White and AIAN","Black and AIAN","AIAN and Asian"))
 ```
 
 ```{r}
