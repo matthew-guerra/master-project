@@ -178,17 +178,21 @@ DATA <- DATA %>%
 
 ```{r}
 
-# Recode RaceD variable, since need to seperate PI and Asian 
-DATA$RaceC <-factor(ifelse(DATA$RaceD==100,"White",
-                  ifelse(DATA$RaceD==200,"Black",
-                  ifelse(DATA$RaceD=>300 & DATA$RaceD<=399,"AIAN",
-                  ifelse(DATA$RaceD>=400 & DATA$RaceD<=679,"Asian",
-                  ifelse(DATA$RaceD=>680 & DATA$RaceD<=699,"Pacific Islander",
-                  ifelse(DATA$RaceD>=8 & DATA$RaceD<=9,"Two or more races", 
-                         NA)))))))
-levels=c("White","Black","AIAN","Asian","Pacific Islander","AIAN & White","Black and AIAN",)
+# Recode RaceD variable, since need to seperate PI and Asian
+#need to fix PI category (Native Hawaiian)
+DATA$RaceC <- factor(ifelse(DATA$RaceD == 100, "White",
+                  ifelse(DATA$RaceD == 200, "Black",
+                  ifelse(DATA$RaceD >= 300 & DATA$RaceD <= 399, "AIAN",
+                  ifelse(DATA$RaceD >= 400 & DATA$RaceD <= 679, "Asian",
+                  ifelse(DATA$RaceD >= 680 & DATA$RaceD <= 699,
+                         "Pacific Islander",
+                  ifelse(DATA$RaceD == 802, "White and AIAN",
+                  ifelse(DATA$RaceD == 830, "Black and AIAN",
+                  ifelse(DATA$RaceD >= 850 & DATA$RaceD <= 854,
+                         "AIAN and Asian",
+                         NA)))))))))
 
-table(DATA$Race,DATA$RaceC, exclude = NULL)
+DATA$RaceC <- factor(DATA$RaceC, levels = c("White", "Black", "AIAN", "Asian", "Pacific Islander", "White and AIAN","Black and AIAN","AIAN and Asian"))
 ```
 
 ```{r}
