@@ -218,7 +218,7 @@ DATA <- subset(DATA,
 
 nrow(DATA)
 
-DATA(temp$Rancestry1s, temp$Rancestry2s, exclude=NULL)
+
 
 DATA <- DATA |>
   mutate(race_ancestry = case_when(
@@ -268,7 +268,7 @@ table(DATA$race_ancestry, DATA$race_response)
 ```{r}
 #Subset Data, make sure all variables are here
 DATA <- subset(DATA, select=c("Year","Age","Gender","MetroC","HomelandP",
-                       "Hispanic", "RaceC", "EducA","RaceC","selected_cases"))
+                       "Hispanic", "EducA","race_response"))
 DATA
 ```
 
