@@ -207,7 +207,62 @@ DATA$selected_cases <- (((DATA$Rancestry1s == "AIAN") &
   !(DATA$Rancestry1s == "PI") & !(DATA$Rancestry2s == "PI") & 
   !(DATA$Rancestry1s == "Latino") & !(DATA$Rancestry2s == "Latino")
 
-print(selected_cases)
+DATA <- subset(DATA, 
+  ((Rancestry1s == "AIAN") & !(Rancestry2s == "AIAN") |
+     (Rancestry2s == "AIAN") & !(Rancestry1s == "AIAN")) & 
+    !(Rancestry1s == "PI") & 
+    !(Rancestry2s == "PI") & 
+    !(Rancestry1s == "Latino") & 
+    !(Rancestry2s == "Latino")
+)
+
+nrow(DATA)
+
+DATA(temp$Rancestry1s, temp$Rancestry2s, exclude=NULL)
+
+DATA <- DATA |>
+  mutate(race_ancestry = case_when(
+    Rancestry1s == "AIAN" & Rancestry2s == "White" ~ "AIAN/White",
+    Rancestry1s == "White" & Rancestry2s == "AIAN" ~ "AIAN/White",
+    Rancestry1s == "AIAN" & Rancestry2s == "Black" ~ "AIAN/Black",
+    Rancestry1s == "Black" & Rancestry2s == "AIAN" ~ "AIAN/Black",
+    Rancestry1s == "AIAN" & Rancestry2s == "Asian" ~ "AIAN/Asian",
+    Rancestry1s == "Asian" & Rancestry2s == "AIAN" ~ "AIAN/Asian",
+  ))
+
+table(DATA$race_ancestry, exclude=NULL)
+table(DATA$Rancestry1s, DATA$Rancestry2s, DATA$race_ancestry)
+
+table(DATA$RaceC, DATA$race_ancestry)
+
+DATA <- DATA |>
+  mutate(race_response = case_when(
+    RaceC == "AIAN" ~ "AIAN Alone",
+    race_ancestry == "AIAN/Asian" & RaceC == "Asian" ~ "Other Race Alone",
+    race_ancestry == "AIAN/White" & RaceC == "White" ~ "Other Race Alone",
+    race_ancestry == "AIAN/Black" & RaceC == "Black" ~ "Other Race Alone",
+    race_ancestry == "AIAN/Asian" & RaceC == "AIAN and Asian" ~ "Multiracial",
+    race_ancestry == "AIAN/White" & RaceC == "White and AIAN" ~ "Multiracial",
+    race_ancestry == "AIAN/Black" & RaceC == "Black and AIAN" ~ "Multiracial",
+    TRUE ~ "Inconsistent"
+  ))
+
+DATA <- DATA |>
+  mutate(race_respone = factor(race_response,
+                               levels=c("Other Race Alone", "AIAN Alone",
+                                        "Multiracial","Inconsistent")))
+
+model <- multinom(race_response~HomelandP,
+                  data=subset(DATA, race_ancestry=="AIAN/White"))
+
+#model <- vglm(race_response~HomelandP, "multinomial", 
+#     data=subset(DATA, race_ancestry=="AIAN/White"))
+#summary(model)
+
+table(DATA$race_response)
+
+table(DATA$race_ancestry, DATA$race_response)
+  
 ```
 
 ```{r}
