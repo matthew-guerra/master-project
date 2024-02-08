@@ -200,17 +200,20 @@ DATA$RaceC <- factor(DATA$RaceC, levels = c("White", "Black", "AIAN", "Pacific I
 ```
 
 ```{r}
-#combine Rancestry into cases, create df and filter for cases needed
+#filter for selected cases
+DATA$selected_cases <- (((DATA$Rancestry1s == "AIAN") & 
+                      !(DATA$Rancestry2s == "AIAN")) |
+  ((DATA$Rancestry2s == "AIAN") & !(DATA$Rancestry1s == "AIAN"))) & 
+  !(DATA$Rancestry1s == "PI") & !(DATA$Rancestry2s == "PI") & 
+  !(DATA$Rancestry1s == "Latino") & !(DATA$Rancestry2s == "Latino")
 
-DATA$RancestryC <- data.frame(Rancestry1s, Rancestry2s) %>%
-  filter()
-  
+print(selected_cases)
 ```
 
 ```{r}
 #Subset Data, make sure all variables are here
 DATA <- subset(DATA, select=c("Year","Age","Gender","MetroC","HomelandP",
-                       "Hispanic", "RaceC", "EducA"))
+                       "Hispanic", "RaceC", "EducA","RaceC","selected_cases"))
 DATA
 ```
 
