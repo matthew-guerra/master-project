@@ -200,10 +200,11 @@ DATA$RaceC <- factor(DATA$RaceC, levels = c("White", "Black", "AIAN", "Pacific I
 ```
 
 ```{r}
-#combine Rancestry into cases
+#combine Rancestry into cases, create df and filter for cases needed
 
-DATA$RancestryC %>%
-  mutate()
+DATA$RancestryC <- data.frame(Rancestry1s, Rancestry2s) %>%
+  filter()
+  
 ```
 
 ```{r}
