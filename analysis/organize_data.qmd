@@ -200,6 +200,13 @@ DATA$RaceC <- factor(DATA$RaceC, levels = c("White", "Black", "AIAN", "Pacific I
 ```
 
 ```{r}
+#combine Rancestry into cases
+
+DATA$RancestryC %>%
+  mutate()
+```
+
+```{r}
 #Subset Data, make sure all variables are here
 DATA <- subset(DATA, select=c("Year","Age","Gender","MetroC","HomelandP",
                        "Hispanic", "RaceC", "EducA"))
