@@ -268,7 +268,7 @@ table(DATA$race_ancestry, DATA$race_response)
 ```{r}
 #Subset Data, make sure all variables are here
 DATA <- subset(DATA, select=c("Year","Age","Gender","MetroC","HomelandP",
-                       "Hispanic", "EducA","race_response"))
+                       "Hispanic", "EducA","race_response","race_ancestry"))
 DATA
 ```
 
