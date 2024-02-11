@@ -19,7 +19,7 @@ load(here("data","data_constructed","analytical_data.RData"))
 #| label: Model Construction
 model1 <- multinom(race_response~HomelandP,
                   data=subset(DATA, race_ancestry=="AIAN/White"))
-model2 <- multinom(race_response~EducA,
+model2 <- multinom(race_response~HomelandP+EducA,
                    data = subset(DATA, race_ancestry=="AIAN/White"))
 knitreg(list(model1,model2),
           digits=3)
