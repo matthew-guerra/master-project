@@ -1,5 +1,5 @@
 ---
-title: "Working title: A Quantitative Analysis of the Nexus Between Ancestry Self-Identification and Racial Classification"
+title: "Working title: The Nexus Between Ancestry and Racial Classification Amongst Indigenous Americans"
 shorttitle: "Paper"
 abstract: Working abstract This paper leverages census data to investigate the intricate relationship between individuals reported ancestry and their self-identified racial classification on the United States Census. Analyzing a dataset drawn from U.S. census records spanning 2010-2020, this research employs statistical techniques to discern patterns, trends, and discrepancies in how individuals perceive their ancestral heritage and racial identity.
 keywords: [American Indian, ancestery, race, identity]
