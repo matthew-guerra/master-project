@@ -38,6 +38,36 @@ This is a test citation
 
 # Data and Methods
 
+```{r}
+#| fig-racebyancestry
+#| fig-cap: Comparative bargraphs of race by ancestry
+
+ggplot(data = DATA, aes(x = race_response, fill = race_ancestry, group=race_ancestry, y=after_stat(prop))) + 
+  geom_bar(position = "dodge")+
+  scale_y_continuous(labels = scales::percent)+
+  labs(x=NULL, y=NULL, fill="Ancestry")
+```
+
+```{r}
+#| label: tbl-race_response
+#| tbl-cap: Multinomial Models
+
+model1 <- multinom(race_response~HomelandP,
+                  data=subset(DATA, race_ancestry=="AIAN/White"))
+model2 <- multinom(race_response~HomelandP+EducA,
+                   data = subset(DATA, race_ancestry=="AIAN/White"))
+model2 <- multinom(race_response~HomelandP+EducA,
+                   data = subset(DATA, race_ancestry=="AIAN/White"))
+model3 <- multinom(race_response~HomelandP+EducA+Gender,
+                   data = subset(DATA, race_ancestry=="AIAN/White"))
+texreg(list(model1,model2,model3),
+          digits=3)
+```
+
+@tbl-race_responses
+
+@fig-racebyancestry
+
 # Results
 
 # Conclusions

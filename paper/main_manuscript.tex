@@ -1,0 +1,316 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  12pt,
+  letterpaper,
+]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+  \setmainfont[]{Baskerville}
+  \setsansfont[]{Futura}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+% -----------------------
+% CUSTOM PREAMBLE STUFF
+% -----------------------
+
+% -----------------
+% Title block stuff
+% -----------------
+
+% Abstract
+\usepackage[runin]{abstract}
+\renewcommand{\abstractnamefont}{\sffamily\small\bfseries}
+\renewcommand{\abstracttextfont}{\sffamily\small}
+\setlength{\absleftindent}{5pt}
+\setlength{\absrightindent}{\absleftindent}
+
+% Title
+\usepackage{titling}
+\pretitle{\par\begin{flushleft}\LARGE\sffamily\bfseries}
+\posttitle{\par\end{flushleft}\vskip 10pt}
+
+% Keywords
+\newenvironment{keywords}
+{\small\sffamily{\sffamily\small\bfseries{Keywords.}}}
+
+% Authors
+\usepackage{orcidlink}  % Create automatic ORCID icons/links
+%\renewcommand{\and}{\end{tabular} \hskip 3em \begin{tabular}[t]{@{\hspace{0em}}l@{}}}
+\preauthor{\begin{flushleft}
+           \lineskip 1.5em}
+\postauthor{\end{flushleft}}
+
+% ------------------
+% Section headings
+% ------------------
+\usepackage{titlesec}
+\titleformat*{\section}{\Large\sffamily\bfseries\raggedright}
+\titleformat*{\subsection}{\large\sffamily\bfseries\raggedright}
+\titleformat*{\subsubsection}{\normalsize\sffamily\bfseries\raggedright}
+\titleformat*{\paragraph}{\small\sffamily\bfseries\raggedright}
+
+%\titlespacing{<command>}{<left>}{<before-sep>}{<after-sep>}
+% Starred version removes indentation in following paragraph
+\titlespacing*{\section}{0em}{2em}{0.1em}
+\titlespacing*{\subsection}{0em}{1.25em}{0.1em}
+\titlespacing*{\subsubsection}{0em}{0.75em}{0em}
+
+% ------------------
+% Headers/Footers
+% ------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L,C]{}
+\fancyhead[R]{\leftmark}
+\fancyfoot[L,C]{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{1pt}
+\fancypagestyle{plain}{%
+    \renewcommand{\headrulewidth}{0pt}%
+    \fancyhf{}%
+    \fancyfoot[R]{\thepage}%
+}
+\renewcommand\footnoterule{\rule{\linewidth}{0.1pt}\vspace{5pt}}
+
+% ------------------
+% Captions
+% ------------------
+\usepackage[labelfont=bf,labelsep=period]{caption}
+\captionsetup[figure]{font=footnotesize,justification=raggedright,singlelinecheck=false,format=hang}
+
+
+% ---------------------------
+% END CUSTOM PREAMBLE STUFF
+% ---------------------------
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{dcolumn}
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Working title: The Nexus Between Ancestry and Racial Classification Amongst Indigenous Americans},
+  pdfauthor={Matthew Guerra},
+  pdfkeywords={American Indian, ancestery, race, identity},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={red},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Working title: The Nexus Between Ancestry and Racial
+Classification Amongst Indigenous Americans\thanks{Thanks to everyone
+for checking this out.}}
+% subtitles do not seem to work with article class?
+%%\subtitle{}
+
+\author{
+{\bfseries \normalsize Matthew Guerra~\orcidlink{0009-0003-2658-442X}}%
+\thanks{Corresponding author.} \\%
+ \small University of Oregon, Sociology \\%
+{\footnotesize \url{mguerra2@uoregon.edu}} \\\vspace{10pt}
+}
+
+\predate{}
+\postdate{}
+\date{}
+\begin{document}
+
+% for some reason this does not work in header
+\renewcommand{\abstractname}{Abstract.}
+
+\fancyhead[L]{Paper}
+
+% need to redefine this environment to get enough spacing of 
+% bibliography after title
+\renewenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \vspace{10pt}
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+
+\maketitle
+%\noindent \rule{\linewidth}{.5pt}
+\begin{abstract}
+Working abstract This paper leverages census data to investigate the
+intricate relationship between individuals reported ancestry and their
+self-identified racial classification on the United States Census.
+Analyzing a dataset drawn from U.S. census records spanning 2010-2020,
+this research employs statistical techniques to discern patterns,
+trends, and discrepancies in how individuals perceive their ancestral
+heritage and racial identity.
+\end{abstract}
+\begin{keywords}
+\def\sep{;\ }
+American Indian\sep ancestery\sep race\sep 
+identity
+\end{keywords}
+%\noindent \rule{\linewidth}{.5pt}
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, enhanced, breakable, sharp corners, frame hidden]}{\end{tcolorbox}}\fi
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+This is a test citation
+
+\hypertarget{background}{%
+\section{Background}\label{background}}
+
+\hypertarget{data-and-methods}{%
+\section{Data and Methods}\label{data-and-methods}}
+
+\textbf{?@tbl-race\_responses}
+
+\textbf{?@fig-racebyancestry}
+
+\hypertarget{results}{%
+\section{Results}\label{results}}
+
+\hypertarget{conclusions}{%
+\section{Conclusions}\label{conclusions}}
+
+
+
+\end{document}
