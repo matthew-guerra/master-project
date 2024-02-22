@@ -1,7 +1,7 @@
 ---
-title: "Working title: The Nexus Between Ancestry and Racial Classification Amongst Indigenous Americans"
+title: "The Nexus Between Ancestry and Racial Classification Amongst Indigenous Americans"
 shorttitle: "Paper"
-abstract: Working abstract This paper leverages census data to investigate the intricate relationship between individuals reported ancestry and their self-identified racial classification on the United States Census. Analyzing a dataset drawn from U.S. census records spanning 2010-2020, this research employs statistical techniques to discern patterns, trends, and discrepancies in how individuals perceive their ancestral heritage and racial identity.
+abstract: This paper leverages census data to investigate the intricate relationship between individuals reported ancestry and their self-identified racial classification on the United States Census. Analyzing a dataset drawn from U.S. census records spanning 2010-2020, this research employs statistical techniques to discern patterns, trends, and discrepancies in how individuals perceive their ancestral heritage and racial identity.
 keywords: [American Indian, ancestery, race, identity]
 thanks: Thanks to everyone for checking this out.
 reference-section-title: References
@@ -28,46 +28,39 @@ format:
 library(here)
 source(here("utils","check_packages.R"))
 source(here("utils","functions.R"))
+load(here("data","data_constructed","analytical_data.RData"))
 ```
 
 # Introduction
 
-This is a test citation
+This is a test citation @gullickson_choosing_2011
 
 # Background
 
 # Data and Methods
 
 ```{r}
-#| fig-racebyancestry
-#| fig-cap: Comparative bargraphs of race by ancestry
-
+#| label: fig-race-ancestry
+#| fig-cap: Comparing listed ancestry and race classification
 ggplot(data = DATA, aes(x = race_response, fill = race_ancestry, group=race_ancestry, y=after_stat(prop))) + 
-  geom_bar(position = "dodge")+
-  scale_y_continuous(labels = scales::percent)+
-  labs(x=NULL, y=NULL, fill="Ancestry")
+  geom_bar(position = "dodge") +
+  scale_y_continuous(labels = scales::percent) +
+  labs(x = NULL, y = NULL, fill = "Ancestry")
 ```
 
 ```{r}
-#| label: tbl-race_response
+#| label: tbl-multi-models
 #| tbl-cap: Multinomial Models
-
 model1 <- multinom(race_response~HomelandP,
                   data=subset(DATA, race_ancestry=="AIAN/White"))
 model2 <- multinom(race_response~HomelandP+EducA,
                    data = subset(DATA, race_ancestry=="AIAN/White"))
-model2 <- multinom(race_response~HomelandP+EducA,
-                   data = subset(DATA, race_ancestry=="AIAN/White"))
 model3 <- multinom(race_response~HomelandP+EducA+Gender,
                    data = subset(DATA, race_ancestry=="AIAN/White"))
-texreg(list(model1,model2,model3),
+knitreg(list(model1,model2,model3),
           digits=3)
 ```
 
-@tbl-race_responses
-
-@fig-racebyancestry
-
 # Results
 
-# Conclusions
+# Conclusion
