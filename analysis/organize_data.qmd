@@ -159,7 +159,7 @@ DATA <- DATA %>%
   mutate(
     Rancestry1s = ifelse(Rancestry1 %in% c("European", "North African and Middle Eastern"), "White",
                          ifelse(Rancestry1 %in% c("African-American", "non-Latin Caribbean", "Sub-Saharan African"), "Black",
-                         ifelse(Rancestry1 %in% c("American Indian"), "AIAN",
+                         ifelse(Rancestry1 %in% c("American Indian"), "Indigenous",
                          ifelse(Rancestry1 %in% c("Pacific Islander"), "PI",
                          ifelse(Rancestry1 %in% c("East and SEA", "South Asian"), "Asian",
                          ifelse(Rancestry1 %in% c("Latin American"), "Latino", NA)))))))
@@ -173,7 +173,7 @@ DATA <- DATA %>%
   mutate(
     Rancestry2s = ifelse(Rancestry2 %in% c("European", "North African and Middle Eastern"), "White",
                          ifelse(Rancestry2 %in% c("African-American", "non-Latin Caribbean", "Sub-Saharan African"), "Black",
-                         ifelse(Rancestry2 %in% c("American Indian"), "AIAN",
+                         ifelse(Rancestry2 %in% c("American Indian"), "Indigenous",
                          ifelse(Rancestry2 %in% c("Pacific Islander"), "PI",
                          ifelse(Rancestry2 %in% c("East and SEA", "South Asian"), "Asian",
                          ifelse(Rancestry2 %in% c("Latin American"), "Latino", NA)))))))
@@ -186,30 +186,30 @@ table(DATA$Rancestry2,DATA$Rancestry2s, exclude = NULL)
 # Recode RaceD variable, since need to seperate PI and Asian
 DATA$RaceC <- factor(ifelse(DATA$RaceD == 100, "White",
                   ifelse(DATA$RaceD == 200, "Black",
-                  ifelse(DATA$RaceD >= 300 & DATA$RaceD <= 399, "AIAN",
+                  ifelse(DATA$RaceD >= 300 & DATA$RaceD <= 399, "Indigenous",
                   ifelse(DATA$RaceD >= 680 & DATA$RaceD <= 699 | 
                            DATA$RaceD == 630,"Pacific Islander",
                   ifelse(DATA$RaceD >= 400 & DATA$RaceD <= 679, "Asian",
-                  ifelse(DATA$RaceD == 802, "White and AIAN",
-                  ifelse(DATA$RaceD == 830, "Black and AIAN",
+                  ifelse(DATA$RaceD == 802, "White and Indigenous",
+                  ifelse(DATA$RaceD == 830, "Black and Indigenous",
                   ifelse(DATA$RaceD >= 850 & DATA$RaceD <= 854,
-                         "AIAN and Asian",
+                         "Asian and Indigenous",
                          NA)))))))))
 
-DATA$RaceC <- factor(DATA$RaceC, levels = c("White", "Black", "AIAN", "Pacific Islander", "Asian", "White and AIAN","Black and AIAN","AIAN and Asian"))
+DATA$RaceC <- factor(DATA$RaceC, levels = c("White", "Black", "Indigenous", "Pacific Islander", "Asian", "White and Indigenous","Black and Indigenous","Asian and Indigenous"))
 ```
 
 ```{r}
 #filter for selected cases
-DATA$selected_cases <- (((DATA$Rancestry1s == "AIAN") & 
-                      !(DATA$Rancestry2s == "AIAN")) |
-  ((DATA$Rancestry2s == "AIAN") & !(DATA$Rancestry1s == "AIAN"))) & 
+DATA$selected_cases <- (((DATA$Rancestry1s == "Indigenous") & 
+                      !(DATA$Rancestry2s == "Indigenous")) |
+  ((DATA$Rancestry2s == "Indigenous") & !(DATA$Rancestry1s == "Indigenous"))) & 
   !(DATA$Rancestry1s == "PI") & !(DATA$Rancestry2s == "PI") & 
   !(DATA$Rancestry1s == "Latino") & !(DATA$Rancestry2s == "Latino")
 
 DATA <- subset(DATA, 
-  ((Rancestry1s == "AIAN") & !(Rancestry2s == "AIAN") |
-     (Rancestry2s == "AIAN") & !(Rancestry1s == "AIAN")) & 
+  ((Rancestry1s == "Indigenous") & !(Rancestry2s == "Indigenous") |
+     (Rancestry2s == "Indigenous") & !(Rancestry1s == "Indigenous")) & 
     !(Rancestry1s == "PI") & 
     !(Rancestry2s == "PI") & 
     !(Rancestry1s == "Latino") & 
@@ -222,12 +222,12 @@ nrow(DATA)
 
 DATA <- DATA |>
   mutate(race_ancestry = case_when(
-    Rancestry1s == "AIAN" & Rancestry2s == "White" ~ "AIAN/White",
-    Rancestry1s == "White" & Rancestry2s == "AIAN" ~ "AIAN/White",
-    Rancestry1s == "AIAN" & Rancestry2s == "Black" ~ "AIAN/Black",
-    Rancestry1s == "Black" & Rancestry2s == "AIAN" ~ "AIAN/Black",
-    Rancestry1s == "AIAN" & Rancestry2s == "Asian" ~ "AIAN/Asian",
-    Rancestry1s == "Asian" & Rancestry2s == "AIAN" ~ "AIAN/Asian",
+    Rancestry1s == "Indigenous" & Rancestry2s == "White" ~ "Indigenous/White",
+    Rancestry1s == "White" & Rancestry2s == "Indigenous" ~ "Indigenous/White",
+    Rancestry1s == "Indigenous" & Rancestry2s == "Black" ~ "Indigenous/Black",
+    Rancestry1s == "Black" & Rancestry2s == "Indigenous" ~ "Indigenous/Black",
+    Rancestry1s == "Indigenous" & Rancestry2s == "Asian" ~ "Indigenous/Asian",
+    Rancestry1s == "Asian" & Rancestry2s == "Indigenous" ~ "Indigenous/Asian",
   ))
 
 table(DATA$race_ancestry, exclude=NULL)
@@ -237,23 +237,23 @@ table(DATA$RaceC, DATA$race_ancestry)
 
 DATA <- DATA |>
   mutate(race_response = case_when(
-    RaceC == "AIAN" ~ "AIAN Alone",
-    race_ancestry == "AIAN/Asian" & RaceC == "Asian" ~ "Other Race Alone",
-    race_ancestry == "AIAN/White" & RaceC == "White" ~ "Other Race Alone",
-    race_ancestry == "AIAN/Black" & RaceC == "Black" ~ "Other Race Alone",
-    race_ancestry == "AIAN/Asian" & RaceC == "AIAN and Asian" ~ "Multiracial",
-    race_ancestry == "AIAN/White" & RaceC == "White and AIAN" ~ "Multiracial",
-    race_ancestry == "AIAN/Black" & RaceC == "Black and AIAN" ~ "Multiracial",
+    RaceC == "Indigenous" ~ "Indigenous Alone",
+    race_ancestry == "Indigenous/Asian" & RaceC == "Asian" ~ "Other Race Alone",
+    race_ancestry == "Indigenous/White" & RaceC == "White" ~ "Other Race Alone",
+    race_ancestry == "Indigenous/Black" & RaceC == "Black" ~ "Other Race Alone",
+    race_ancestry == "Indigenous/Asian" & RaceC == "Asian and Indigenous" ~ "Multiracial",
+    race_ancestry == "Indigenous/White" & RaceC == "White and Indigenous" ~ "Multiracial",
+    race_ancestry == "Indigenous/Black" & RaceC == "Black and Indigenous" ~ "Multiracial",
     TRUE ~ "Inconsistent"
   ))
 
 DATA <- DATA |>
   mutate(race_respone = factor(race_response,
-                               levels=c("Other Race Alone", "AIAN Alone",
+                               levels=c("Other Race Alone", "Indigenous Alone",
                                         "Multiracial","Inconsistent")))
 
 model <- multinom(race_response~HomelandP,
-                  data=subset(DATA, race_ancestry=="AIAN/White"))
+                  data=subset(DATA, race_ancestry=="Indigenous/White"))
 
 #model <- vglm(race_response~HomelandP, "multinomial", 
 #     data=subset(DATA, race_ancestry=="AIAN/White"))
