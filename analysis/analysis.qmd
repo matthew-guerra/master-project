@@ -36,5 +36,5 @@ ggplot(data = DATA, aes(x = race_response, fill = race_ancestry, group=race_ance
   geom_bar(position = "dodge") +
   scale_y_continuous(labels = scales::percent) +
   labs(x = "Self-Identified Racial Classification", y = NULL, fill = "Ancestry")+
-  theme(axis.title.x = element_text(vjust = -2)) 
+  theme(axis.title.x = element_text(vjust = -1)) 
 ```
