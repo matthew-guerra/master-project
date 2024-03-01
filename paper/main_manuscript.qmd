@@ -33,9 +33,11 @@ load(here("data","data_constructed","analytical_data.RData"))
 
 # Introduction
 
-This is a test citation @gullickson_choosing_2011
+Indigenous Americans are a group that has historically been difficult to study due to the lasting and continuous effects of settler-colonialism examples include but are not limited to genocide, assimilation practices/policies, political disenfranchisement, and erasure @gullickson_choosing_2011 @liebler_joining_2016 @korgen_multiracial_2010 @snipp_american_1989 @bacon_settler_2019.
 
 # Background
+
+Settler-colonial scholars have recently urged for the inclusion of settler-colonialism when studying the historical and contemporary racial structure of the U.S @mckay_theorizing_2020
 
 # Data and Methods
 
@@ -66,5 +68,7 @@ texreg(list(model1,model2,model3,model4),
 ```
 
 # Results
+
+In @fig-race-ancestry 72% of respondents who list Indigenous and Asian ancestry did not self-identify as Indigenous or Asian in regards to their racial identity. \^[Does this challenge previous research that suggests that those with part Asian ancestry tend to favor a multiracial identity @gullickson_choosing_2011. This can help lead to some future analysis and inform the inclusion of more literature on multiracial identity amongst mixed-race Asians]
 
 # Conclusion
