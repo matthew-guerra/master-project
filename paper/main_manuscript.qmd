@@ -54,12 +54,14 @@ ggplot(data = DATA, aes(x = race_response, fill = race_ancestry, group=race_ance
 #| tbl-cap: Multinomial Models
 #| results: asis
 model1 <- multinom(race_response~HomelandP,
-                  data=subset(DATA, race_ancestry=="AIAN/White"))
+                  data=subset(DATA, race_ancestry=="Indigenous/White"))
 model2 <- multinom(race_response~HomelandP+EducA,
-                   data = subset(DATA, race_ancestry=="AIAN/White"))
+                   data = subset(DATA, race_ancestry=="Indigenous/White"))
 model3 <- multinom(race_response~HomelandP+EducA+Gender,
-                   data = subset(DATA, race_ancestry=="AIAN/White"))
-texreg(list(model1,model2,model3),
+                   data = subset(DATA, race_ancestry=="Indigenous/White"))
+model4 <- multinom(race_response~HomelandP+EducA+Gender+Hispanic,
+                   data = subset(DATA, race_ancestry=="Indigenous/White"))
+texreg(list(model1,model2,model3,model4),
           digits=3)
 ```
 

@@ -25,7 +25,11 @@ model2 <- multinom(race_response~HomelandP+EducA,
                    data = subset(DATA, race_ancestry=="Indigenous/White"))
 model3 <- multinom(race_response~HomelandP+EducA+Gender,
                    data = subset(DATA, race_ancestry=="Indigenous/White"))
-knitreg(list(model1,model2,model3),
+model4 <- multinom(race_response~HomelandP+EducA+Gender+Hispanic,
+                   data = subset(DATA, race_ancestry=="Indigenous/White"))
+model5 <- multinom(race_response~HomelandP+EducA+Gender+Hispanic+MetroC,
+                   data = subset(DATA, race_ancestry=="Indigenous/White"))
+knitreg(list(model1,model2,model3,model4,model5),
           digits=3)
 ```
 
