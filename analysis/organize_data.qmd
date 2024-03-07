@@ -248,7 +248,7 @@ DATA <- DATA |>
   ))
 
 DATA <- DATA |>
-  mutate(race_respone = factor(race_response,
+  mutate(race_response = factor(race_response,
                                levels=c("Other Race Alone", "Indigenous Alone",
                                         "Multiracial","Inconsistent")))
 
