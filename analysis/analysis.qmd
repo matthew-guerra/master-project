@@ -32,7 +32,19 @@ model5 <- multinom(race_response~HomelandP+EducA+Gender+Hispanic+MetroC,
 knitreg(list(model1,model2,model3,model4,model5),
           digits=3)
 ```
-Looking at model 1 can see that living on Homeland leads to increased odds of identifying as Indigenous alone, and this remains consistent through various iterations of models until the 
+
+Looking at model 1 can see that living on Homeland leads to increased odds of identifying as Indigenous alone, and this remains consistent through various iterations of models with there being little change until the 5th model with the inclusion of the metropolitan variable. Living on a Homeland has a positive affect for multiracial but significantly weaker association in comparison to Indigenous alone. For Other Alone the positive association with living on a Homeland is rather weak.
+
+In model 2 education is the control variable. For indigenous alone the effects are positive but minimal until a college degree is achieved. For multiracial receiving some higher education has a negative association but changes to positive and significant once degree is achieved. For other race alone effects start minimally positive yet significant but continuously decrease as education decreases.
+
+For both Indigenous alone and multiracial there seems to be a negative association if identify as a woman, although he effect is almost nonexistent in other race alone although still negative.
+
+For identifying as non-Hispanic we can see a positive association with identifying as Indigenous alone and increase when identifying as multiracial but the effect is almost 3 times stronger when identifying as other race alone.
+
+For non-metro or unknown metro living, non-metro has slight elevated positive association with Indigenous alone and slightly less for metro unknown.
+
+Calculated odd-ratios and Homeland status and Hispanic are the two controls with biggest impact
+
 ```{r}
 #| label: fig-race-ancestry
 #| fig-cap: Comparing listed ancestry and race classification
