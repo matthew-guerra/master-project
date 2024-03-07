@@ -32,7 +32,7 @@ model5 <- multinom(race_response~HomelandP+EducA+Gender+Hispanic+MetroC,
 knitreg(list(model1,model2,model3,model4,model5),
           digits=3)
 ```
-
+Looking at model 1 can see that living on Homeland leads to increased odds of identifying as Indigenous alone, and this remains consistent through various iterations of models until the 
 ```{r}
 #| label: fig-race-ancestry
 #| fig-cap: Comparing listed ancestry and race classification
@@ -42,3 +42,5 @@ ggplot(data = DATA, aes(x = race_response, fill = race_ancestry, group=race_ance
   labs(x = "Self-Identified Racial Classification", y = NULL, fill = "Ancestry")+
   theme(axis.title.x = element_text(vjust = -1)) 
 ```
+
+In @fig-race-ancestry 72% of respondents who list Indigenous and Asian ancestry did not self-identify as Indigenous or Asian in regards to their racial identity. \^[Does this challenge previous research that suggests that those with part Asian ancestry tend to favor a multiracial identity @gullickson_choosing_2011. This can help lead to some future analysis and inform the inclusion of more literature on multiracial identity amongst mixed-race Asians]
