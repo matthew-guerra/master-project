@@ -42,24 +42,24 @@ DATA <- subset(DATA, QRace ==0)
 DATA$MetroC <- factor(ifelse(DATA$Metro==0,"Unknown",
                       ifelse(DATA$Metro==1,"not Metropolitan",
                       ifelse(DATA$Metro>=2 & DATA$Metro<=4,
-                                    "Metropolitan",NA))))
-levels=c("Unknown", "not Metropolitan","Metropolitan")
+                                    "Metropolitan",NA))),
+levels=c("not Metropolitan","Metropolitan", "Unknown"))
 
 table(DATA$Metro,DATA$MetroC,exclude = NULL)
 
 # Recode and create gender variable
 
 DATA$Gender <-factor((ifelse(DATA$Sex==2,"Woman",ifelse(DATA$Sex==1,
-                                                        "Man",NA))))
-levels=c("Woman","Man")
+                                                        "Man",NA))),
+levels=c("Woman","Man"))
 
 table(DATA$Sex,DATA$Gender,exclude = NULL)
 
 # Recode and Homeland variable
 
 DATA$HomelandP <-factor(ifelse(DATA$Homeland==1,"No",
-                               ifelse(DATA$Homeland==2,"Yes",NA)))
-levels=c("No","Yes")
+                               ifelse(DATA$Homeland==2,"Yes",NA)),
+                        levels=c("No","Yes"))
 
 table(DATA$Homeland,DATA$HomelandP,exclude = NULL)
 # Recode and collapse EDUCD variable 
@@ -76,8 +76,8 @@ table(DATA$EDUCD,DATA$EducA, exclude = NULL)
 # Recode Hispan Variable
 DATA$Hispanic <-factor((ifelse(DATA$Hispan==0,"non-Hispanic",
                               ifelse(DATA$Hispan>=1 & DATA$Hispan<=4,
-                                     "Hispanic", NA))))
-levels=c("non-Hispanic, Hispanic")
+                                     "Hispanic", NA))),
+                       levels=c("non-Hispanic, Hispanic"))
 table(DATA$Hispan,DATA$Hispanic, exclude = NULL)
 ```
 
