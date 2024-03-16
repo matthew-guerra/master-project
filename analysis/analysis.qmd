@@ -46,6 +46,22 @@ For non-metro or unknown metro living, non-metro has slight elevated positive as
 Calculated odd-ratios and Homeland status and Hispanic are the two controls with biggest impact
 
 ```{r}
+#model updated after 3/5/24 meeting, add MetroC after Homeland, swithc ref group
+model6 <- multinom(race_response~HomelandP,
+                  data=subset(DATA, race_ancestry=="Indigenous/Black"))
+model7 <- multinom(race_response~HomelandP+MetroC,
+                   data = subset(DATA, race_ancestry=="Indigenous/Black"))
+model8 <- multinom(race_response~HomelandP+MetroC+EducA,
+                   data = subset(DATA, race_ancestry=="Indigenous/Black"))
+model9 <- multinom(race_response~HomelandP+MetroC+EducA+Gender,
+                   data = subset(DATA, race_ancestry=="Indigenous/Black"))
+model10 <- multinom(race_response~HomelandP+MetroC+EducA+Gender+Hispanic,
+                   data = subset(DATA, race_ancestry=="Indigenous/Black"))
+knitreg(list(model6,model7,model8,model9,model10),
+          digits=3)
+```
+
+```{r}
 #| label: fig-race-ancestry
 #| fig-cap: Comparing listed ancestry and race classification
 ggplot(data = DATA, aes(x = race_response, fill = race_ancestry, group=race_ancestry, y=after_stat(prop))) + 

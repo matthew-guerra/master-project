@@ -77,7 +77,7 @@ table(DATA$EDUCD,DATA$EducA, exclude = NULL)
 DATA$Hispanic <-factor((ifelse(DATA$Hispan==0,"non-Hispanic",
                               ifelse(DATA$Hispan>=1 & DATA$Hispan<=4,
                                      "Hispanic", NA))),
-                       levels=c("non-Hispanic, Hispanic"))
+                       levels=c("non-Hispanic", "Hispanic"))
 table(DATA$Hispan,DATA$Hispanic, exclude = NULL)
 ```
 
@@ -252,8 +252,8 @@ DATA <- DATA |>
                                levels=c("Other Race Alone", "Indigenous Alone",
                                         "Multiracial","Inconsistent")))
 
-model <- multinom(race_response~HomelandP,
-                  data=subset(DATA, race_ancestry=="Indigenous/White"))
+#model <- multinom(race_response~HomelandP,
+                  #data=subset(DATA, race_ancestry=="Indigenous/White"))
 
 #model <- vglm(race_response~HomelandP, "multinomial", 
 #     data=subset(DATA, race_ancestry=="AIAN/White"))
