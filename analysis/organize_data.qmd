@@ -172,7 +172,8 @@ table(DATA$Rancestry1,DATA$Rancestry1s, exclude = NULL)
 DATA <- DATA %>%
   mutate(
     Rancestry2s = ifelse(Rancestry2 %in% c("European", "North African and Middle Eastern"), "White",
-                         ifelse(Rancestry2 %in% c("African-American", "non-Latin Caribbean", "Sub-Saharan African"), "Black",
+                         ifelse(Rancestry2 %in% c("African-American", "non-Latin Caribbean",
+                                                  "Sub-Saharan African"), "Black",
                          ifelse(Rancestry2 %in% c("American Indian"), "Indigenous",
                          ifelse(Rancestry2 %in% c("Pacific Islander"), "PI",
                          ifelse(Rancestry2 %in% c("East and SEA", "South Asian"), "Asian",
@@ -189,14 +190,15 @@ DATA$RaceC <- factor(ifelse(DATA$RaceD == 100, "White",
                   ifelse(DATA$RaceD >= 300 & DATA$RaceD <= 399, "Indigenous",
                   ifelse(DATA$RaceD >= 680 & DATA$RaceD <= 699 | 
                            DATA$RaceD == 630,"Pacific Islander",
+                  ifelse(DATA$RaceD ==700, "Other",
                   ifelse(DATA$RaceD >= 400 & DATA$RaceD <= 679, "Asian",
                   ifelse(DATA$RaceD == 802, "White and Indigenous",
                   ifelse(DATA$RaceD == 830, "Black and Indigenous",
                   ifelse(DATA$RaceD >= 850 & DATA$RaceD <= 854,
                          "Asian and Indigenous",
-                         NA)))))))))
+                         NA))))))))))
 
-DATA$RaceC <- factor(DATA$RaceC, levels = c("White", "Black", "Indigenous", "Pacific Islander", "Asian", "White and Indigenous","Black and Indigenous","Asian and Indigenous"))
+DATA$RaceC <- factor(DATA$RaceC, levels = c("White", "Black", "Indigenous", "Pacific Islander","Other", "Asian", "White and Indigenous","Black and Indigenous","Asian and Indigenous"))
 ```
 
 ```{r}
@@ -244,20 +246,16 @@ DATA <- DATA |>
     race_ancestry == "Indigenous/Asian" & RaceC == "Asian and Indigenous" ~ "Multiracial",
     race_ancestry == "Indigenous/White" & RaceC == "White and Indigenous" ~ "Multiracial",
     race_ancestry == "Indigenous/Black" & RaceC == "Black and Indigenous" ~ "Multiracial",
+    race_ancestry == "Indigenous/Asian" & RaceC == "Other" ~ "Other",
+    race_ancestry == "Indigenous/White" & RaceC == "Other" ~ "Other",
+    race_ancestry == "Indigenous/Black" & RaceC == "Other" ~ "Other",
     TRUE ~ "Inconsistent"
   ))
 
 DATA <- DATA |>
   mutate(race_response = factor(race_response,
                                levels=c("Other Race Alone", "Indigenous Alone",
-                                        "Multiracial","Inconsistent")))
-
-#model <- multinom(race_response~HomelandP,
-                  #data=subset(DATA, race_ancestry=="Indigenous/White"))
-
-#model <- vglm(race_response~HomelandP, "multinomial", 
-#     data=subset(DATA, race_ancestry=="AIAN/White"))
-#summary(model)
+                                        "Multiracial","Other","Inconsistent")))
 
 table(DATA$race_response)
 
