@@ -196,9 +196,11 @@ DATA$RaceC <- factor(ifelse(DATA$RaceD == 100, "White",
                   ifelse(DATA$RaceD == 830, "Black and Indigenous",
                   ifelse(DATA$RaceD >= 850 & DATA$RaceD <= 854,
                          "Asian and Indigenous",
-                         NA))))))))))
+                   ifelse(DATA$RaceD %in% c(916, 931, 932, 940, 950, 951, 960, 970, 980),
+                         "3+ Races",
+                         NA)))))))))))
 
-DATA$RaceC <- factor(DATA$RaceC, levels = c("White", "Black", "Indigenous", "Pacific Islander","Other", "Asian", "White and Indigenous","Black and Indigenous","Asian and Indigenous"))
+DATA$RaceC <- factor(DATA$RaceC, levels = c("White", "Black", "Indigenous", "Pacific Islander","Other", "Asian", "White and Indigenous","Black and Indigenous","Asian and Indigenous","3+ Races"))
 ```
 
 ```{r}
@@ -246,6 +248,9 @@ DATA <- DATA |>
     race_ancestry == "Indigenous/Asian" & RaceC == "Asian and Indigenous" ~ "Multiracial",
     race_ancestry == "Indigenous/White" & RaceC == "White and Indigenous" ~ "Multiracial",
     race_ancestry == "Indigenous/Black" & RaceC == "Black and Indigenous" ~ "Multiracial",
+    race_ancestry == "Indigenous/Asian" & RaceC == "3+ Races" ~ "Multiracial",
+    race_ancestry == "Indigenous/White" & RaceC == "3+ Races" ~ "Multiracial",
+    race_ancestry == "Indigenous/Black" & RaceC == "3+ Races" ~ "Multiracial",
     race_ancestry == "Indigenous/Asian" & RaceC == "Other" ~ "Other",
     race_ancestry == "Indigenous/White" & RaceC == "Other" ~ "Other",
     race_ancestry == "Indigenous/Black" & RaceC == "Other" ~ "Other",
