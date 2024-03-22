@@ -72,3 +72,7 @@ ggplot(data = DATA, aes(x = race_response, fill = race_ancestry, group=race_ance
 ```
 
 In @fig-race-ancestry 72% of respondents who list Indigenous and Asian ancestry did not self-identify as Indigenous or Asian in regards to their racial identity. \^[Does this challenge previous research that suggests that those with part Asian ancestry tend to favor a multiracial identity @gullickson_choosing_2011. This can help lead to some future analysis and inform the inclusion of more literature on multiracial identity amongst mixed-race Asians]
+
+After update 3/21/2024
+
+inconsistency reduced by 30%
