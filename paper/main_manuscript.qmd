@@ -1,8 +1,8 @@
 ---
 title: "The Nexus Between Ancestry and Racial Classification Amongst Indigenous Americans"
 shorttitle: "Paper"
-abstract: This paper leverages census data to investigate the intricate relationship between individuals reported ancestry and their self-identified racial classification on the United States Census. Analyzing a dataset drawn from U.S. census records spanning 2010-2020, this research employs statistical techniques to discern patterns, trends, and discrepancies in how individuals perceive their ancestral heritage and racial identity.
-keywords: [American Indian, ancestery, race, identity]
+abstract: Current research on race and multiracial individuals identifies that Indigenous racial identity is particularly fluid and often contested. Utilizing a settler-colonial theoretical framework, this research project aims to create a better understanding of Indigenous identity and answer how ancestry influences racial “decision-making” for Indigenous Americans. By leveraging census data from 2010-2020, the intricate relationship between individuals reported ancestry and their self-identified racial classification is investigated by employing various statistical analysis techniques to discern patterns, trends, and discrepancies in how these individuals perceive their ancestral heritage and racial identity.
+keywords: [Indigenous, ancestery, race, identity]
 thanks: Thanks to everyone for checking this out.
 reference-section-title: References
 bibliography: ../bibliography/project.bib

@@ -62,6 +62,21 @@ knitreg(list(model6,model7,model8,model9,model10),
 ```
 
 ```{r}
+model11 <- multinom(race_response~HomelandP,
+                  data=subset(DATA, race_ancestry=="Indigenous/Asian"))
+model12 <- multinom(race_response~HomelandP+MetroC,
+                   data = subset(DATA, race_ancestry=="Indigenous/Asian"))
+model13 <- multinom(race_response~HomelandP+MetroC+EducA,
+                   data = subset(DATA, race_ancestry=="Indigenous/Asian"))
+model14 <- multinom(race_response~HomelandP+MetroC+EducA+Gender,
+                   data = subset(DATA, race_ancestry=="Indigenous/Asian"))
+model15 <- multinom(race_response~HomelandP+MetroC+EducA+Gender+Hispanic,
+                   data = subset(DATA, race_ancestry=="Indigenous/Asian"))
+knitreg(list(model11,model12,model13,model14,model15),
+          digits=3)
+```
+
+```{r}
 #| label: fig-race-ancestry
 #| fig-cap: Comparing listed ancestry and race classification
 ggplot(data = DATA, aes(x = race_response, fill = race_ancestry, group=race_ancestry, y=after_stat(prop))) + 
@@ -75,4 +90,4 @@ In @fig-race-ancestry 72% of respondents who list Indigenous and Asian ancestry 
 
 After update 3/21/2024
 
-inconsistency reduced by 30%
+inconsistency reduced by 30% cc
