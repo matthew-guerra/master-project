@@ -56,25 +56,9 @@ ggplot(data = DATA, aes(x = race_response, fill = race_ancestry, group=race_ance
 ```
 
 ```{r}
-#| label: tbl-multi-models
-#| tbl-cap: Multinomial Models
-#| results: asis
-model1 <- multinom(race_response~HomelandP,
-                  data=subset(DATA, race_ancestry=="Indigenous/White"))
-model2 <- multinom(race_response~HomelandP+EducA,
-                   data = subset(DATA, race_ancestry=="Indigenous/White"))
-model3 <- multinom(race_response~HomelandP+EducA+Gender,
-                   data = subset(DATA, race_ancestry=="Indigenous/White"))
-model4 <- multinom(race_response~HomelandP+EducA+Gender+Hispanic,
-                   data = subset(DATA, race_ancestry=="Indigenous/White"))
-model5 <- multinom(race_response~HomelandP+EducA+Gender+Hispanic+MetroC,
-                   data = subset(DATA, race_ancestry=="Indigenous/White"))
-texreg(list(model1,model2,model3,model4,model5),
-          digits=3)
 ```
 
 # Results
 
-In @fig-race-ancestry 72% of respondents who list Indigenous and Asian ancestry did not self-identify as Indigenous or Asian in regards to their racial identity. \^[Does this challenge previous research that suggests that those with part Asian ancestry tend to favor a multiracial identity @gullickson_choosing_2011. This can help lead to some future analysis and inform the inclusion of more literature on multiracial identity among mixed-race Asians]
 
 # Conclusion
