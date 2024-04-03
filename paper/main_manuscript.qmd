@@ -35,11 +35,15 @@ load(here("data","data_constructed","analytical_data.RData"))
 
 Indigenous Americans are a group that has historically been difficult to study due to the lasting and continuous effects of settler-colonialism examples include but are not limited to genocide, assimilation practices/policies, political disenfranchisement, and erasure @gullickson_choosing_2011 @liebler_joining_2016 @korgen_multiracial_2010 @snipp_american_1989 @bacon_settler_2019.
 
-# Background
+# Theoretical Framework
 
 Settler-colonial scholars have recently urged for the inclusion of settler-colonialism when studying the historical and contemporary racial structure of the U.S @mckay_theorizing_2020
 
-# Data and Methods
+Quantcrit, neccesity for acknowledging that how we interpet numbers is influenced by our ontolgical and epistemological lens
+
+# Methods and data
+
+The data used for this project was compiled from American Community Survey data from 2010-2020.I seek to analyze the race reporting of individuals who indicate Indigenous (define in some capacity? Footnote maybe) ancestry. 
 
 ```{r}
 #| label: fig-race-ancestry
