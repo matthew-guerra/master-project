@@ -15,22 +15,26 @@ source(here("utils","functions.R"))
 load(here("data","data_constructed","analytical_data.RData"))
 ```
 
+Produce table of race response and race ancestry before dropping!
+
+```{r}
+# label: drop-responses
+DATA$race_response <- droplevels(DATA$race_response)
+DATA <- subset(DATA, race_response %in% c("Other Race Alone", 
+                                          "Indigenous Alone",
+                                        "Multiracial"))
+```
+
 ```{r}
 #| label: tbl-multi-models
 #| tbl-cap: Multinomial Models
 #| results: asis
-model1 <- multinom(race_response~HomelandP,
+model1 <- multinom(race_response~MetroC,
                   data=subset(DATA, race_ancestry=="Indigenous/White"))
-model2 <- multinom(race_response~HomelandP+EducA,
-                   data = subset(DATA, race_ancestry=="Indigenous/White"))
-model3 <- multinom(race_response~HomelandP+EducA+Gender,
-                   data = subset(DATA, race_ancestry=="Indigenous/White"))
-model4 <- multinom(race_response~HomelandP+EducA+Gender+Hispanic,
-                   data = subset(DATA, race_ancestry=="Indigenous/White"))
-model5 <- multinom(race_response~HomelandP+EducA+Gender+Hispanic+MetroC,
-                   data = subset(DATA, race_ancestry=="Indigenous/White"))
-knitreg(list(model1,model2,model3,model4,model5),
-          digits=3)
+model2 <- update(model1, .~.+HomelandP)
+model3 <- update(model2, .~.+EducA+Gender+Hispanic)
+modelsummary(list(model1,model2,model3),
+             digits=3, shape = term ~ model+response, stars = TRUE)
 ```
 
 Looking at model 1 can see that living on Homeland leads to increased odds of identifying as Indigenous alone, and this remains consistent through various iterations of models with there being little change until the 5th model with the inclusion of the metropolitan variable. Living on a Homeland has a positive affect for multiracial but significantly weaker association in comparison to Indigenous alone. For Other Alone the positive association with living on a Homeland is rather weak.
