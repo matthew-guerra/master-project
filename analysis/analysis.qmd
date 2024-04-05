@@ -1,5 +1,7 @@
 ---
 title: "Research Analysis Notebook"
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r}
@@ -15,7 +17,10 @@ source(here("utils","functions.R"))
 load(here("data","data_constructed","analytical_data.RData"))
 ```
 
-Produce table of race response and race ancestry before dropping!
+```{r}
+# Produce table of race response and race ancestry before dropping!
+table(DATA$race_ancestry,DATA$race_response,exclude = NULL)
+```
 
 ```{r}
 # label: drop-responses
