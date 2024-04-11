@@ -1,7 +1,7 @@
 ---
 title: "Research Analysis Notebook"
 editor_options: 
-  chunk_output_type: console
+  chunk_output_type: inline
 ---
 
 ```{r}
@@ -42,47 +42,23 @@ modelsummary(list(model1,model2,model3),
              digits=3, shape = term ~ model+response, stars = TRUE)
 ```
 
-Looking at model 1 can see that living on Homeland leads to increased odds of identifying as Indigenous alone, and this remains consistent through various iterations of models with there being little change until the 5th model with the inclusion of the metropolitan variable. Living on a Homeland has a positive affect for multiracial but significantly weaker association in comparison to Indigenous alone. For Other Alone the positive association with living on a Homeland is rather weak.
-
-In model 2 education is the control variable. For indigenous alone the effects are positive but minimal until a college degree is achieved. For multiracial receiving some higher education has a negative association but changes to positive and significant once degree is achieved. For other race alone effects start minimally positive yet significant but continuously decrease as education decreases.
-
-For both Indigenous alone and multiracial there seems to be a negative association if identify as a woman, although he effect is almost nonexistent in other race alone although still negative.
-
-For identifying as non-Hispanic we can see a positive association with identifying as Indigenous alone and increase when identifying as multiracial but the effect is almost 3 times stronger when identifying as other race alone.
-
-For non-metro or unknown metro living, non-metro has slight elevated positive association with Indigenous alone and slightly less for metro unknown.
-
-Calculated odd-ratios and Homeland status and Hispanic are the two controls with biggest impact
-
 ```{r}
-#model updated after 3/5/24 meeting, add MetroC after Homeland, swithc ref group
-model6 <- multinom(race_response~HomelandP,
+
+model4 <- multinom(race_response~MetroC,
                   data=subset(DATA, race_ancestry=="Indigenous/Black"))
-model7 <- multinom(race_response~HomelandP+MetroC,
-                   data = subset(DATA, race_ancestry=="Indigenous/Black"))
-model8 <- multinom(race_response~HomelandP+MetroC+EducA,
-                   data = subset(DATA, race_ancestry=="Indigenous/Black"))
-model9 <- multinom(race_response~HomelandP+MetroC+EducA+Gender,
-                   data = subset(DATA, race_ancestry=="Indigenous/Black"))
-model10 <- multinom(race_response~HomelandP+MetroC+EducA+Gender+Hispanic,
-                   data = subset(DATA, race_ancestry=="Indigenous/Black"))
-knitreg(list(model6,model7,model8,model9,model10),
-          digits=3)
+model5 <- update(model4, .~.+HomelandP)
+model6 <- update(model5, .~.+EducA+Gender+Hispanic)
+modelsummary(list(model4,model5,model6),
+             digits=3, shape = term ~ model+response, stars = TRUE)
 ```
 
 ```{r}
-model11 <- multinom(race_response~HomelandP,
-                  data=subset(DATA, race_ancestry=="Indigenous/Asian"))
-model12 <- multinom(race_response~HomelandP+MetroC,
-                   data = subset(DATA, race_ancestry=="Indigenous/Asian"))
-model13 <- multinom(race_response~HomelandP+MetroC+EducA,
-                   data = subset(DATA, race_ancestry=="Indigenous/Asian"))
-model14 <- multinom(race_response~HomelandP+MetroC+EducA+Gender,
-                   data = subset(DATA, race_ancestry=="Indigenous/Asian"))
-model15 <- multinom(race_response~HomelandP+MetroC+EducA+Gender+Hispanic,
-                   data = subset(DATA, race_ancestry=="Indigenous/Asian"))
-knitreg(list(model11,model12,model13,model14,model15),
-          digits=3)
+model7 <- multinom(race_response~MetroC,
+                  data=subset(DATA, race_ancestry=="Indigenous/Black"))
+model8 <- update(model7, .~.+HomelandP)
+model9 <- update(model8, .~.+EducA+Gender+Hispanic)
+modelsummary(list(model7,model8,model9),
+             digits=3, shape = term ~ model+response, stars = TRUE)
 ```
 
 ```{r}
