@@ -42,9 +42,14 @@ Settler-colonial scholars have recently urged for the inclusion of settler-colon
 Quantcrit, neccesity for acknowledging that how we interpet numbers is influenced by our ontolgical and epistemological lens
 
 # Methods and data
+## Sample Selection and Data
+The data used for this project was compiled from American Community Survey data from 2010-2020.I seek to analyze the race reporting of individuals who indicate Indigenous (define in some capacity? Footnote maybe) ancestry in addition to White, Black, or Asian ancestry.Individuals who identified as Latino or Pacific Islanders were not included in the sample due to either inconsistencies of.... or a desire to focus on Indigenous people of the continental United States.
+Outcome variable: race response
+Predictor variables: metro, homeland, education above high school, gender and hispanicity 
+These ancestry responses were compared to what their race response and divided into the following groups: Indigenous alone, Multiracial, and Other Race alone where Indigenous alone consisted of those respondents who identified a mixed-ancestry of Indigenous plus one other racial ancestry yet listed their race response as Indigenous alone. Multiracial was those respondents who identified their mixed--Indigenous ancestry and listed a multiracial race response. Other race alone consisted of those respondents with a mixed-Indigenous racial ancestry but listed their racial response as the other race (ie. ancestry listed as Indigenous and Asian but list race as Asian only). 
 
-The data used for this project was compiled from American Community Survey data from 2010-2020.I seek to analyze the race reporting of individuals who indicate Indigenous (define in some capacity? Footnote maybe) ancestry in addition to White, Black, or Asian ancestry. These ancestry responses were compared to what their race response and divided into the following groups: Indigenous alone, Multiracial, and Other Race alone where Indigenous alone consisted of those respondents who identified a mixed-ancestry of Indigenous plus one other racial ancestry yet listed their race response as Indigenous alone. Multiracial was those respondents who identified their mixed--Indigenous ancestry and listed a multiracial race response. Other race alone consisted of those respondents with a mixed-Indigenous racial ancestry but listed their racial response as the other race (ie. ancestry listed as Indigenous and Asian but list race as Asian only). 
-
+## Methods
+The analysis was conducted through creation of several multinomial logit models, which predict the likelihood of a respondent to identify as either Indigenous alone, Multiracial, or other race alone. Three sets of models were created, each set had a different reference category: "Idigenous/White", "Indigenous/Black", and "Indigenous/Asian"
 ```{r}
 #| label: fig-race-ancestry
 #| fig-cap: Comparing listed ancestry and race classification
