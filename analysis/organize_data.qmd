@@ -40,9 +40,9 @@ DATA <- subset(DATA, QRace ==0)
 ```{r}
 # Collapse Metro Variable
 DATA$MetroC <- factor(ifelse(DATA$Metro==0,"Unknown",
-                      ifelse(DATA$Metro==1,"not Metropolitan",
-                      ifelse(DATA$Metro>=2 & DATA$Metro<=4,
-                                    "Metropolitan",NA))),
+                             ifelse(DATA$Metro==1,"not Metropolitan",
+                                    ifelse(DATA$Metro>=2 & DATA$Metro<=4,
+                                           "Metropolitan",NA))),
 levels=c("not Metropolitan","Metropolitan", "Unknown"))
 
 table(DATA$Metro,DATA$MetroC,exclude = NULL)
@@ -183,6 +183,54 @@ table(DATA$Rancestry2,DATA$Rancestry2s, exclude = NULL)
 ```
 
 ```{r}
+DATA <- DATA |>
+  mutate(race_ancestry = case_when(
+    Rancestry1s == "Indigenous" & Rancestry2s == "White" ~ "Indigenous/White",
+    Rancestry1s == "White" & Rancestry2s == "Indigenous" ~ "Indigenous/White",
+    Rancestry1s == "Indigenous" & Rancestry2s == "Black" ~ "Indigenous/Black",
+    Rancestry1s == "Black" & Rancestry2s == "Indigenous" ~ "Indigenous/Black",
+    Rancestry1s == "Indigenous" & Rancestry2s == "Asian" ~ "Indigenous/Asian",
+    Rancestry1s == "Asian" & Rancestry2s == "Indigenous" ~ "Indigenous/Asian",
+  ))
+
+table(DATA$race_ancestry, exclude=NULL)
+table(DATA$Rancestry1s, DATA$Rancestry2s, DATA$race_ancestry)
+
+table(DATA$RaceC, DATA$race_ancestry)
+
+DATA <- DATA |>
+  filter(!is.na(race_ancestry))
+```
+
+```{r}
+table(DATA$RaceD, DATA$race_ancestry, exclude=NULL)
+```
+
+
+```{r}
+indigenous_alone <- c(300:399)
+white_alone <- c(100)
+black_alone <- c(200)
+asian_alone <- c() # figure out
+consistent_wi <- c(802, 906,907,962) #needs more
+consistent_bi <- c()
+consistent_ai <- c()
+
+
+DATA <- DATA |>
+  mutate(race_response=case_when(
+    RaceD %in% indigenous_alone ~ "Indigenous, Alone",
+    race_ancestry == "Indigenous/White" & RaceD %in% consistent_wi ~ "Consistent",
+    race_ancestry == "Indigenous/White" & RaceD %in% white_alone ~ "Non-Indigenous Race Alone",
+    race_ancestry == "Indigenous/Black" & RaceD %in% consistent_bi ~ "Consistent",
+    race_ancestry == "Indigenous/Black" & RaceD %in% black_alone ~ "Non-Indigenous Race Alone",
+    race_ancestry == "Indigenous/Asian" & RaceD %in% consistent_ai~ "Consistent",
+    race_ancestry == "Indigenous/Asian" & RaceD %in% asian_alone ~ "Non-Indigenous Race Alone",
+    TRUE ~ "Inconsistent"
+  ))
+```
+
+```{r}
 
 # Recode RaceD variable, since need to seperate PI and Asian
 DATA$RaceC <- factor(ifelse(DATA$RaceD == 100, "White",
@@ -227,20 +275,7 @@ nrow(DATA)
 
 
 
-DATA <- DATA |>
-  mutate(race_ancestry = case_when(
-    Rancestry1s == "Indigenous" & Rancestry2s == "White" ~ "Indigenous/White",
-    Rancestry1s == "White" & Rancestry2s == "Indigenous" ~ "Indigenous/White",
-    Rancestry1s == "Indigenous" & Rancestry2s == "Black" ~ "Indigenous/Black",
-    Rancestry1s == "Black" & Rancestry2s == "Indigenous" ~ "Indigenous/Black",
-    Rancestry1s == "Indigenous" & Rancestry2s == "Asian" ~ "Indigenous/Asian",
-    Rancestry1s == "Asian" & Rancestry2s == "Indigenous" ~ "Indigenous/Asian",
-  ))
 
-table(DATA$race_ancestry, exclude=NULL)
-table(DATA$Rancestry1s, DATA$Rancestry2s, DATA$race_ancestry)
-
-table(DATA$RaceC, DATA$race_ancestry)
 
 DATA <- DATA |>
   mutate(race_response = case_when(
