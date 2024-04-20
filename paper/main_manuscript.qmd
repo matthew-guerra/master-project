@@ -39,18 +39,48 @@ Indigenous Americans are a group that has historically been difficult to study d
 
 Settler-colonial scholars have recently urged for the inclusion of settler-colonialism when studying the historical and contemporary racial structure of the U.S @mckay_theorizing_2020
 
-Quantcrit, neccesity for acknowledging that how we interpret numbers is influenced by our ontological and epistemological lens
+## QuantCrit
+
+-   QuantCrit is understood as a way to "rectify quantitative methods through critical race theory
+
+-   statistical observations are not observed in a vacuum
+
+-   ongoing reflexivity is required and there needs to be engagement with various structures and power relations must interpret results while keeping in mind the social reality that would produce these results as well as being aware of how we can unintentionally reify problematic narratives
+
+    -   most of these main ideas come from QuantCrit rectifying quant methods paper
+
+-   in Du Bois's The Philadelphia Negro he challenged assumptions made about Black people by providing context and revealing the structural origins of social inequalities he had observed through his study
+
+-   a goal of this paper is to accomplish something similar by keeping in mind the structure of settler-colonialism as a potential explanation and contextualization of observations made when interpreting findings
+
+    -   everything might not be explained by using settler-colonial theory however engaging with this social reality only serves to expand and explain current understandings in regards to Indigenous identity, particularly multiracial Indigenous identity
+
+## Settler-Colonialism 
+
+-   describes the logic and operation of colonizers arriving and settling on lands already inhabited by another group, specifically through a logic of elimination that requires the implementation of violence to achieve the goals of settler society and replace Indigenous structures with those of the settler society
+
+-   settler-colonialism contributed and led to the racialization of Indigenous people
+
+-   the structures of racialization and settler-colonialism inform each other and analysis of racial decision making would be incomplete without considering it should ref theorizing race paper
+
+-   Indigenous people of the US deal with issues of authenticity which originates in US indian policies ie look at racialized object like blood quantum and federal status cards
+
+    -   this would be considered important to talk about engage with for example when thinking about homelands, ie looking at connections to land
+
+-   should look at churning race and think about how part of the goal of settler colonialism is replacement of Indigenous people by settlers to become indigenous in their place as a potential explanation? Especially when thinking about hypo-descent and why this decision making process might be occurring 
 
 # Methods and data
+
 ## Sample Selection and Data
+
 The data used for this project was compiled from the American Community Survey data for the years 2010 - 2020. I seek to analyze the race reporting of individuals who indicate Indigenous ancestry in addition to White, Black, or Asian ancestry. For this study, the term Indigenous is used in place of the American Indian and Alaskan Native (AIAN) terms as it is generally more accepted and has grown in popularity in current literature when discussing identity. The sample did not include individuals who listed their race as Latino or Pacific Islander.Part of the data organization of this project required the identification of a multiracial population, specifically an Indigenous multiracial population. To accomplish this goal the Goldstein and Morning method was adopted, which relies on looking at adults' self-reported ancestry, which in turn does not rely on the question of racial identity and instead allows for the construction of a multiracial population based on respondents' self-reported racial ancestry. In regards to the sample, this means looking at respondents who listed Indigenous ancestry in addition to a racially distinct racial ancestry other than Indigenous.Once this group was identified further case selection was performed as these results were compared to their race response. When looking at their racial ancestry and race response, respondents were divided into 4 distinct categories:1) Indigenous alone, which contained respondents that listed their race solely as Indigenous 2) Consistent which included respondents that acknowledged their racial ancestry in full by selecting a racial option that reflected that ancestry 3) Non-Indigenous Race alone, where respondents did acknowledge their Indigenous ancestry when selecting their race response and 4) Inconsistent, where respondents race response did not reflect their racial ancestry in any capacity
 
-Outcome variable: race response
-Predictor variables: metro, homeland, education above high school, gender and hispanicity 
-These ancestry responses were compared to what their race response and divided into the following groups: Indigenous alone, Multiracial, and Other Race alone where Indigenous alone consisted of those respondents who identified a mixed-ancestry of Indigenous plus one other racial ancestry yet listed their race response as Indigenous alone. Multiracial was those respondents who identified their mixed--Indigenous ancestry and listed a multiracial race response. Other race alone consisted of those respondents with a mixed-Indigenous racial ancestry but listed their racial response as the other race (ie. ancestry listed as Indigenous and Asian but list race as Asian only). 
+Outcome variable: race response Predictor variables: metro, homeland, education above high school, gender and hispanicity These ancestry responses were compared to what their race response and divided into the following groups: Indigenous alone, Multiracial, and Other Race alone where Indigenous alone consisted of those respondents who identified a mixed-ancestry of Indigenous plus one other racial ancestry yet listed their race response as Indigenous alone. Multiracial was those respondents who identified their mixed--Indigenous ancestry and listed a multiracial race response. Other race alone consisted of those respondents with a mixed-Indigenous racial ancestry but listed their racial response as the other race (ie. ancestry listed as Indigenous and Asian but list race as Asian only).
 
 ## Methods
+
 The analysis was conducted through creation of several multinomial logit models, which predict the likelihood of a respondent to identify as either Indigenous alone, Multiracial, or other race alone. Three sets of models were created, each set had a different reference category: "Indigenous/White", "Indigenous/Black", and "Indigenous/Asian"
+
 ```{r}
 #| label: fig-race-ancestry
 #| fig-cap: Comparing listed ancestry and race classification
@@ -65,6 +95,5 @@ ggplot(data = DATA, aes(x = race_response, fill = race_ancestry, group=race_ance
 ```
 
 # Results
-
 
 # Conclusion
