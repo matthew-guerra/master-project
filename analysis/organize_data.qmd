@@ -196,7 +196,7 @@ DATA <- DATA |>
 table(DATA$race_ancestry, exclude=NULL)
 table(DATA$Rancestry1s, DATA$Rancestry2s, DATA$race_ancestry)
 
-table(DATA$RaceC, DATA$race_ancestry)
+#table(DATA$RaceC, DATA$race_ancestry)
 
 DATA <- DATA |>
   filter(!is.na(race_ancestry))

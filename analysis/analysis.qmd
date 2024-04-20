@@ -41,7 +41,7 @@ model3 <- update(model2, .~.+EducA+Gender+Hispanic)
 modelsummary(list(model1,model2,model3),
              digits=3, shape = term ~ model+response, stars = TRUE)
 ```
-
+Looking at model 1, those who listed their ancestry as "Indigenous/White"
 ```{r}
 
 model4 <- multinom(race_response~MetroC,
@@ -54,7 +54,7 @@ modelsummary(list(model4,model5,model6),
 
 ```{r}
 model7 <- multinom(race_response~MetroC,
-                  data=subset(DATA, race_ancestry=="Indigenous/Black"))
+                  data=subset(DATA, race_ancestry=="Indigenous/Asian"))
 model8 <- update(model7, .~.+HomelandP)
 model9 <- update(model8, .~.+EducA+Gender+Hispanic)
 modelsummary(list(model7,model8,model9),
