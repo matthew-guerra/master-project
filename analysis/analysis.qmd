@@ -24,10 +24,8 @@ table(DATA$race_ancestry,DATA$race_response,exclude = NULL)
 
 ```{r}
 # label: drop-responses
-DATA$race_response <- droplevels(DATA$race_response)
-DATA <- subset(DATA, race_response %in% c("Other Race Alone", 
-                                          "Indigenous Alone",
-                                        "Multiracial"))
+#DATA$race_response <- droplevels(DATA$race_response)
+#DATA <- subset(DATA, race_response %in% c("Other Race Alone", "Indigenous Alone","Multiracial"))
 ```
 
 ```{r}
