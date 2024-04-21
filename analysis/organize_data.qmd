@@ -211,10 +211,13 @@ table(DATA$RaceD, DATA$race_ancestry, exclude=NULL)
 indigenous_alone <- c(300:399)
 white_alone <- c(100)
 black_alone <- c(200)
-asian_alone <- c() # figure out
-consistent_wi <- c(802, 906,907,962) #needs more
-consistent_bi <- c()
-consistent_ai <- c()
+asian_alone <- c(400,410,420,500,600,610,620,640,641,642,643,651,660,661,662,
+                 663,664,665,666,667,668,669,670,671,672,673,674,675,676,677,
+                 678,679) # figure out
+consistent_wi <- c(802,901,905,906,907,916,950,951,960,961,980,981,982,984) #needs more
+consistent_bi <- c(830,901,930,931,950,951,970,971,972,980,981,982,985)
+consistent_ai <- c(850,851,853,854,905,916,930,940,941,950,960,961,970,971,974,
+                   975,980,981,984,985)
 
 
 DATA <- DATA |>
