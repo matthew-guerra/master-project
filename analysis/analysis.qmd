@@ -23,9 +23,13 @@ table(DATA$race_ancestry,DATA$race_response,exclude = NULL)
 ```
 
 ```{r}
-# label: drop-responses
-#DATA$race_response <- droplevels(DATA$race_response)
-#DATA <- subset(DATA, race_response %in% c("Other Race Alone", "Indigenous Alone","Multiracial"))
+# label: customize-responses
+DATA <- DATA |>
+  filter(race_response!="Inconsistent")
+DATA$race_response <- factor(DATA$race_response,
+                             levels=c("Non-Indigenous Race Alone",
+                                      "Indigenous, Alone",
+                                      "Consistent"))
 ```
 
 ```{r}
@@ -35,10 +39,35 @@ table(DATA$race_ancestry,DATA$race_response,exclude = NULL)
 model1 <- multinom(race_response~MetroC,
                   data=subset(DATA, race_ancestry=="Indigenous/White"))
 model2 <- update(model1, .~.+HomelandP)
-model3 <- update(model2, .~.+EducA+Gender+Hispanic)
+model3 <- update(model2, .~.+EducA+Gender+Hispanic+Age)
 modelsummary(list(model1,model2,model3),
              digits=3, shape = term ~ model+response, stars = TRUE)
 ```
+
+```{r}
+fakedata <- data.frame(MetroC="Metropolitan",
+                       Gender="Woman",
+                       HomelandP="No",
+                       Hispanic="non-Hispanic",
+                       Age=mean(DATA$Age),
+                       EducA=c("Less than HS", "HS Diploma", "Some College", "College"))
+
+predict_probs <- predict(model3, fakedata, type="probs")
+temp <- as.data.frame.table(predict_probs)
+colnames(temp) <- c("index", "race_response", "prob")
+temp <- cbind(rbind(fakedata, fakedata, fakedata), temp[,2:3])
+temp$EducA <- factor(temp$EducA, levels=c("Less than HS", "HS Diploma", 
+                                          "Some College", "College"))
+ggplot(temp, aes(x=EducA, y=prob, fill=race_response, group=race_response))+
+  geom_col()
+ggplot(temp, aes(x=EducA, y=prob, fill=race_response, group=race_response))+
+  geom_col(position = "dodge")
+ggplot(subset(temp, race_response!="Non-Indigenous Race Alone"), 
+              aes(x=EducA, y=prob, fill=race_response, group=race_response))+
+  geom_col(position = "dodge")
+
+```
+
 Looking at model 1, those who listed their ancestry as "Indigenous/White"
 ```{r}
 
