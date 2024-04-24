@@ -233,13 +233,9 @@ DATA <- DATA |>
 
 table(DATA$race_ancestry, DATA$race_response, exclude=NULL)
 
-
-  
 table(subset(DATA, race_ancestry=="Indigenous/Asian" & race_response=="Inconsistent")$RaceD)
 table(subset(DATA, race_ancestry=="Indigenous/Black" & race_response=="Inconsistent")$RaceD)
 table(subset(DATA, race_ancestry=="Indigenous/White" & race_response=="Inconsistent")$RaceD)
-
-
 ```
 
 ```{r}
