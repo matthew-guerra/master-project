@@ -64,8 +64,8 @@ ggplot(temp, aes(x=EducA, y=prob, fill=race_response, group=race_response))+
   geom_col(position = "dodge")
 ggplot(subset(temp, race_response!="Non-Indigenous Race Alone"), 
               aes(x=EducA, y=prob, fill=race_response, group=race_response))+
-  geom_col(position = "dodge")
-
+  geom_col(position = "dodge")+
+  scale_y_continuous(labels = percent_format())
 ```
 
 Looking at model 1, those who listed their ancestry as "Indigenous/White"
