@@ -1,6 +1,6 @@
 ---
-title: "Ancestry and Racial Classification Amongst Indigenous Americans"
-shorttitle: "Paper"
+title: "Navigating Ancestry and Racial Classification Amongst Multiracial Indigenous American"
+shorttitle: "Navigating Ancestry and Racial Classification"
 abstract: Current research on race and multiracial individuals recognizes that Indigenous racial identity is fluid and often contested. Using a settler-colonial theoretical framework and the recommendations of QuantCrit literature, this research project expands understanding of multi-racial Indigenous identity and demonstrates how ancestry influences racial “decision-making” for Indigenous Americans. By leveraging data from the American Community Survey (ACS) from 2010 to 2020, the relationship between an individuals reported ancestry and their self-identified racial classification is investigated by estimating multinomial logistic regression models. The results indicate the relationship between various predictorss, and a persons likelihood to identify as Indigenous alone, multi-racial, or to distance themself from their Indigenous ancestry and identity in favor of their other racial identity. When these findings are evaluated within the context of settler-colonialism, many previously confounding findings can be linked to the social reality that respondents navigate as Indigenous Americans.
 keywords: [Indigenous identity, multiracial studies, ancestry, racial decision-making, racial classification, settler-colonialism, QuantCrit, American Community Survey]
 thanks: Thanks to everyone for checking this out.
@@ -33,41 +33,21 @@ load(here("data","data_constructed","analytical_data.RData"))
 
 # Introduction
 
-Indigenous Americans are a group that has historically been difficult to study due to the lasting and continuous effects of settler-colonialism examples include but are not limited to genocide, assimilation practices/policies, political disenfranchisement, and erasure @gullickson_choosing_2011 @liebler_joining_2016 @korgen_multiracial_2010 @snipp_american_1989 @bacon_settler_2019.
+Need to fix intro still but here is a start
+
+One group of scholars has attempted to better understand Indigenous identity by determining which factors are associated with strong Indigenous identity, how this identity is contested and understood at an interpersonal and community level, and how the Indigenous population has grown over time (Liebler, 2010; Lucero, 2014; McKay, 2021). Indigenous identity becomes even more complicated when considering multiracial Indigenous Americans, which has led to additional research in this area, although limited. Articles on Indigenous identity generally cover the racial decision-making process for multiracial Indigenous people in the United States, since many Indigenous people have mixed racial ancestries. This social reality requires Indigenous American respondents to make conscious decisions when listing their race. In the case of multiracial Indigenous people their known racial ancestry either conflicts with or affirms their answer, and they must reconcile with that decision. Understanding this decision-making process is crucial for gaining insights into contemporary shafts in racial boundary formation and the individual considerations that shape racial identification for Indigenous Americans.
+
+However, in 2020 Dwanna L. McKay, Kirsten Vinyeta, and Kari M. Norgaard published an article titled “Theorizing Race and Settler Colonialism within U.S. Sociology” which calls for a critical approach to how race is studied within Sociology, particularly how the focus on assimilation fails to confront its violent and often deadly nature of assimilation for Indigenous Americans under settler colonialism. Their article established that as researchers and academics, we are complicit in the erasure of Indigenous people, and the continued reification of harmful narratives can only be stopped by engaging with settler colonialism theory when conducting our research.
+
+These considerations led to the theoretical engagement explored later in this paper to prepare for a critical and nuanced approach to quantitative research has often been critiqued for its inability to speak to individual experiences, and for those who study race, there have been critiques of using race as a static category that does not reflect the social reality of race as a social construct, which parallels the arguments mentioned above about settler colonialism within the sociology of race and ethnicity. This dynamic nature of race means that it can and does change, and is influenced by various social factors and processes at both the micro and macro level which is why a critical approach to the interpretation and contextualization of results from quantitative research is imperative to furthering understanding without sacrificing reflexivity (Zuberi & Bonilla-Silva, 2008).
 
 # Theoretical Framework
 
-Settler-colonial scholars have recently urged for the inclusion of settler-colonialism when studying the historical and contemporary racial structure of the U.S @mckay_theorizing_2020
+In 2018 the journal of Race Ethnicity and Education published a special issue titled "QuantCrit: Rectifying Quantitative Methods Through Critical Race Theory", where various scholars critically engaged with quantitative research and methods, using CRT to determine whether quantitative research is capable of being used to further a critical race agenda in education research and beyond (Garcia et al., 2018). This call for more critically engaged quantitative research is at the basis of this article, meaning that the results will have been interpreted within the context of CRT as well as settler-colonialism due to its focus on Indigenous people. This approach is not new, however, and has already been established in Du Bosian sociology as a
 
-## QuantCrit
+Middle section major work in progress
 
--   QuantCrit is understood as a way to "rectify quantitative methods through critical race theory
-
--   statistical observations are not observed in a vacuum
-
--   ongoing reflexivity is required and there needs to be engagement with various structures and power relations must interpret results while keeping in mind the social reality that would produce these results as well as being aware of how we can unintentionally reify problematic narratives
-
-    -   most of these main ideas come from QuantCrit rectifying quant methods paper
-
--   in Du Bois's The Philadelphia Negro he challenged assumptions made about Black people by providing context and revealing the structural origins of social inequalities he had observed through his study
-
--   a goal of this paper is to accomplish something similar by keeping in mind the structure of settler-colonialism as a potential explanation and contextualization of observations made when interpreting findings
-
-    -   everything might not be explained by using settler-colonial theory however engaging with this social reality only serves to expand and explain current understandings in regards to Indigenous identity, particularly multiracial Indigenous identity
-
-## Settler-Colonialism
-
--   describes the logic and operation of colonizers arriving and settling on lands already inhabited by another group, specifically through a logic of elimination that requires the implementation of violence to achieve the goals of settler society and replace Indigenous structures with those of the settler society
-
--   settler-colonialism contributed and led to the racialization of Indigenous people
-
--   the structures of racialization and settler-colonialism inform each other and analysis of racial decision making would be incomplete without considering it should ref theorizing race paper
-
--   Indigenous people of the US deal with issues of authenticity which originates in US indian policies ie look at racialized object like blood quantum and federal status cards
-
-    -   this would be considered important to talk about engage with for example when thinking about homelands, ie looking at connections to land
-
--   should look at churning race and think about how part of the goal of settler colonialism is replacement of Indigenous people by settlers to become indigenous in their place as a potential explanation? Especially when thinking about hypo-descent and why this decision making process might be occurring 
+Furthermore, the interpretation of results through the lens of CRT, QuantCrit, or settler-colonialism may not be able to account for every finding however engaging with the social reality Indigenous Americans navigate only serves to expand and explain current understandings regarding Indigenous identity, particularly multi-racial Indigenous identity
 
 # Methods and data
 

@@ -69,6 +69,7 @@ ggplot(subset(temp, race_response!="Non-Indigenous Race Alone"),
 ```
 
 Looking at model 1, those who listed their ancestry as "Indigenous/White"
+
 ```{r}
 
 model4 <- multinom(race_response~MetroC,
