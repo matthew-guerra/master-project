@@ -44,6 +44,14 @@ modelsummary(list(model1,model2,model3),
              digits=3, shape = term ~ model+response, stars = TRUE)
 ```
 
+-   decreased likelihood of being Indigenous alone when living in metropolitan -0.197
+
+-   slighty less powerful effect for consistent
+
+-   when accounting for homeland status metropolitan flips to positive likelihood for I alone and increase for metro and consistent
+
+-   
+
 ```{r}
 fakedata <- data.frame(MetroC="Metropolitan",
                        Gender="Woman",
