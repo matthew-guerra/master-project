@@ -50,7 +50,17 @@ modelsummary(list(model1,model2,model3),
 
 -   when accounting for homeland status metropolitan flips to positive likelihood for I alone and increase for metro and consistent
 
--   
+-   look at key variables moreso rather than writing about models to models
+
+    -   looking rural v urban shifts using homeland variable
+
+    -   maybe add on looking at homeland within context of what research has been done
+
+    -   if you find something you want to speak about make sure to add on to
+
+    -   if wanting to talk about age mabe look at cohort chnage
+
+-   I/A education looking at roth findings
 
 ```{r}
 fakedata <- data.frame(MetroC="Metropolitan",
@@ -83,7 +93,7 @@ Looking at model 1, those who listed their ancestry as "Indigenous/White"
 model4 <- multinom(race_response~MetroC,
                   data=subset(DATA, race_ancestry=="Indigenous/Black"))
 model5 <- update(model4, .~.+HomelandP)
-model6 <- update(model5, .~.+EducA+Gender+Hispanic)
+model6 <- update(model5, .~.+EducA+Gender+Hispanic+Age)
 modelsummary(list(model4,model5,model6),
              digits=3, shape = term ~ model+response, stars = TRUE)
 ```
@@ -92,7 +102,7 @@ modelsummary(list(model4,model5,model6),
 model7 <- multinom(race_response~MetroC,
                   data=subset(DATA, race_ancestry=="Indigenous/Asian"))
 model8 <- update(model7, .~.+HomelandP)
-model9 <- update(model8, .~.+EducA+Gender+Hispanic)
+model9 <- update(model8, .~.+EducA+Gender+Hispanic+Age)
 modelsummary(list(model7,model8,model9),
              digits=3, shape = term ~ model+response, stars = TRUE)
 ```
