@@ -81,6 +81,18 @@ ggplot(data = DATA, aes(x = race_response, fill = race_ancestry, group=race_ance
 ```{r}
 ```
 
+```{r}
+#| label: tbl-white-indigenous
+#| tbl-cap: White/Indigenous Models
+#| results: asis
+model1 <- multinom(race_response~MetroC,
+                  data=subset(DATA, race_ancestry=="Indigenous/White"))
+model2 <- update(model1, .~.+HomelandP)
+model3 <- update(model2, .~.+EducA+Gender+Hispanic+Age)
+modelsummary(list(model1,model2,model3),
+             digits=3, shape = term ~ model+response, stars = TRUE)
+```
+
 # Results
 
 In @tbl-white-indigenous
