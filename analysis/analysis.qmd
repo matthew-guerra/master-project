@@ -33,8 +33,8 @@ DATA$race_response <- factor(DATA$race_response,
 ```
 
 ```{r}
-#| label: tbl-multi-models
-#| tbl-cap: Multinomial Models
+#| label: tbl-models
+#| tbl-cap: White/Indigenous Models
 #| results: asis
 model1 <- multinom(race_response~MetroC,
                   data=subset(DATA, race_ancestry=="Indigenous/White"))
@@ -89,7 +89,9 @@ ggplot(subset(temp, race_response!="Non-Indigenous Race Alone"),
 Looking at model 1, those who listed their ancestry as "Indigenous/White"
 
 ```{r}
-
+#| label: tbl-black_indigenous
+#| tbl-cap: Black/Indigenous Models
+#| results: asis
 model4 <- multinom(race_response~MetroC,
                   data=subset(DATA, race_ancestry=="Indigenous/Black"))
 model5 <- update(model4, .~.+HomelandP)
@@ -99,6 +101,9 @@ modelsummary(list(model4,model5,model6),
 ```
 
 ```{r}
+#| label: tbl-asian_indigenous
+#| tbl-cap: Asian/Indigenous Models
+#| results: asis
 model7 <- multinom(race_response~MetroC,
                   data=subset(DATA, race_ancestry=="Indigenous/Asian"))
 model8 <- update(model7, .~.+HomelandP)
