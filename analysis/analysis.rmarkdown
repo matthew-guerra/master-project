@@ -1,0 +1,135 @@
+---
+title: "Research Analysis Notebook"
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(here)
+source(here("utils","check_packages.R"))
+source(here("utils","functions.R"))
+```
+
+```{r}
+#| label: data load
+load(here("data","data_constructed","analytical_data.RData"))
+```
+
+```{r}
+# Produce table of race response and race ancestry before dropping!
+table(DATA$race_ancestry,DATA$race_response,exclude = NULL)
+```
+
+```{r}
+# label: customize-responses
+DATA <- DATA |>
+  filter(race_response!="Inconsistent")
+DATA$race_response <- factor(DATA$race_response,
+                             levels=c("Non-Indigenous Race Alone",
+                                      "Indigenous, Alone",
+                                      "Consistent"))
+```
+
+```{r}
+#| label: tbl-models
+#| tbl-cap: White/Indigenous Models
+#| results: asis
+model1 <- multinom(race_response~MetroC,
+                  data=subset(DATA, race_ancestry=="Indigenous/White"))
+model2 <- update(model1, .~.+HomelandP)
+model3 <- update(model2, .~.+EducA+Gender+Hispanic+Age)
+modelsummary(list(model1,model2,model3),
+             digits=3, shape = term ~ model+response, stars = TRUE)
+```
+
+
+-   decreased likelihood of being Indigenous alone when living in metropolitan -0.197
+
+-   slighty less powerful effect for consistent
+
+-   when accounting for homeland status metropolitan flips to positive likelihood for I alone and increase for metro and consistent
+
+-   look at key variables moreso rather than writing about models to models
+
+    -   looking rural v urban shifts using homeland variable
+
+    -   maybe add on looking at homeland within context of what research has been done
+
+    -   if you find something you want to speak about make sure to add on to
+
+    -   if wanting to talk about age mabe look at cohort chnage
+
+-   I/A education looking at roth findings
+
+
+```{r}
+fakedata <- data.frame(MetroC="Metropolitan",
+                       Gender="Woman",
+                       HomelandP="No",
+                       Hispanic="non-Hispanic",
+                       Age=mean(DATA$Age),
+                       EducA=c("Less than HS", "HS Diploma", "Some College", "College"))
+
+predict_probs <- predict(model3, fakedata, type="probs")
+temp <- as.data.frame.table(predict_probs)
+colnames(temp) <- c("index", "race_response", "prob")
+temp <- cbind(rbind(fakedata, fakedata, fakedata), temp[,2:3])
+temp$EducA <- factor(temp$EducA, levels=c("Less than HS", "HS Diploma", 
+                                          "Some College", "College"))
+ggplot(temp, aes(x=EducA, y=prob, fill=race_response, group=race_response))+
+  geom_col()
+ggplot(temp, aes(x=EducA, y=prob, fill=race_response, group=race_response))+
+  geom_col(position = "dodge")
+ggplot(subset(temp, race_response!="Non-Indigenous Race Alone"), 
+              aes(x=EducA, y=prob, fill=race_response, group=race_response))+
+  geom_col(position = "dodge")+
+  scale_y_continuous(labels = percent_format())
+```
+
+
+Looking at model 1, those who listed their ancestry as "Indigenous/White"
+
+
+```{r}
+#| label: tbl-black_indigenous
+#| tbl-cap: Black/Indigenous Models
+#| results: asis
+model4 <- multinom(race_response~MetroC,
+                  data=subset(DATA, race_ancestry=="Indigenous/Black"))
+model5 <- update(model4, .~.+HomelandP)
+model6 <- update(model5, .~.+EducA+Gender+Hispanic+Age)
+modelsummary(list(model4,model5,model6),
+             digits=3, shape = term ~ model+response, stars = TRUE)
+```
+
+```{r}
+#| label: tbl-asian_indigenous
+#| tbl-cap: Asian/Indigenous Models
+#| results: asis
+model7 <- multinom(race_response~MetroC,
+                  data=subset(DATA, race_ancestry=="Indigenous/Asian"))
+model8 <- update(model7, .~.+HomelandP)
+model9 <- update(model8, .~.+EducA+Gender+Hispanic+Age)
+modelsummary(list(model7,model8,model9),
+             digits=3, shape = term ~ model+response, stars = TRUE)
+```
+
+```{r}
+#| label: fig-race-ancestry
+#| fig-cap: Comparing listed ancestry and race classification
+ggplot(data = DATA, aes(x = race_response, fill = race_ancestry, group=race_ancestry, y=after_stat(prop))) + 
+  geom_bar(position = "dodge") +
+  scale_y_continuous(labels = scales::percent) +
+  labs(x = "Self-Identified Racial Classification", y = NULL, fill = "Ancestry")+
+  theme(axis.title.x = element_text(vjust = -1)) 
+```
+
+
+In @fig-race-ancestry 72% of respondents who list Indigenous and Asian ancestry did not self-identify as Indigenous or Asian in regards to their racial identity. \^[Does this challenge previous research that suggests that those with part Asian ancestry tend to favor a multiracial identity @gullickson_choosing_2011. This can help lead to some future analysis and inform the inclusion of more literature on multiracial identity amongst mixed-race Asians]
+
+After update 3/21/2024
+
+inconsistency reduced by 30% cc
+
