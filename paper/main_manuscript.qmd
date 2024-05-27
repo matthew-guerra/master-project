@@ -95,6 +95,6 @@ modelsummary(list(model1,model2,model3),
 
 # Results
 
-In @tbl-white-indigenous
+In
 
 # Conclusion
