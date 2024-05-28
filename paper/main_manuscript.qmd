@@ -78,21 +78,6 @@ ggplot(data = DATA, aes(x = race_response, fill = race_ancestry, group=race_ance
   theme(axis.text.x = element_text(angle = -30, vjust = 1, hjust = 0))
 ```
 
-```{r}
-```
-
-```{r}
-#| label: tbl-white-indigenous
-#| tbl-cap: White/Indigenous Models
-#| results: asis
-model1 <- multinom(race_response~MetroC,
-                  data=subset(DATA, race_ancestry=="Indigenous/White"))
-model2 <- update(model1, .~.+HomelandP)
-model3 <- update(model2, .~.+EducA+Gender+Hispanic+Age)
-modelsummary(list(model1,model2,model3),
-             digits=3, shape = term ~ model+response, stars = TRUE)
-```
-
 ## Results
 
 ### *Multinomial Logistic Regression Models*
@@ -111,7 +96,7 @@ Accounting for education, gender, Hispanic origin, and age led to minimal change
 
 ### *Homeland Status*
 
-Living in a location with Homeland status means that a respondent’s household is in an area that includes an area that has been designated as an American Indian, Alaska Native, or Native Hawaiian (AIANNH) area (Bureau, n.d.). For respondents with White and Indigenous ancestry, living on a Homeland was positively associated with identifying as Indigenous (1.452) and multiracial (0.799) versus identifying as White. For respondents with Black and Indigenous ancestry living on a Homeland is positively associated with an Indigenous identity versus Black (1.177) and the same holds for a multiracial identity versus Black although not to the same degree (0.509).
+Living in a location with Homeland status means that a respondent’s household is in an area that includes an area that has been designated as an American Indian, Alaska Native, or Native Hawaiian (AIANNH) area (Bureau, n.d.). For respondents with White and Indigenous ancestry, living on a Homeland was positively associated with identifying as Indigenous (1.452) and multiracial (0.799) versus identifying as White. For respondents with Black and Indigenous ancestry living on a Homeland is positively associated with an Indigenous identity versus Black (1.177) and the same holds for a multiracial identity versus Black although not to the same degree (0.509). The Homeland status effect was strongest for respondents with Asian and Indigenous ancestry, as living in a Homeland was associated with an increased likelihood to identify as Indigenous versus Asian(1.900), the same holds for identifying as multiracial versus Asian (0.843).
 
 Accounting for education, gender, Hispanic origin, and age led to minimal changes across all three ancestry groups
 
