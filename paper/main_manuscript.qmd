@@ -41,21 +41,21 @@ These considerations led to the theoretical engagement explored later in this pa
 
 ## Theoretical Framework
 
-In 2018 the Journal of Race Ethnicity and Education published a special issue titled "QuantCrit: Rectifying Quantitative Methods Through Critical Race Theory", where various scholars critically engaged with quantitative research and methods, using CRT to determine whether quantitative research is capable of being used to further a critical race agenda in education research and beyond (Garcia et al., 2018). This approach is not new, however, and has already been established in Du Bosian sociology, most notably in Du Bois’s The Philadelphia Negro. The Philadelphia Negro has been described as a great example of an alternate approach to quantitative research that can be liberating and work to counter oppressive racial narratives while presenting statistical analysis alongside theoretical arguments (Conwell & Loughran, 2023). Du Bois’s approach came from necessity due to the popularity of theories like Social Darwinism which placed Black people at the bottom of the hierarchy, a reality that required the questioning of assumptions and working against the grain of how quantitative research was and often continues to be done. In this article, this approach will be replicated as best as possible, and part of that requires delving into settler colonial theory and current research related to Indigenous identity in the U.S. to create a historical and theoretical context that this paper will rely on.
+In 2018 the Journal of Race Ethnicity and Education published a special issue titled "QuantCrit: Rectifying Quantitative Methods Through Critical Race Theory", where various scholars critically engaged with quantitative research and methods, using CRT to determine whether quantitative research is capable of being used to further a critical race agenda in education research and beyond (Garcia et al., 2018). This approach is not new, however, and has already been established in Du Bosian sociology, most notably in Du Bois’s The Philadelphia Negro and The Souls of Black Folk. The Philadelphia Negro has been described as a great example of an alternate approach to quantitative research that can be liberating and work to counter oppressive racial narratives while presenting statistical analysis alongside theoretical arguments (Conwell & Loughran, 2023). Du Bois’s approach came from necessity due to the popularity of theories like Social Darwinism which placed Black people at the bottom of the hierarchy, a reality that required the questioning of assumptions and working against the grain of how quantitative research was and often continues to be done. In The Souls of Black Folk Du Bois uses his lived experiences to theorize and explain what it was to be Black in American society. Emphasizing historical context and providing an explanation for the differences in perception between Black Americans and everyone else, most notably through double consciousness, the veil and the barriers of the color line. In this article, this approach will be replicated as best as possible, and part of that requires delving into settler colonial theory and current research related to Indigenous identity in the U.S. to create a historical and theoretical context that this paper will rely on to relate and explain its findings.
 
-In his article “Settler Colonialism and the Elimination of the Native,” Patrick Wolfe describes what he coined the ‘logic of elimination’ (2006). This logic explains the operation of colonizers arriving and settling on lands already inhabited by another group, specifically that settler colonialism requires the implementation of violence to achieve the goals of a settler society and replace Indigenous structures with those of the settler society. The replacement of Indigenous structures ultimately includes the removal and dispossession of Indigenous people themself, which was justified through the racialization of Indigenous people (Gonzales & Kertész, 2023). Since the structures of racialization and settler-colonialism inform each other, an analysis of racial decision-making would be incomplete without considering how Indigenous racial formation came to be in the US.
+In his article “Settler Colonialism and the Elimination of the Native,” Patrick Wolfe describes what he coined the ‘logic of elimination’ (2006). This logic explains the operation of colonizers arriving and settling on lands already inhabited by another group, specifically that settler colonialism requires the implementation of violence to achieve the goals of a settler society and replace Indigenous structures with those of the settler society. The replacement of Indigenous structures ultimately includes the removal and dispossession of Indigenous people themself, which was justified through the racialization of Indigenous people which continues today, speaking to Wolfe’s assertion that settler colonialism is a “structure rather than an event” (Gonzales & Kertész, 2023; Wolfe, 2006, p. 390). Since the structures of racialization and settler-colonialism inform each other, an analysis of racial decision-making would be incomplete without considering how Indigenous racial formation came to be in the US.
 
 For Indigenous Americans, membership within a tribe is often a key part of this process to distinguish between those who are Indigenous and those who are not. This concept is demonstrated in research done to identify what barriers to tribal enrollment exist for individuals who have been separated from their family and community via adoption and the foster system (Landers et al., 2021). Tribal enrollment was identified as key for individuals to establish and prove their own identity and seek collective identity within the tribe. Essentially, tribal enrollment exists as a “process of mutual verification between the individual and the tribe” (Landers et al., 2021, p. 1374).  Additionally, the forceful removal of Indigenous children from their families between the 1800s and 1970s by the United States federal government–-via relocation, boarding schools, child welfare removal, adoption era practices, and so on, has created a group of Indigenous Americans, and their descendants, who have been removed from their family and culture thus further causing turmoil in how they conceptualize their identity. The Federal Acknowledgement Project of 1978, furthered this process since it created an administrative process that required any group wishing to be acknowledged by the federal government as a legitimate group to meet certain criteria established by the federal government, further establishing Indigenous American identity as an administrative process rather than of racial, ethnic, or cultural identity (Gonzales et al., 2007). The process explained above is one of the many ways the ‘elimination of the native’ has been accomplished, although elimination does not mean only the physical elimination of Indigenous people. For example, in their article “Settler Colonialism as eco-social structure and the production of colonial ecological violence,” Bacon emphasized that settler-colonial elimination projects are not just limited to traditional perceptions of genocide but include assimilation (2019). The boarding schools Indigenous children were forced to attend not only utilized physical harm and violence but perpetuated colonial ecological violence by disrupting the passing on of traditional ecological knowledge from elder to child in favor of knowledge deemed superior by settlers (2019).
 
-Blood quantum exists as a common requirement for tribal membership. The blood quantum minimum functions as a benchmark of authenticity for who is recognized as Indigenous by the tribal government and continues to endure as a key feature of Indigenous identity, and ultimately is an important part of determining who can access the few resources offered by the U.S. government (McKay, 2021; Rodriguez-Lonebear, 2021). This system of blood quantum was established as criteria for federal recognition in response to laws like Virginia’s Racial Integrity Act of 1924 and the Indian Reorganization Act (IRA) of 1934 which helped establish racial divisions and criteria on how to quantify Indigenous identity, respectively (Gonzales et al., 2007). The various laws related to blood quantum establish that determining Indigenous identity functions as an administrative process rather than a cultural process of a distinct racial and ethnic group, allowing a governing body to determine who can identify as Indigenous, the goal is to create an ever-shrinking population (Lambert, 2019). This concept demonstrated what McKay calls the American Indian Legal Identity (AILI). This idea is a proxy for an Indigenous identity borne of legal and federal policy, devoid of Indigeneity's cultural and community-based components (2013). 
+Blood quantum exists as a common requirement for tribal membership. The blood quantum minimum functions as a benchmark of authenticity for who is recognized as Indigenous by the tribal government and continues to endure as a key feature of Indigenous identity, and ultimately is an important part of determining who can access the few resources offered by the U.S. government such as healthcare and social services through the Indian Health Service (IHS) and the Bureau of Indian Affairs (BIA) (McKay, 2021; Rodriguez-Lonebear, 2021). This system of blood quantum was established as criteria for federal recognition in response to laws like Virginia’s Racial Integrity Act of 1924 and the Indian Reorganization Act (IRA) of 1934 which helped establish racial divisions and criteria on how to quantify Indigenous identity, respectively (Gonzales et al., 2007). The various laws related to blood quantum establish that determining Indigenous identity functions as an administrative process rather than a cultural process of a distinct racial and ethnic group, allowing a governing body to determine who can identify as Indigenous, the goal is to create an ever-shrinking population (Lambert, 2019). This concept demonstrated what McKay calls the American Indian Legal Identity (AILI). This idea is a proxy for an Indigenous identity borne of legal and federal policy, devoid of Indigeneity's cultural and community-based components (2013). 
 
 Keeping the history of racial formation for Indigenous Americans in mind is important to be aware of when going into the results of this analysis, especially when considering how settler colonial theory can -both inform and support potential findings. Furthermore, the interpretation of results through the lens of CRT, QuantCrit, or settler-colonialism may not be able to account for every finding. However, engaging with the social reality multiracial Indigenous Americans navigate only serves to expand and explain current understandings regarding Indigenous identity, particularly multiracial Indigenous identity
 
-## Methods and Data
+##  Methods and Data
 
 ### *Sample Selection and Data*
 
-The data used for this project was compiled from the American Community Survey (ACS) data for 2010 - 2020.  I seek to analyze the race reporting of individuals who indicate Indigenous ancestry in addition to another distinct ancestry group. On the ACS, respondents are asked about their ancestry via the question “What is this person's ancestry or ethnic origin,” and have two lines to list their responses which are manually typed and inputted as their responses. Respondents are also asked about their race and can mark one or more racial categories
+The data used for this project was compiled from the American Community Survey (ACS) data for 2010 - 2020. I seek to analyze the race reporting of individuals who indicate Indigenous ancestry in addition to another distinct ancestry group. On the ACS, respondents are asked about their ancestry via the question “What is this person's ancestry or ethnic origin,” and have two lines to list their responses which are manually typed and inputted as their responses. Respondents are also asked about their race and can mark one or more racial categories
 
 Before getting into the specifics of sample selection, there is a needed conversation about terminology. For this study, the term Indigenous is used in place of the American Indian and Alaskan Native (AIAN) category for simplicity's sake as it functions as a collective term since this project does not focus on a specific Nation, reservation, group, and so on. It should be noted that this is not done to imply Indigenous people are a monolith rather is a necessity when conducting a project that seeks to find patterns of racial identification that span across individual groups as evidence of the unique role of settler colonialism in the racialization of Indigenous Peoples in the U.S.
 
@@ -96,7 +96,7 @@ Accounting for education, gender, Hispanic origin, and age led to minimal change
 
 ### *Homeland Status*
 
-Living in a location with Homeland status means that a respondent’s household is in an area that includes an area that has been designated as an American Indian, Alaska Native, or Native Hawaiian (AIANNH) area (Bureau, n.d.). For respondents with White and Indigenous ancestry, living on a Homeland was positively associated with identifying as Indigenous (1.452) and multiracial (0.799) versus identifying as White. For respondents with Black and Indigenous ancestry living on a Homeland is positively associated with an Indigenous identity versus Black (1.177) and the same holds for a multiracial identity versus Black although not to the same degree (0.509). The Homeland status effect was strongest for respondents with Asian and Indigenous ancestry, as living in a Homeland was associated with an increased likelihood to identify as Indigenous versus Asian(1.900), the same holds for identifying as multiracial versus Asian (0.843).
+LLiving in a location with Homeland status means that a respondent’s household is in an area that includes an area that has been designated as an American Indian, Alaska Native, or Native Hawaiian (AIANNH) area (Bureau, n.d.). For respondents with White and Indigenous ancestry, living on a Homeland was positively associated with identifying as Indigenous (1.452) and multiracial (0.799) versus identifying as White. For respondents with Black and Indigenous ancestry living on a Homeland is positively associated with an Indigenous identity versus Black (1.177) and the same holds for a multiracial identity versus Black although not to the same degree (0.509). The Homeland status effect was strongest for respondents with Asian and Indigenous ancestry, as living in a Homeland was associated with an increased likelihood to identify as Indigenous versus Asian(1.900), the same holds for identifying as multiracial versus Asian (0.843). 
 
 Accounting for education, gender, Hispanic origin, and age led to minimal changes across all three ancestry groups
 
@@ -106,14 +106,92 @@ Educational attainment consistently has a significant relationship with race res
 
 ### *Gender*
 
+Gender demonstrated a unique relationship amongst each of the ancestry groups. For example, for respondents of White and Indigenous ancestry it was found that men were more likely to identify as Indigenous or multiracial versus White at similar rates (0.259 v.  0.255).  When a respondent has Black and Indigenous ancestry, it was found that gender did not have a significant relationship between identifying as Indigenous versus Black but it was found that men are more likley to identify as multiracial versus identifying as Black than women (0.248). The opposite effect was seen with those that have Asian and Indigenous ancestry, as men were found to be less likely to identify as multiracail versus as Asian than women (-0.300).
+
 ### *Hispanic Origin*
 
 In the ACS, Hispanic Origin refers to individuals of Hispanic/Spanish/Latino origin, where origin is defined by the Census Bureau as ancestry, lineage, heritage, nationality group, or country of birth (Bureau, n.d.). Additionally, those of Hispanic Origin can be any race or any combination of races. In the results of this study, Hispanic origin is associated with a pattern of increased attachment towards an Indigenous identity and multiraciality for all ancestry groups. Respondents who listed White and Indigenous ancestry and are of Hispanic Origin have increased log odds of identifying as Indigenous Alone versus White ( 2.161), and the log odds of identifying as Multiracial versus White are also positive but diminished compared to Indigenous alone (1.503). Black and Indigenous respondents of Hispanic Origin have increased log odds of identifying as Indigenous Alone versus Black (1.691) and similar log odds of identifying as Multriacal versus Black alone (1.405). Respondents of Asian and Indigenous ancestry who are also of Hispanic origin have positive log odds of identifying as Indigenous versus Asian (1.092) as well as multiracial versus Asian (0.804). Ultimately Hispanic origin increases the likelihood of identifying as Indigenous or multiracial, yet the effect is strongest to weakest for those with White and Indigenous ancestry, those with Black and Indigenous ancestry, and Asian and Indigenous ancestry, respectively.
 
 ### *Age*
 
+Age as a predictor variable demonstrated minimal effects on racial response, and significant results were only observed for two ancestry groups. Amongst respondents with White and Indigenous ancestry it was observed that for every year in age there was a minimal increase in the likelihood for respondents to identify as Indigenous versus White (0.002). The effect was similarly minimal for multiracial versus White (0.001).
+
 ## Discussion
 
-## Conclusion
+The previously discussed results demonstrated patterns that both reaffirmed previous findings related to Indigenous identity but also revealed unique deviations. After further reviewing metropolitan status three distinct patterns were identified concerning racial identity responses amongst the three mixed racial ancestry groups.
+
+First, for respondents with both White and Indigenous ancestry, there was a noticeable shift away from a White identity towards embracing an Indigenous or a multiracial identity.Second, for those with Black and Indigenous ancestry, living in a metropolitan area was associated with a different pattern. These respondents tended to move away from an Indigenous identity and towards identifying as Black, while multirciality remained an option at a similar rate of association. Finally, for respondents with Asian and Indigenous ancestry, metropolitan status correlated with a tendency to move away from identifying with their Indigenous ancestry and  towards identifying exclusively as Asian rather than multiracial or Indigenous alone.
+
+-   living in urban spaces is associated with the creation of a unique identity that does not exist without tension (Malika et al., 2024).
+
+-   Discuss urban migration and relation to settler colonialism (Rosenthal, 2012)
+
+-   Tensions of multiracial identity and assertion of agency through racial decision making (selection one option or another or choosing both) (Cardwell et al., 2020)
+
+Homeland Status
+
+-   Homeland status increased likelihood to identify as Indigenous for all groups, in order of effect WI, AI, and BI, also movement towards multiracial
+
+-   Liebler Liebler Liebler
+
+    -   Homelands and Indigenous Identity
+
+    -   History, place, and racial self-representation in 21st century America
+
+    -   Challenge with the discussion of tribal sovereignty in enrollment
+
+-   Native DNA, relate to sovereignty, relations, connection, enrollment rather than focusing on determining authenticity due to blood quantum standards ie churning race liebler article
+
+    -   The blood line: racialized boundary making (Rodriguez-Lonebear, 2021)
+
+    -   Native American DNA (TallBear, 2013)
+
+    -   Maybe this can connect to sovereignty: Tribal Sovereignty and the Limits of Race for American Indians (Small-Rodriguez & Rocha Beardall, 2023)
+
+Hispanic Origin
+
+-   Latinization of indigenous identity (Campbell-Montalvo, 2023)
+
+-   The distinction between indigenous and Latino/Hispanic identity (Ybarra, 2023)
+
+    -   Why do some keep it one but not the other?
+
+-   How migration studies can reproduce the logic of elimination, work against the idea that when Indigenous people travel they are no longer indigenous as explanation for hispanic origin and indigeneity relationship (Blackwell et al., 2017)
+
+Educational Attainment
+
+-   College education pushed WI away from a White identity, for BI pushed towards multiracial identity and Black identity, for AI college education pushed towards Asian identity
+
+    -   Potential identity tension?
+
+-   Escbach found that people with higher level of education found Indigenous identity more appealing, especially in metropolitan areas (Eschbach et al., 1998)
+
+-   “With the exception of Black Native Americans, all of the Native American male groups have lower levels of schooling”; “With the possible exception of Black Native American women, all groups of Native American men and women have some sort of disadvantage in terms of schooling or earnings” (Huyser et al., 2010)
+
+    -   Seems consistent with findings for BI respondents across gender
+
+-   AI is where I am most interested and wondering how much identity conflict/tension exists
+
+    -   Are respondents choosing race that matches with stereotypes? I feel like that is too simple of an answer, perhaps perception of perpetual foreigner leads to more attachment to Asian identity?
+
+    -   Racial and ethnic stratification in educational achievement and attainment (Kao & Thompson, 2003)
+
+    -   “The second contemporary pattern of multiracial identification we discern might be called simply the ‘‘new’’ or even ‘‘immigrant’’ regime whereby a multiple-race label is selected. This convention seems to dominate among all the groups of partial Asian ancestry” (Gullickson & Morning, 2011), this continues to be true as can be seen in Figure 1 (i haven’t named them yet lol)
+
+Gender
+
+-   I need to look more into research between multiraciality and gender, indigenous identity and gender, etc
+
+-   Not sure how to approach yet
+
+Age
+
+-   Age did not have major effect, however thinking in cohorts should be interesting
+
+-   WI group saw increase to both multiracial and Indigenous identity with each year in age
+
+-   BI only sees negative association with multiraciaity versus identifying just as Black
+
+    -   One drop rule having more salience for older cohort/groups?
 
 ## References
