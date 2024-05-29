@@ -22,8 +22,6 @@
 \usepackage{lmodern}
 \ifPDFTeX\else  
     % xetex/luatex font selection
-  \setmainfont[]{Baskerville}
-  \setsansfont[]{Futura}
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -71,29 +69,6 @@
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newlength{\cslentryspacingunit} % times entry-spacing
-\setlength{\cslentryspacingunit}{\parskip}
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1
-  \let\oldpar\par
-  \def\par{\hangindent=\cslhangindent\oldpar}
-  \fi
-  % set entry spacing
-  \setlength{\parskip}{#2\cslentryspacingunit}
- }%
- {}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 % -----------------------
 % CUSTOM PREAMBLE STUFF
@@ -147,8 +122,7 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L,C]{}
-\fancyhead[R]{\leftmark}
+\fancyhead[L,C,R]{}
 \fancyfoot[L,C]{}
 \fancyfoot[R]{\thepage}
 \renewcommand{\headrulewidth}{1pt}
@@ -169,20 +143,7 @@
 % ---------------------------
 % END CUSTOM PREAMBLE STUFF
 % ---------------------------
-\usepackage{float}
-\usepackage{tabularray}
-\usepackage[normalem]{ulem}
-\usepackage{graphicx}
-\UseTblrLibrary{booktabs}
-\UseTblrLibrary{siunitx}
-\NewTableCommand{\tinytableDefineColor}[3]{\definecolor{#1}{#2}{#3}}
-\newcommand{\tinytableTabularrayUnderline}[1]{\underline{#1}}
-\newcommand{\tinytableTabularrayStrikeout}[1]{\sout{#1}}
 \usepackage{dcolumn}
-\makeatletter
-\makeatother
-\makeatletter
-\makeatother
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -219,23 +180,16 @@
 \newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
 \makeatother
 \makeatletter
+\makeatother
+\makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
-\makeatother
-\makeatletter
-\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
-\makeatother
-\makeatletter
-\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
-\makeatother
-\makeatletter
-\makeatother
-\makeatletter
 \makeatother
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\usepackage{bookmark}
+
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
@@ -273,23 +227,8 @@ Indigenous American\thanks{Thanks to everyone for checking this out.}}
 % for some reason this does not work in header
 \renewcommand{\abstractname}{Abstract.}
 
-\fancyhead[L]{Navigating Ancestry and Racial Classification}
-
-% need to redefine this environment to get enough spacing of 
-% bibliography after title
-\renewenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \vspace{10pt}
-  \setlength{\parindent}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1
-  \let\oldpar\par
-  \def\par{\hangindent=\cslhangindent\oldpar}
-  \fi
-  % set entry spacing
-  \setlength{\parskip}{#2\cslentryspacingunit}
- }%
- {}
+% add the short title to the fancy header
+\fancyhead[R]{Navigating Ancestry and Racial Classification}
 
 \maketitle
 %\noindent \rule{\linewidth}{.5pt}
@@ -319,18 +258,16 @@ classification\sep settler-colonialism\sep QuantCrit\sep
 American Community Survey
 \end{keywords}
 %\noindent \rule{\linewidth}{.5pt}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, frame hidden, interior hidden, enhanced, sharp corners, borderline west={3pt}{0pt}{shadecolor}, breakable]}{\end{tcolorbox}}\fi
 
-\hypertarget{introduction}{%
-\section{Introduction}\label{introduction}}
+\subsection{Introduction}\label{introduction}
 
 Who is Indigenous and who is not? Where do multiracial Indigenous
-Americans fit in this equation? One group of scholars has attempted to
-better understand Indigenous identity by asking similar questions by
+Americans fit in that equation? One group of scholars has asked similar
+questions in an attempt to better understand Indigenous identity by
 determining which factors are associated with strong Indigenous
 identity, how this identity is contested and understood at an
 interpersonal and community level, and how the Indigenous population has
-grown over time {[}Liebler (2010) Lucero (2014) McKay (2021). Indigenous
+grown over time (Liebler, 2010; Lucero, 2014; McKay, 2021). Indigenous
 identity becomes even more complicated when considering multiracial
 Indigenous Americans, which has led to additional research in this area,
 although limited. Articles on Indigenous identity generally cover the
@@ -345,360 +282,568 @@ gaining insights into contemporary shifts in racial boundary formation
 and the individual considerations that shape racial identification for
 Indigenous Americans.
 
-However, in 2020 Dwanna L. McKay, Kirsten Vinyeta, and Kari M. Norgaard
-published an article titled ``Theorizing Race and Settler Colonialism
-within U.S. Sociology'' which calls for a critical approach to how race
-is studied within Sociology, particularly how the focus on assimilation
-fails to confront its violent and often deadly nature of assimilation
-for Indigenous Americans under settler colonialism. Their article
-established that as researchers and academics, we are complicit in the
-erasure of Indigenous people, and the continued reification of harmful
-narratives can only be stopped by engaging with settler colonialism
-theory when conducting our research.
+Dwanna L. McKay, Kirsten Vinyeta, and Kari M. Norgaard published an
+article titled ``Theorizing Race and Settler Colonialism within U.S.
+Sociology'' which calls for a critical approach to how race is studied
+within Sociology, particularly how the focus on assimilation fails to
+confront its violent and often deadly nature for Indigenous Americans
+under settler colonialism (2020). Their article established that as
+researchers and academics, we are complicit in the erasure of Indigenous
+people, and the continued reification of harmful narratives can only be
+stopped by engaging with settler colonialism theory when conducting our
+research.
 
 These considerations led to the theoretical engagement explored later in
 this paper to prepare for a critical and nuanced approach to
-quantitative research has often been critiqued for its inability to
-speak to individual experiences, and for those who study race, there
-have been critiques of using race as a static category that does not
-reflect the social reality of race as a social construct, which
-parallels the arguments mentioned above about settler colonialism within
-the sociology of race and ethnicity. This dynamic nature of race means
-that it can and does change, and is influenced by various social factors
-and processes at both the micro and macro level which is why a critical
-approach to the interpretation and contextualization of results from
-quantitative research is imperative to furthering understanding without
-sacrificing reflexivity Zuberi \& Bonilla-Silva (2008).
+quantitative research that has often been critiqued for its inability to
+speak to individual experiences. For those who study race, there have
+been criticisms of using race as a static category that does not reflect
+the social reality of race as a social construct, which parallels the
+arguments mentioned above about settler colonialism within the sociology
+of race and ethnicity. This dynamic nature of race means that it can and
+does change, and is influenced by various social factors and processes
+at both the micro and macro level which is why a critical approach to
+the interpretation and contextualization of results from quantitative
+research is imperative to furthering understanding without sacrificing
+reflexivity (Zuberi \& Bonilla-Silva, 2008). Ultimately, since the
+structures of racialization and settler-colonialism inform each other,
+an analysis of racial decision-making would be incomplete without
+considering how Indigenous racial formation came to be in the US.
 
-\hypertarget{theoretical-framework}{%
-\section{Theoretical Framework}\label{theoretical-framework}}
+\subsection{Theoretical Framework}\label{theoretical-framework}
 
 In 2018 the Journal of Race Ethnicity and Education published a special
 issue titled ``QuantCrit: Rectifying Quantitative Methods Through
 Critical Race Theory'', where various scholars critically engaged with
 quantitative research and methods, using CRT to determine whether
 quantitative research is capable of being used to further a critical
-race agenda in education research and beyond Garcia, López, \& Vélez
-(2018). This approach is not new, however, and has already been
-established in Du Bosian sociology, most notably in Du Bois's The
-Philadelphia Negro. The Philadelphia Negro has been described as a great
-example of an alternate approach to quantitative research that can be
-liberating and work to counter oppressive racial narratives while
-presenting statistical analysis alongside theoretical arguments Conwell
-\& Loughran (2023). Du Bois's approach came from necessity due to the
+race agenda in education research and beyond (Garcia et al., 2018). This
+approach is not new, however, and has already been established in Du
+Bosian sociology, most notably in Du Bois's The Philadelphia Negro and
+The Souls of Black Folk. The Philadelphia Negro has been described as a
+great example of an alternate approach to quantitative research that can
+be liberating and work to counter oppressive racial narratives while
+presenting statistical analysis alongside theoretical arguments (Conwell
+\& Loughran, 2023). Du Bois's approach came from necessity due to the
 popularity of theories like Social Darwinism which placed Black people
 at the bottom of the hierarchy, a reality that required the questioning
 of assumptions and working against the grain of how quantitative
-research was and often continues to be done. In this article, this
+research was and often continues to be done. In The Souls of Black Folk
+Du Bois uses his lived experiences to theorize and explain what it was
+to be Black in American society. Emphasizing historical context and
+providing an explanation for the differences in perception between Black
+Americans and everyone else, most notably through double consciousness,
+the veil and the barriers of the color line. In this article, this
 approach will be replicated as best as possible, and part of that
 requires delving into settler colonial theory and current research
 related to Indigenous identity in the U.S. to create a historical and
-theoretical context that this paper will rely on.
+theoretical context that this paper will rely on to relate and explain
+its findings.
 
 In his article ``Settler Colonialism and the Elimination of the
-Native,'' Patrick Wolfe describes what he coins the `logic of
+Native,'' Patrick Wolfe describes what he coined the `logic of
 elimination' (2006). This logic explains the operation of colonizers
 arriving and settling on lands already inhabited by another group,
 specifically that settler colonialism requires the implementation of
 violence to achieve the goals of a settler society and replace
 Indigenous structures with those of the settler society. The replacement
-of Indigenous structures ultimately included the removal and
+of Indigenous structures ultimately includes the removal and
 dispossession of Indigenous people themself, which was justified through
-the racialization of Indigenous people A. A. Gonzales \& Kertész (2023).
-Additionally, since the structures of racialization and
-settler-colonialism inform each other, an analysis of racial
-decision-making would be incomplete without considering how Indigenous
-racial formation came to be in the US.
+the racialization of Indigenous people which continues today, speaking
+to Wolfe's assertion that settler colonialism is a ``structure rather
+than an event'' (Gonzales \& Kertész, 2023; Wolfe, 2006, p.~390). Since
+the structures of racialization and settler-colonialism inform each
+other, an analysis of racial decision-making would be incomplete without
+considering how Indigenous racial formation came to be in the US.
 
 For Indigenous Americans, membership within a tribe is often a key part
 of this process to distinguish between those who are Indigenous and
 those who are not. This concept is demonstrated in research done to
 identify what barriers to tribal enrollment exist for individuals who
 have been separated from their family and community via adoption and the
-foster system Landers, Danes, Morgan, Merritt, \& White Hawk (2021). It
-was identified that tribal enrollment was key for these individuals to
-establish and prove their own identity and seek collective identity
-within the tribe. Essentially, tribal enrollment exists as a ``process
-of mutual verification between the individual and the tribe''
-(p.~1374).~ Additionally, the forceful removal of Indigenous children
-from their families between the 1800s and 1970s by the United States
-federal government---via relocation, boarding schools, child welfare
-removal, adoption era practices, and so on, has created a group of
-Indigenous Americans, and their descendants, who have been removed from
-their family and culture thus further causing turmoil in how they
+foster system (Landers et al., 2021). Tribal enrollment was identified
+as key for individuals to establish and prove their own identity and
+seek collective identity within the tribe. Essentially, tribal
+enrollment exists as a ``process of mutual verification between the
+individual and the tribe'' (Landers et al., 2021, p.~1374).~
+Additionally, the forceful removal of Indigenous children from their
+families between the 1800s and 1970s by the United States federal
+government---via relocation, boarding schools, child welfare removal,
+adoption era practices, and so on, has created a group of Indigenous
+Americans, and their descendants, who have been removed from their
+family and culture thus further causing turmoil in how they
 conceptualize their identity. The Federal Acknowledgement Project of
 1978, furthered this process since it created an administrative process
 that required any group wishing to be acknowledged by the federal
-government as a legitimate tribe to meet certain criteria established by
+government as a legitimate group to meet certain criteria established by
 the federal government, further establishing Indigenous American
 identity as an administrative process rather than of racial, ethnic, or
-cultural identity A. Gonzales, Kertész, \& Tayac (2007).
+cultural identity (Gonzales et al., 2007). The process explained above
+is one of the many ways the `elimination of the native' has been
+accomplished, although elimination does not mean only the physical
+elimination of Indigenous people. For example, in their article
+``Settler Colonialism as eco-social structure and the production of
+colonial ecological violence,'' Bacon emphasized that settler-colonial
+elimination projects are not just limited to traditional perceptions of
+genocide but include assimilation (2019). The boarding schools
+Indigenous children were forced to attend not only utilized physical
+harm and violence but perpetuated colonial ecological violence by
+disrupting the passing on of traditional ecological knowledge from elder
+to child in favor of knowledge deemed superior by settlers (2019).
 
-Blood quantum often exists as a requirement for tribal membership
-through a blood quantum minimum which functions as a benchmark of
-authenticity for who is recognized as Native American by the U.S.
-government and continues to endure as a key feature of Indigenous
-identity Rodriguez-Lonebear (2021). This system was established as
-criteria for federal recognition in response to laws like Virginia's
-Racial Integrity Act of 1924 and the Indian Reorganization Act (IRA) of
-1934 which helped establish racial divisions and criteria on how to
-quantify Native American identity, respectively A. Gonzales et al.
-(2007). This establishes that determining Native American identity
-functions as an administrative process rather than a cultural process of
-a distinct racial and ethnic group, allowing a governing body to
-determine who can self-identify a certain way Lambert (2019).
+Blood quantum exists as a common requirement for tribal membership. The
+blood quantum minimum functions as a benchmark of authenticity for who
+is recognized as Indigenous by the tribal government and continues to
+endure as a key feature of Indigenous identity, and ultimately is an
+important part of determining who can access the few resources offered
+by the U.S. government such as healthcare and social services through
+the Indian Health Service (IHS) and the Bureau of Indian Affairs (BIA)
+(McKay, 2021; Rodriguez-Lonebear, 2021). This system of blood quantum
+was established as criteria for federal recognition in response to laws
+like Virginia's Racial Integrity Act of 1924 and the Indian
+Reorganization Act (IRA) of 1934 which helped establish racial divisions
+and criteria on how to quantify Indigenous identity, respectively
+(Gonzales et al., 2007). The various laws related to blood quantum
+establish that determining Indigenous identity functions as an
+administrative process rather than a cultural process of a distinct
+racial and ethnic group, allowing a governing body to determine who can
+identify as Indigenous, the goal is to create an ever-shrinking
+population (Lambert, 2019). This concept demonstrated what McKay calls
+the American Indian Legal Identity (AILI). This idea is a proxy for an
+Indigenous identity borne of legal and federal policy, devoid of
+Indigeneity's cultural and community-based components (2013).~
 
-\begin{itemize}
-\item
-  his would be considered important to talk about engaging with for
-  example when thinking about homelands, ie looking at connections to
-  land
-\item
-  should look at churning race and think about how part of the goal of
-  settler colonialism is the replacement of Indigenous people by
-  settlers to become indigenous in their place as a potential
-  explanation? Especially when thinking about hypodescent and why this
-  decision-making process might be occurringIt is key to note that
-  findings made in this paper are not intended to dispute but rather
-  support the findings found in other projects both qualitative and
-  quantitative and base them on the lived reality these studies reflect
+Keeping the history of racial formation for Indigenous Americans in mind
+is important to be aware of when going into the results of this
+analysis, especially when considering how settler colonial theory can
+-both inform and support potential findings. Furthermore, the
+interpretation of results through the lens of CRT, QuantCrit, or
+settler-colonialism may not be able to account for every finding.
+However, engaging with the social reality multiracial Indigenous
+Americans navigate only serves to expand and explain current
+understandings regarding Indigenous identity, particularly multiracial
+Indigenous identity
 
-  Furthermore, the interpretation of results through the lens of CRT,
-  QuantCrit, or settler-colonialism may not be able to account for every
-  finding however engaging with the social reality Indigenous Americans
-  navigate only serves to expand and explain current understandings
-  regarding Indigenous identity, particularly multi-racial Indigenous
-  identity
+\subsection{Methods and Data}\label{methods-and-data}
 
-  This call for more critically engaged quantitative research is at the
-  basis of this article, meaning that the results will have been
-  interpreted within the context of CRT as well as settler-colonialism
-  due to its focus on Indigenous people.~Methods and data
-\end{itemize}
-
-\hypertarget{sample-selection-and-data}{%
-\subsection{Sample Selection and Data}\label{sample-selection-and-data}}
+\subsubsection{\texorpdfstring{\emph{Sample Selection and
+Data}}{Sample Selection and Data}}\label{sample-selection-and-data}
 
 The data used for this project was compiled from the American Community
-Survey data for the years 2010 - 2020. I seek to analyze the race
-reporting of individuals who indicate Indigenous ancestry in addition to
-White, Black, or Asian ancestry. For this study, the term Indigenous is
-used in place of the American Indian and Alaskan Native (AIAN) terms as
-it is generally more accepted and has grown in popularity in current
-literature when discussing identity. The sample did not include
-individuals who listed their race as Latino or Pacific Islander.Part of
-the data organization of this project required the identification of a
-multiracial population, specifically an Indigenous multiracial
-population. To accomplish this goal the Goldstein and Morning method was
-adopted, which relies on looking at adults' self-reported ancestry,
-which in turn does not rely on the question of racial identity and
-instead allows for the construction of a multiracial population based on
-respondents' self-reported racial ancestry. In regards to the sample,
-this means looking at respondents who listed Indigenous ancestry in
-addition to a racially distinct racial ancestry other than
-Indigenous.Once this group was identified further case selection was
-performed as these results were compared to their race response. When
-looking at their racial ancestry and race response, respondents were
-divided into 4 distinct categories:1) Indigenous alone, which contained
-respondents that listed their race solely as Indigenous 2) Consistent
-which included respondents that acknowledged their racial ancestry in
-full by selecting a racial option that reflected that ancestry 3)
-Non-Indigenous Race alone, where respondents did acknowledge their
-Indigenous ancestry when selecting their race response and 4)
-Inconsistent, where respondents race response did not reflect their
-racial ancestry in any capacity
+Survey (ACS) data for 2010 - 2020. I seek to analyze the race reporting
+of individuals who indicate Indigenous ancestry in addition to another
+distinct ancestry group. On the ACS, respondents are asked about their
+ancestry via the question ``What is this person's ancestry or ethnic
+origin,'' and have two lines to list their responses which are manually
+typed and inputted as their responses. Respondents are also asked about
+their race and can mark one or more racial categories
 
-Outcome variable: race response Predictor variables: metro, homeland,
-education above high school, gender and hispanicity These ancestry
-responses were compared to what their race response and divided into the
-following groups: Indigenous alone, Multiracial, and Other Race alone
-where Indigenous alone consisted of those respondents who identified a
-mixed-ancestry of Indigenous plus one other racial ancestry yet listed
-their race response as Indigenous alone. Multiracial was those
-respondents who identified their mixed--Indigenous ancestry and listed a
-multiracial race response. Other race alone consisted of those
-respondents with a mixed-Indigenous racial ancestry but listed their
-racial response as the other race (ie. ancestry listed as Indigenous and
-Asian but list race as Asian only).
+Before getting into the specifics of sample selection, there is a needed
+conversation about terminology. For this study, the term Indigenous is
+used in place of the American Indian and Alaskan Native (AIAN) category
+for simplicity's sake as it functions as a collective term since this
+project does not focus on a specific Nation, reservation, group, and so
+on. It should be noted that this is not done to imply Indigenous people
+are a monolith rather is a necessity when conducting a project that
+seeks to find patterns of racial identification that span across
+individual groups as evidence of the unique role of settler colonialism
+in the racialization of Indigenous Peoples in the U.S.
 
-\hypertarget{methods}{%
-\subsection{Methods}\label{methods}}
+Part of the data organization of this project required the
+identification of a multiracial population, specifically an Indigenous
+multiracial population. First, any respondents that had an artificially
+allocated race response were removed, the goal was to make sure the race
+response was indicative of the respondents' true racial response. Then
+the Goldstein and Morning method was adopted, which relies on looking at
+adults' self-reported ancestry. This approach is beneficial since it
+does not rely on the race question to identify a multiracial Indigenous
+population, identifies a multiracial population that is aware of their
+ancestral descent and allows for a detailed response due to the free
+response nature of the question. Due to the free response style of the
+ancestry question, about 500 unique responses exist which require
+collapsing into specific racial ancestries. The U.S. Census follows the
+1997 Office of Management and Budget (OMB) standards on race and
+ethnicity and lists the following groups: White, Black or African
+American, Asian, American Indian or Alaskan Native, and Native Hawaiian
+or Pacific Islander. It also includes the Hispanic or Latino ethnic
+category. For example, the Black ancestry group was created by combining
+all those whose ancestry fell under the groups of African-American,
+non-Latin Caribbean, and Sub-Saharan African. The Asian category
+included those whose ancestry fell under East, South East Asian, and
+South Asian. The White category included those with European, North
+African, and Middle Eastern ancestry. Respondents who listed their race
+as Latino or Pacific Islander were dropped from the potential
+multiracial Indigenous population. The reason for dropping Latino is
+that it functions as an ethnic category on the Census/ACS and
+respondents of Latino or Hispanic origin can be any race, so Latino does
+not indicate a specific racial ancestry that is easily interpretable as
+distinct from Indigenous. The issue with the Pacific Islander category
+is that since they are Indigenous to their respective nations this could
+create the issue of a double Indigenous ancestry group depending on how
+respondents perceive their ancestry and to avoid this potential
+discrepancy they were also excluded from the sample.
 
-The analysis was conducted through creation of several multinomial logit
-models, which predict the likelihood of a respondent to identify as
-either Indigenous alone, Multiracial, or other race alone. Three sets of
-models were created, each set had a different reference category:
-``Indigenous/White'', ``Indigenous/Black'', and ``Indigenous/Asian''
+After the final case selection was concluded the sample size was 490,172
+respondents. Once this population was identified their ancestry was
+compared to their racial response. When reviewing respondents' racial
+ancestry and their race response, four distinct identification patterns
+were identified) Indigenous alone, which contained respondents that
+listed their race solely as Indigenous regardless of their multiracial
+ancestry 2) Consistent, which included respondents that acknowledged
+their racial ancestry in full by selecting a racial response that
+reflected a multiracial identity 3) Other Race Alone, where respondents'
+race response did not reflect their Indigenous ancestry and selected
+their identity solely as the other race 4) Inconsistent, where
+respondents race response did not reflect their racial ancestry in any
+capacity. The inconsistent group was dropped from further analysis,
+bringing the sample to 478,680 respondents.
+
+\subsubsection{\texorpdfstring{\emph{Analysis}}{Analysis}}\label{analysis}
+
+I use several multinomial logistic regression models to estimate the
+relationship between racial ancestry, race response, and the predictor
+variables. The dependent variable has three categories of race response:
+Indigenous Alone, Consistent (multiracial), and Other Race Alone. The
+key independent variable is racial ancestry. The predictor variables are
+metropolitan status (unknown status, non-metropolitan area, metropolitan
+area), homeland area (binary), educational attainment (less than HS
+diploma, HS diploma, some college, 4-year degree or more), gender
+(binary), Hispanic origin (binary), and age (continuous, 18+).
 
 \begin{figure}[!t]
 
-{\centering \includegraphics{main_manuscript_files/figure-pdf/fig-race-ancestry-1.pdf}
+\centering{
+
+\includegraphics{main_manuscript_files/figure-pdf/fig-race-ancestry-1.pdf}
 
 }
 
 \caption{\label{fig-race-ancestry}Comparing listed ancestry and race
 classification}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{weights-16-9-variable}{%
-\section{weights: 16 (9 variable)}\label{weights-16-9-variable}}
+\subsection{Results}\label{results}
 
-initial value 599314.460436 iter 10 value 284800.079668 iter 20 value
-256524.479851 iter 30 value 254381.017785 final value 254010.499668
-converged \# weights: 20 (12 variable) initial value 599314.460436 iter
-10 value 333726.839486 iter 20 value 270019.984945 iter 30 value
-249315.133813 iter 40 value 249023.098803 final value 249022.958481
-converged \# weights: 44 (30 variable) initial value 599314.460436 iter
-10 value 253458.711343 iter 20 value 252519.732821 iter 30 value
-247515.058087 iter 40 value 245369.541898 iter 40 value 245369.540313
-iter 40 value 245369.540302 final value 245369.540302 converged :::
-\{.cell-output-display\}
+\subsubsection{\texorpdfstring{\emph{Multinomial Logistic Regression
+Models}}{Multinomial Logistic Regression Models}}\label{multinomial-logistic-regression-models}
 
-\hypertarget{tbl-white-indigenous}{}
-\begin{table}
-\caption{\label{tbl-white-indigenous}White/Indigenous Models }\tabularnewline
+My research question focuses on understanding the relationship between
+race response and racial ancestry. I use the focal predictor variables
+to answer this question by identifying the relationship between the
+dependent and independent variables and the predictor variables. Each
+table presents coefficients, standard errors, and significance levels
+for the multinomial logistic regression models predicting race response
+with the predictor variables. The reference group separates these
+tables: White and Indigenous, Black and Indigenous, Asian and
+Indigenous. The model results compare the predicted race response of
+Indigenous Alone and Consistent to Other Race Alone with a separate
+table for each ancestry group. The base models of each table look at
+racial responses in relation to metropolitan status, the subsequent
+model adds Homeland status and the final model educational attainment,
+gender, Hispanic origin, and age. This setup creates three sets of
+tables with three models each for a total of 9 models total.
 
-\centering
-\begin{talltblr}[         %% tabularray outer open
-entry=none,label=none,
-note{}={+ p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001},
-]                     %% tabularray outer close
-{                     %% tabularray inner open
-colspec={Q[]Q[]Q[]Q[]Q[]Q[]Q[]Q[]Q[]Q[]},
-cell{1}{2}={c=3,}{halign=c,},
-cell{1}{5}={c=3,}{halign=c,},
-cell{1}{8}={c=3,}{halign=c,},
-column{1}={halign=l,},
-column{2}={halign=c,},
-column{3}={halign=c,},
-column{4}={halign=c,},
-column{5}={halign=c,},
-column{6}={halign=c,},
-column{7}={halign=c,},
-column{8}={halign=c,},
-column{9}={halign=c,},
-column{10}={halign=c,},
-row{1}={halign=c,},
-hline{23}={1,2,3,4,5,6,7,8,9,10}{solid, 0.05em, black},
-}                     %% tabularray inner close
-\toprule
-& (1) &  &  & (2) &  &  & (3) &  &  \\ \cmidrule[lr]{2-4}\cmidrule[lr]{5-7}\cmidrule[lr]{8-10}
-& Inconsistent & Indigenous, Alone & Non-Indigenous Race Alone & Inconsistent & Indigenous, Alone & Non-Indigenous Race Alone & Inconsistent & Indigenous, Alone & Non-Indigenous Race Alone \\ \midrule %% TinyTableHeader
-(Intercept)        & \num{-2.577}*** & \num{-1.171}*** & \num{1.992}***  & \num{-2.263}*** & \num{-1.541}*** & \num{2.304}***  & \num{-1.888}*** & \num{-1.687}*** & \num{2.562}***  \\
-& (\num{0.038})   & (\num{0.021})   & (\num{0.011})   & (\num{0.040})   & (\num{0.024})   & (\num{0.012})   & (\num{0.066})   & (\num{0.048})   & (\num{0.023})   \\
-MetroCMetropolitan & \num{0.711}***  & \num{-0.356}*** & \num{-0.158}*** & \num{0.518}***  & \num{-0.160}*** & \num{-0.349}*** & \num{0.469}***  & \num{-0.172}*** & \num{-0.297}*** \\
-& (\num{0.041})   & (\num{0.025})   & (\num{0.012})   & (\num{0.042})   & (\num{0.025})   & (\num{0.013})   & (\num{0.042})   & (\num{0.026})   & (\num{0.013})   \\
-MetroCUnknown      & \num{0.111}*    & \num{-0.096}*** & \num{-0.032}*   & \num{0.057}     & \num{-0.049}+   & \num{-0.085}*** & \num{0.056}     & \num{-0.044}    & \num{-0.080}*** \\
-& (\num{0.051})   & (\num{0.029})   & (\num{0.015})   & (\num{0.051})   & (\num{0.029})   & (\num{0.015})   & (\num{0.051})   & (\num{0.029})   & (\num{0.015})   \\
-HomelandPYes       &                  &                  &                  & \num{-0.809}*** & \num{0.653}***  & \num{-0.799}*** & \num{-0.795}*** & \num{0.654}***  & \num{-0.799}*** \\
-&                  &                  &                  & (\num{0.037})   & (\num{0.021})   & (\num{0.011})   & (\num{0.037})   & (\num{0.021})   & (\num{0.011})   \\
-EducAHS Diploma    &                  &                  &                  &                  &                  &                  & \num{-0.058}    & \num{0.033}     & \num{0.084}***  \\
-&                  &                  &                  &                  &                  &                  & (\num{0.044})   & (\num{0.034})   & (\num{0.016})   \\
-EducASome College  &                  &                  &                  &                  &                  &                  & \num{-0.118}**  & \num{0.103}**   & \num{-0.174}*** \\
-&                  &                  &                  &                  &                  &                  & (\num{0.042})   & (\num{0.032})   & (\num{0.015})   \\
-EducACollege       &                  &                  &                  &                  &                  &                  & \num{-0.393}*** & \num{0.046}     & \num{-0.329}*** \\
-&                  &                  &                  &                  &                  &                  & (\num{0.048})   & (\num{0.036})   & (\num{0.017})   \\
-GenderMan          &                  &                  &                  &                  &                  &                  & \num{-0.306}*** & \num{0.004}     & \num{-0.255}*** \\
-&                  &                  &                  &                  &                  &                  & (\num{0.026})   & (\num{0.019})   & (\num{0.009})   \\
-HispanicHispanic   &                  &                  &                  &                  &                  &                  & \num{1.526}***  & \num{0.641}***  & \num{-1.494}*** \\
-&                  &                  &                  &                  &                  &                  & (\num{0.046})   & (\num{0.049})   & (\num{0.034})   \\
-Age                &                  &                  &                  &                  &                  &                  & \num{-0.003}*** & \num{0.001}*    & \num{-0.001}*** \\
-&                  &                  &                  &                  &                  &                  & (\num{0.001})   & (\num{0.001})   & (\num{0.000})   \\
-Num.Obs.           & \num{432314}    &                  &                  & \num{432314}    &                  &                  & \num{432314}    &                  &                  \\
-R2                 & \num{0.002}     &                  &                  & \num{0.022}     &                  &                  & \num{0.036}     &                  &                  \\
-R2 Adj.            & \num{0.002}     &                  &                  & \num{0.022}     &                  &                  & \num{0.036}     &                  &                  \\
-AIC                & \num{508039.0}  &                  &                  & \num{498069.9}  &                  &                  & \num{490799.1}  &                  &                  \\
-BIC                & \num{508137.8}  &                  &                  & \num{498201.6}  &                  &                  & \num{491128.4}  &                  &                  \\
-RMSE               & \num{0.27}      &                  &                  & \num{0.27}      &                  &                  & \num{0.27}      &                  &                  \\
-\bottomrule
-\end{talltblr}
-\end{table}
+\subsubsection{\texorpdfstring{\emph{Metropolitan
+Status}}{Metropolitan Status}}\label{metropolitan-status}
 
-:::
+Metropolitan status refers to whether respondents live in a metropolitan
+area or not. Living in a metropolitan area demonstrated a unique
+relationship between each group. For example, it was found that for
+respondents with White and Indigenous ancestry, the log odds of
+identifying as Indigenous Alone versus White while living in a
+metropolitan area were (-0.197). However, once Homeland status was
+accounted for it was found that the log odds of identifying as
+Indigenous Alone versus White in a metropolitan area is (0.187),
+indicating that living in a metropolitan area that is also a Homeland
+area is associated with an increased likelihood of an Indigenous
+identity. The log odds of respondents identifying as multiracial versus
+White when living in a metropolitan area were (0.158). Once Homeland
+status is accounted for, living in a metropolitan area increases log
+odds of identifying as multiracial versus White (0.348).
 
-\hypertarget{results}{%
-\section{Results}\label{results}}
+For respondents with Black and Indigenous ancestry, living in a
+metropolitan area has a negative association with identifying as
+Indigenous versus Black (0.708), however, there is a positive albeit
+non-significant relationship between metropolitan status and multiracial
+identity. Once Homeland status is accounted for this relationship
+flipped. Living in a metropolitan area has a non-significant but
+negatively associated relationship with identifying as Indigenous versus
+Black (-0.206). A significant but positive relationship exists between
+living in a metropolitan area and identifying as multiracial versus
+Black (0.265).
 
-In
+For respondents with Asian and Indigenous ancestry, living in a
+metropolitan area was negatively associated with identifying as
+Indigenous versus Asian (-1.769) as well as identifying as multiracial
+versus Asian (-0.550). Once Homeland status was accounted for there
+continued to be a negative association between identifying as Indigenous
+versus Asian (-0.787) and multiracial versus Asian however the
+relationship was not significant (-0.103).
 
-\hypertarget{conclusion}{%
-\section{Conclusion}\label{conclusion}}
+Accounting for education, gender, Hispanic origin, and age led to
+minimal changes across all three ancestry groups.
 
-\hypertarget{bibliography}{%
-\section*{References}\label{bibliography}}
-\addcontentsline{toc}{section}{References}
+\subsubsection{\texorpdfstring{\emph{Homeland
+Status}}{Homeland Status}}\label{homeland-status}
 
-\hypertarget{refs}{}
-\begin{CSLReferences}{1}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-conwell_quantitative_2023}{}}%
-Conwell, J. A., \& Loughran, K. (2023). Quantitative {Inquiry} in the
-{Early} {Sociology} of {W}. {E}. {B}. {Du} {Bois}. \emph{Du Bois Review:
-Social Science Research on Race}, 1--23.
-\url{https://doi.org/10.1017/S1742058X23000206}
+LLiving in a location with Homeland status means that a respondent's
+household is in an area that includes an area that has been designated
+as an American Indian, Alaska Native, or Native Hawaiian (AIANNH) area
+(Bureau, n.d.). For respondents with White and Indigenous ancestry,
+living on a Homeland was positively associated with identifying as
+Indigenous (1.452) and multiracial (0.799) versus identifying as White.
+For respondents with Black and Indigenous ancestry living on a Homeland
+is positively associated with an Indigenous identity versus Black
+(1.177) and the same holds for a multiracial identity versus Black
+although not to the same degree (0.509). The Homeland status effect was
+strongest for respondents with Asian and Indigenous ancestry, as living
+in a Homeland was associated with an increased likelihood to identify as
+Indigenous versus Asian(1.900), the same holds for identifying as
+multiracial versus Asian (0.843).~
 
-\leavevmode\vadjust pre{\hypertarget{ref-garcia_quantcrit_2018}{}}%
-Garcia, N. M., López, N., \& Vélez, V. N. (2018). {QuantCrit}:
-Rectifying quantitative methods through critical race theory. \emph{Race
-Ethnicity and Education}, \emph{21}(2), 149--157.
-\url{https://doi.org/10.1080/13613324.2017.1377675}
+Accounting for education, gender, Hispanic origin, and age led to
+minimal changes across all three ancestry groups
 
-\leavevmode\vadjust pre{\hypertarget{ref-gonzales_colonialism_2023}{}}%
-Gonzales, A. A., \& Kertész, J. (2023). Colonialism and the
-{Racialization} of {Indigenous} {Identity}. In M. Walter, T. Kukutai, A.
-A. Gonzales, \& R. Henry (Eds.), \emph{The {Oxford} {Handbook} of
-{Indigenous} {Sociology}} (p. 0). Oxford University Press.
-\url{https://doi.org/10.1093/oxfordhb/9780197528778.013.36}
+\subsubsection{\texorpdfstring{\emph{Educational
+Attainment}}{Educational Attainment}}\label{educational-attainment}
 
-\leavevmode\vadjust pre{\hypertarget{ref-gonzales_eugenics_2007}{}}%
-Gonzales, A., Kertész, J., \& Tayac, G. (2007). Eugenics as {Indian}
-{Removal}: {Sociohistorical} {Processes} and the {De}(con)struction of
-{American} {Indians} in the {Southeast}. \emph{The Public Historian},
-\emph{29}(3), 53--67. \url{https://doi.org/10.1525/tph.2007.29.3.53}
+Educational attainment consistently has a significant relationship with
+race response across ancestry groups, however, three unique patterns
+become apparent once a college degree is obtained. For those with White
+and Indigenous ancestry obtaining a college degree pushes respondents
+away from Whiteness as it is associated with an increase in the log odds
+of identifying as Indigenous alone versus White at (0.372) and
+Multiracial versus White at (0.328) log odds. For those with Black and
+Indigenous ancestry obtaining a college degree pushes respondents away
+from Indigenous Alone and towards a Multiracial identity at (-0.355) and
+(0.144) log odds respectively. For those with Asian and Indigenous
+ancestry obtaining a college degree signaled a move away from
+identifying as Indigenous Alone and towards identifying as Asian alone
+with the log odds of identifying as Indigenous Alone being (-1.099).
 
-\leavevmode\vadjust pre{\hypertarget{ref-lambert2019}{}}%
-Lambert. (2019). How grandma kate lost her cherokee blood and what this
-says about race, blood, and belonging in indian country. \emph{American
-Indian Quarterly}, \emph{43}(2), 135.
-\url{https://doi.org/10.5250/amerindiquar.43.2.0135}
+\subsubsection{\texorpdfstring{\emph{Gender}}{Gender}}\label{gender}
 
-\leavevmode\vadjust pre{\hypertarget{ref-landers2021}{}}%
-Landers, A. L., Danes, S. M., Morgan, A. A., Merritt, S., \& White Hawk,
-S. (2021). My relatives are waiting: Barriers to tribal enrollment of
-fostered/adopted American Indians. \emph{Journal of Marriage and
-Family}, \emph{83}(5), 1373--1400.
-\url{https://doi.org/10.1111/jomf.12797}
+Gender demonstrated a unique relationship amongst each of the ancestry
+groups. For example, for respondents of White and Indigenous ancestry it
+was found that men were more likely to identify as Indigenous or
+multiracial versus White at similar rates (0.259 v.~ 0.255).~ When a
+respondent has Black and Indigenous ancestry, it was found that gender
+did not have a significant relationship between identifying as
+Indigenous versus Black but it was found that men are more likley to
+identify as multiracial versus identifying as Black than women (0.248).
+The opposite effect was seen with those that have Asian and Indigenous
+ancestry, as men were found to be less likely to identify as multiracail
+versus as Asian than women (-0.300).
 
-\leavevmode\vadjust pre{\hypertarget{ref-liebler_homelands_2010}{}}%
-Liebler, C. A. (2010). Homelands and indigenous identities in a
-multiracial era. \emph{Social Science Research}, \emph{39}(4), 596--609.
-\url{https://doi.org/10.1016/j.ssresearch.2010.02.003}
+\subsubsection{\texorpdfstring{\emph{Hispanic
+Origin}}{Hispanic Origin}}\label{hispanic-origin}
 
-\leavevmode\vadjust pre{\hypertarget{ref-lucero_its_2014}{}}%
-Lucero, N. M. (2014). {``{It}'s not about place, it's about what's
-inside''}: {American} {Indian} women negotiating cultural connectedness
-and identity in urban spaces. \emph{Women's Studies International
-Forum}, \emph{42}, 9--18.
-\url{https://doi.org/10.1016/j.wsif.2013.10.012}
+In the ACS, Hispanic Origin refers to individuals of
+Hispanic/Spanish/Latino origin, where origin is defined by the Census
+Bureau as ancestry, lineage, heritage, nationality group, or country of
+birth (Bureau, n.d.). Additionally, those of Hispanic Origin can be any
+race or any combination of races. In the results of this study, Hispanic
+origin is associated with a pattern of increased attachment towards an
+Indigenous identity and multiraciality for all ancestry groups.
+Respondents who listed White and Indigenous ancestry and are of Hispanic
+Origin have increased log odds of identifying as Indigenous Alone versus
+White ( 2.161), and the log odds of identifying as Multiracial versus
+White are also positive but diminished compared to Indigenous alone
+(1.503). Black and Indigenous respondents of Hispanic Origin have
+increased log odds of identifying as Indigenous Alone versus Black
+(1.691) and similar log odds of identifying as Multriacal versus Black
+alone (1.405). Respondents of Asian and Indigenous ancestry who are also
+of Hispanic origin have positive log odds of identifying as Indigenous
+versus Asian (1.092) as well as multiracial versus Asian (0.804).
+Ultimately Hispanic origin increases the likelihood of identifying as
+Indigenous or multiracial, yet the effect is strongest to weakest for
+those with White and Indigenous ancestry, those with Black and
+Indigenous ancestry, and Asian and Indigenous ancestry, respectively.
 
-\leavevmode\vadjust pre{\hypertarget{ref-mckay_real_2021}{}}%
-McKay, D. L. (2021). Real {Indians}: {Policing} or {Protecting}
-{Authentic} {Indigenous} {Identity}? \emph{Sociology of Race and
-Ethnicity}, \emph{7}(1), 12--25.
-\url{https://doi.org/10.1177/2332649218821450}
+\subsubsection{\texorpdfstring{\emph{Age}}{Age}}\label{age}
 
-\leavevmode\vadjust pre{\hypertarget{ref-rodriguez-lonebear_blood_2021}{}}%
-Rodriguez-Lonebear, D. (2021). The {Blood} {Line}: {Racialized}
-{Boundary} {Making} and {Citizenship} among {Native} {Nations}.
-\emph{Sociology of Race and Ethnicity}, \emph{7}(4), 527--542.
-\url{https://doi.org/10.1177/2332649220981589}
+Age as a predictor variable demonstrated minimal effects on racial
+response, and significant results were only observed for two ancestry
+groups. Amongst respondents with White and Indigenous ancestry it was
+observed that for every year in age there was a minimal increase in the
+likelihood for respondents to identify as Indigenous versus White
+(0.002). The effect was similarly minimal for multiracial versus White
+(0.001).
 
-\leavevmode\vadjust pre{\hypertarget{ref-zuberi_white_2008}{}}%
-Zuberi, T., \& Bonilla-Silva, E. (Eds.). (2008). \emph{White logic,
-white methods: Racism and methodology}. Lanham: Rowman \& Littlefield
-Publishers.
+\subsection{Discussion}\label{discussion}
 
-\end{CSLReferences}
+The previously discussed results demonstrated patterns that both
+reaffirmed previous findings related to Indigenous identity but also
+revealed unique deviations. After further reviewing metropolitan status
+three distinct patterns were identified concerning racial identity
+responses amongst the three mixed racial ancestry groups.
+
+First, for respondents with both White and Indigenous ancestry, there
+was a noticeable shift away from a White identity towards embracing an
+Indigenous or a multiracial identity.Second, for those with Black and
+Indigenous ancestry, living in a metropolitan area was associated with a
+different pattern. These respondents tended to move away from an
+Indigenous identity and towards identifying as Black, while
+multirciality remained an option at a similar rate of association.
+Finally, for respondents with Asian and Indigenous ancestry,
+metropolitan status correlated with a tendency to move away from
+identifying with their Indigenous ancestry and~ towards identifying
+exclusively as Asian rather than multiracial or Indigenous alone.
+
+\begin{itemize}
+\item
+  living in urban spaces is associated with the creation of a unique
+  identity that does not exist without tension (Malika et al., 2024).
+\item
+  Discuss urban migration and relation to settler colonialism
+  (Rosenthal, 2012)
+\item
+  Tensions of multiracial identity and assertion of agency through
+  racial decision making (selection one option or another or choosing
+  both) (Cardwell et al., 2020)
+\end{itemize}
+
+Homeland Status
+
+\begin{itemize}
+\item
+  Homeland status increased likelihood to identify as Indigenous for all
+  groups, in order of effect WI, AI, and BI, also movement towards
+  multiracial
+\item
+  Liebler Liebler Liebler
+
+  \begin{itemize}
+  \item
+    Homelands and Indigenous Identity
+  \item
+    History, place, and racial self-representation in 21st century
+    America
+  \item
+    Challenge with the discussion of tribal sovereignty in enrollment
+  \end{itemize}
+\item
+  Native DNA, relate to sovereignty, relations, connection, enrollment
+  rather than focusing on determining authenticity due to blood quantum
+  standards ie churning race liebler article
+
+  \begin{itemize}
+  \item
+    The blood line: racialized boundary making (Rodriguez-Lonebear,
+    2021)
+  \item
+    Native American DNA (TallBear, 2013)
+  \item
+    Maybe this can connect to sovereignty: Tribal Sovereignty and the
+    Limits of Race for American Indians (Small-Rodriguez \& Rocha
+    Beardall, 2023)
+  \end{itemize}
+\end{itemize}
+
+Hispanic Origin
+
+\begin{itemize}
+\item
+  Latinization of indigenous identity (Campbell-Montalvo, 2023)
+\item
+  The distinction between indigenous and Latino/Hispanic identity
+  (Ybarra, 2023)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Why do some keep it one but not the other?
+  \end{itemize}
+\item
+  How migration studies can reproduce the logic of elimination, work
+  against the idea that when Indigenous people travel they are no longer
+  indigenous as explanation for hispanic origin and indigeneity
+  relationship (Blackwell et al., 2017)
+\end{itemize}
+
+Educational Attainment
+
+\begin{itemize}
+\item
+  College education pushed WI away from a White identity, for BI pushed
+  towards multiracial identity and Black identity, for AI college
+  education pushed towards Asian identity
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Potential identity tension?
+  \end{itemize}
+\item
+  Escbach found that people with higher level of education found
+  Indigenous identity more appealing, especially in metropolitan areas
+  (Eschbach et al., 1998)
+\item
+  ``With the exception of Black Native Americans, all of the Native
+  American male groups have lower levels of schooling''; ``With the
+  possible exception of Black Native American women, all groups of
+  Native American men and women have some sort of disadvantage in terms
+  of schooling or earnings'' (Huyser et al., 2010)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Seems consistent with findings for BI respondents across gender
+  \end{itemize}
+\item
+  AI is where I am most interested and wondering how much identity
+  conflict/tension exists
+
+  \begin{itemize}
+  \item
+    Are respondents choosing race that matches with stereotypes? I feel
+    like that is too simple of an answer, perhaps perception of
+    perpetual foreigner leads to more attachment to Asian identity?
+  \item
+    Racial and ethnic stratification in educational achievement and
+    attainment (Kao \& Thompson, 2003)
+  \item
+    ``The second contemporary pattern of multiracial identification we
+    discern might be called simply the ``new'' or even ``immigrant''
+    regime whereby a multiple-race label is selected. This convention
+    seems to dominate among all the groups of partial Asian ancestry''
+    (Gullickson \& Morning, 2011), this continues to be true as can be
+    seen in Figure 1 (i haven't named them yet lol)
+  \end{itemize}
+\end{itemize}
+
+Gender
+
+\begin{itemize}
+\item
+  I need to look more into research between multiraciality and gender,
+  indigenous identity and gender, etc
+\item
+  Not sure how to approach yet
+\end{itemize}
+
+Age
+
+\begin{itemize}
+\item
+  Age did not have major effect, however thinking in cohorts should be
+  interesting
+\item
+  WI group saw increase to both multiracial and Indigenous identity with
+  each year in age
+\item
+  BI only sees negative association with multiraciaity versus
+  identifying just as Black
+
+  \begin{itemize}
+  \tightlist
+  \item
+    One drop rule having more salience for older cohort/groups?
+  \end{itemize}
+\end{itemize}
+
+\subsection{References}\label{references}
 
 
 
