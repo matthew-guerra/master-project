@@ -26,6 +26,7 @@ format:
 #| label: setup
 #| include: false
 library(here)
+library(kableExtra)
 source(here("utils","check_packages.R"))
 source(here("utils","functions.R"))
 load(here("data","data_constructed","analytical_data.RData"))
@@ -76,6 +77,38 @@ ggplot(data = DATA, aes(x = race_response, fill = race_ancestry, group=race_ance
   labs(x = "Self-Identified Racial Classification", y = NULL, fill = "Ancestry")+
   theme(axis.title.x = element_text(vjust = -2))+
   theme(axis.text.x = element_text(angle = -30, vjust = 1, hjust = 0))
+```
+
+```{r}
+#model set up stuff
+cm <- c('(Intercept)' = '(Intercept)',
+        'MetroCMetropolitan'    = 'Metro Area',
+        'MetroCUnknown'    = 'Uknown Area',
+        'HomelandPYes' = 'Homeland Area',
+        'EducAHS Diploma' = 'HS Diploma',
+        'EducASome College' = 'Some College',
+        'EducACollege' = 'College Degree',
+        'GenderMan' = 'Man',
+        'HispanicHispanic' = 'Hispanic',
+        'Age' = 'Age')
+```
+
+```{r}
+#| label: tbl-black_indigenous
+#| tbl-colwidths: auto
+#| tbl-cap: Black/Indigenous Models
+#| results: asis
+model4 <- multinom(race_response~MetroC,
+                  data=subset(DATA, race_ancestry=="Indigenous/Black"))
+model5 <- update(model4, .~.+HomelandP)
+model6 <- update(model5, .~.+EducA+Gender+Hispanic+Age)
+modelsummary(list(model4,model5,model6),
+             digits=3, shape = term ~ model+response, stars = TRUE,
+             coef_map = cm)
+```
+
+```{r}
+
 ```
 
 ## Results
