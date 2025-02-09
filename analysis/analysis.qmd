@@ -19,7 +19,7 @@ load(here("data","data_constructed","analytical_data.RData"))
 
 ```{r}
 # Produce table of race response and race ancestry before dropping!
-table(DATA$race_ancestry,DATA$race_response,exclude = NULL)
+race_table <-table(DATA$race_ancestry,DATA$race_response,exclude = NULL)
 ```
 
 ```{r}
@@ -47,7 +47,7 @@ cm <- c('(Intercept)' = '(Intercept)',
 ```
 
 ```{r}
-#| label: tbl-models
+#| label: tbl-1
 #| tbl-cap: White/Indigenous Models
 #| results: asis
 model1 <- multinom(race_response~MetroC,
@@ -57,24 +57,6 @@ model3 <- update(model2, .~.+EducA+Gender+Hispanic+Age)
 modelsummary(list(model1,model2,model3),
              digits=3, shape = term ~ model+response, stars = TRUE,coef_map = cm, title ='Respondents with White and Indigenous Ancestry')
 ```
-
--   decreased likelihood of being Indigenous alone when living in metropolitan -0.197
-
--   slighty less powerful effect for consistent
-
--   when accounting for homeland status metropolitan flips to positive likelihood for I alone and increase for metro and consistent
-
--   look at key variables moreso rather than writing about models to models
-
-    -   looking rural v urban shifts using homeland variable
-
-    -   maybe add on looking at homeland within context of what research has been done
-
-    -   if you find something you want to speak about make sure to add on to
-
-    -   if wanting to talk about age mabe look at cohort chnage
-
--   I/A education looking at roth findings
 
 ```{r}
 fakedata <- data.frame(MetroC="Metropolitan",
@@ -103,7 +85,7 @@ ggplot(subset(temp, race_response!="Non-Indigenous Race Alone"),
 Looking at model 1, those who listed their ancestry as "Indigenous/White"
 
 ```{r}
-#| label: tbl-black_indigenous
+#| label: tbl-2
 #| tbl-cap: Black/Indigenous Models
 #| results: asis
 model4 <- multinom(race_response~MetroC,
@@ -116,7 +98,7 @@ modelsummary(list(model4,model5,model6),
 ```
 
 ```{r}
-#| label: tbl-asian_indigenous
+#| label: tbl-3
 #| tbl-cap: Asian/Indigenous Models
 #| results: asis
 model7 <- multinom(race_response~MetroC,
