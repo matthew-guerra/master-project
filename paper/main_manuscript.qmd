@@ -66,6 +66,7 @@ Part of the data organization of this project required the identification of a m
 #| label: tbl-race-an-frequency
 #| tbl-cap: Summary Statistics for Respondents Racial Ancestry
 library(kableExtra)
+race_table <-table(DATA$race_ancestry,DATA$race_response,exclude = NULL)
 kable(race_table, caption = "Frequency of Race Ancestry and Race Response Categories") %>%
   kable_classic(full_width = F)
 ```
@@ -110,9 +111,14 @@ model4 <- multinom(race_response~MetroC,
                   data=subset(DATA, race_ancestry=="Indigenous/Black"))
 model5 <- update(model4, .~.+HomelandP)
 model6 <- update(model5, .~.+EducA+Gender+Hispanic+Age)
-modelsummary(list(model4,model5,model6),
-             digits=3, shape = term ~ model+response, stars = TRUE,
-             coef_map = cm)
+cat("```{=latex}\n\\begin{landscape}\n")
+modelsummary(
+  list(model4, model5, model6),
+  output = "latex",
+  digits = 3, shape = term ~ model + response, stars = TRUE,
+  coef_map = cm
+)
+cat("\\end{landscape}\n```")
 ```
 
 ```{r}
