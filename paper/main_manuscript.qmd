@@ -36,7 +36,7 @@ load(here("data","data_constructed","analytical_data.RData"))
 
 On January 1, 1952, the Bureau of Indian Affairs (BIA) launched the Voluntary Relocation Program, and established field offices in Chicago, Salt Lake City, Denver, San Francisco, San Jose, Los Angeles, Oakland, Portland, Dallas, Tulsa, Oklahoma, St. Louis, Minneapolis, Cincinnati, Cleveland, and Joliet and Waukegan, Illinois (Kent-Stoll 2024). The program was advertised as a pathway to economic stability, promising Indigenous Americans better employment opportunities, improved housing, and an overal better quality of life if they decided to leave their rural reservations for urban centers (Rosenthal 2012). However, beneath the promise for a better life was the federal agenda of assimilation, which sought to sever the connection between indigenous people  from their homelands, cultures, and tribal affiliation in favor of integration into mainstream society. 
 
- In 1956, the federal government reinforced these assimilationists policies with the passage of the Indian Relocation Act (Public Law 949), which initiated a new program, the Adult Vocational Training program. This program offered housing assistance, vocational training, and job placement services under the BIA. The selection process for the AVT program is meticulous since if the US government was going to pay for Indigenous Americans to gain an education and vocational skills, they wanted to “identify the applicants with the greatest potential for making a clean break from the reservation and assimilating into the city” (Rosenthal 2012: 53). This exmplemfies how the VRP and the AVT programs not only were meant to serve as economic initiatives but were also deeply rooted in federal policies that were designed to erode Indigenous identity and community ties. 
+In 1956, the federal government reinforced these assimilationists policies with the passage of the Indian Relocation Act (Public Law 949), which initiated a new program, the Adult Vocational Training program. This program offered housing assistance, vocational training, and job placement services under the BIA. The selection process for the AVT program is meticulous since if the US government was going to pay for Indigenous Americans to gain an education and vocational skills, they wanted to “identify the applicants with the greatest potential for making a clean break from the reservation and assimilating into the city” (Rosenthal 2012: 53). This exmplemfies how the VRP and the AVT programs not only were meant to serve as economic initiatives but were also deeply rooted in federal policies that were designed to erode Indigenous identity and community ties. 
 
 Despite these efforts, the relocation of thousands of Indigenous individuals to urban centers led to the emergence of new forms of Indigenous identity and political consciousness. In many cities, relocated individuals found themselves in shared experiences of marginalization and cultural dislocation, leading to the development of intertribal and pan-Indian identities. These urban Indigenous communities established organizations focused on mutual aid, social services, education, and political activism. It was within these very spaces that the Red Power Movement gained momentum, ultimately giving rise to the American Indian Movement (AIM). In response to systemic anti-Indigenous policies, discrimination, and police violence, Indigenous activists mobilized, advocating for self-determination, tribal sovereignty, and Indigenous rights on a national scale (Kent-Stoll 2024).
 
@@ -56,7 +56,7 @@ The Latinization of Indigenous individuals also plays a role in the formation of
 
 Even education is known to play a role in multiracial classification. The previous understanding was that people with higher levels of education found Indigenous identity more appealing, especially in metropolitan areas (Eschbach et al. 1998). However, more recent studies have found that except for Black Native Americans, all groups of Native Americans generally have lower levels of education and more frequently face barriers to educational attainment (Huyser, Sakamoto, and Takei 2010; Kao and Thompson 2003). 
 
-**Methods and Data**
+### **Methods and Data**
 
 #### Using Ancestry to Identify a Multiracial Indigenous Population
 
@@ -78,7 +78,7 @@ After the final case selection was concluded the sample size was 490,172 respond
 
 I use several multinomial logistic regression models to estimate the relationship between racial ancestry, race response, and the predictor variables. The dependent variable has three categories of race response: Indigenous Alone, Multiracial, and non-Indigenous Race Alone. The key independent variable is racial ancestry. The predictor variables are metropolitan status (unknown status, non-metropolitan area, metropolitan area), homeland area (binary), educational attainment (less than HS diploma, HS diploma, some college, 4-year degree or more), gender (binary), Hispanic origin (binary), and age (continuous, 18+).\
 
-**Results**
+### **Results** 
 
 #### Multinomial Logistic Regression Models
 
