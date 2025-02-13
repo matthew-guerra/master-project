@@ -1,5 +1,5 @@
 ---
-title: "Navigating Ancestry and Racial Classification Amongst Multiracial Indigenous American"
+title: "Navigating Ancestry and Racial Classification Amongst Multiracial Indigenous Americans"
 shorttitle: "Navigating Ancestry and Racial Classification"
 abstract: How does proximity to a Homeland affect the racial decision-making process for those with mixed Indigenous ancestry? Can living in a rural area account for the influence of the Homeland variable? In this article I use data from the American Community Survey (ACS) from 2010 to 2020, to investigate the relationship between an individual's self-identified racial classification by estimating multinomial logistic regression models. The results indicate that living in a homeland or being of Hispanic Origin were the strongest predictors of whether a respondent would self-identify as Indigenous alone. These results reaffirm previous research related to the homeland variable as a strong indicator of Indigenous racial identification while expanding on its application by looking at an adult multiracial population.  
 keywords: [Indigenous identity, Multiracial studies, Ancestry, Racial decision-making, Racial classification]
@@ -82,7 +82,68 @@ I use several multinomial logistic regression models to estimate the relationshi
 
 #### Multinomial Logistic Regression Models
 
-My research question focuses on understanding the relationship between the Homeland variable and the racial decision-making process for those with mixed Indigenous ancestry, in addition to determining of rurality affects the predictive power of the Homeland variable. I use the focal predictor variables to answer this question by identifying the relationship between the dependent and independent variables and the predictor variables. Each table presents coefficients, standard errors, and significance levels for the multinomial logistic regression models predicting race response with the predictor variables. Non-Indigenous Race alone is the reference group for each model, as the goal of the project is to determine how rurality and the Homeland variable influence a move towards Indiginety or multiraciality. Table 1 represents respondents with White and Indigenous ancestry, Table 2 repreresents respondents with  Black and Indigenous ancestry, and Table 3 represents respondents with Asian and Indigenous ancestry. The model results compare the predicted race response of Indigenous Alone and Multiracial to non-Indigenous Race Alone with a separate table for each ancestry group. The base models of each table look at racial responses in relation to metropolitan status, the subsequent model adds Homeland status and the final model adds educational attainment, gender, Hispanic origin, and age. This setup creates three tables with three models each for a total of 9 models.
+My research question focuses on understanding the relationship between the Homeland variable and the racial decision-making process for those with mixed Indigenous ancestry, in addition to determining of rurality affects the predictive power of the Homeland variable. I use the focal predictor variables to answer this question by identifying the relationship between the dependent and independent variables and the predictor variables. Each table presents coefficients, standard errors, and significance levels for the multinomial logistic regression models predicting race response with the predictor variables. Non-Indigenous Race alone is the reference group for each model, as the goal of the project is to determine how rurality and the Homeland variable influence a move towards Indiginety or multiraciality. @tbl-1 represents respondents with White and Indigenous ancestry, @tbl-2 repreresents respondents with  Black and Indigenous ancestry, and @tbl-3 represents respondents with Asian and Indigenous ancestry. The model results compare the predicted race response of Indigenous Alone and Multiracial to non-Indigenous Race Alone with a separate table for each ancestry group. The base models of each table look at racial responses in relation to metropolitan status, the subsequent model adds Homeland status and the final model adds educational attainment, gender, Hispanic origin, and age. This setup creates three tables with three models each for a total of 9 models.
+
+```{r}
+# label: customize-responses
+DATA <- DATA |>
+  filter(race_response!="Inconsistent")
+DATA$race_response <- factor(DATA$race_response,
+                             levels=c("Non-Indigenous Race Alone",
+                                      "Indigenous, Alone",
+                                      "Consistent"))
+```
+
+```{r}
+#model set up stuff
+cm <- c('(Intercept)' = '(Intercept)',
+        'MetroCMetropolitan'    = 'Metro Area',
+        'MetroCUnknown'    = 'Uknown Area',
+        'HomelandPYes' = 'Homeland Area',
+        'EducAHS Diploma' = 'HS Diploma',
+        'EducASome College' = 'Some College',
+        'EducACollege' = 'College Degree',
+        'GenderMan' = 'Man',
+        'HispanicHispanic' = 'Hispanic',
+        'Age' = 'Age')
+```
+
+```{r}
+#| label: tbl-1
+#| tbl-cap: Respondents with White and Indigenous Ancestry
+#| results: asis
+model1 <- multinom(race_response~MetroC,
+                  data=subset(DATA, race_ancestry=="Indigenous/White"))
+model2 <- update(model1, .~.+HomelandP)
+model3 <- update(model2, .~.+EducA+Gender+Hispanic+Age)
+modelsummary(list(model1,model2,model3),
+             digits=3, shape = term ~ model+response, stars = TRUE,coef_map = cm, gof_omit = "weights")
+```
+
+```{r}
+#| label: tbl-2
+#| tbl-cap: Respondents with Black and Indigenous Ancestry
+#| results: asis
+model4 <- multinom(race_response~MetroC,
+                  data=subset(DATA, race_ancestry=="Indigenous/Black"))
+model5 <- update(model4, .~.+HomelandP)
+model6 <- update(model5, .~.+EducA+Gender+Hispanic+Age)
+modelsummary(list(model4,model5,model6),
+             digits=3, shape = term ~ model+response, stars = TRUE,
+             coef_map = cm)
+```
+
+```{r}
+#| label: tbl-3
+#| tbl-cap: Respondents with Asian and Indigenous Ancestry
+#| results: asis
+model7 <- multinom(race_response~MetroC,
+                  data=subset(DATA, race_ancestry=="Indigenous/Asian"))
+model8 <- update(model7, .~.+HomelandP)
+model9 <- update(model8, .~.+EducA+Gender+Hispanic+Age)
+modelsummary(list(model7,model8,model9),
+             digits=3, shape = term ~ model+response, stars = TRUE, coef_map = cm)
+```
 
 #### Metropolitan Status
 
@@ -90,7 +151,7 @@ Metropolitan status indicates whether someone lives in a metropolitan area or no
 
 For respondents with both Black and Indigenous ancestry, living in a metropolitan area affects how they identify racially. Initially, living in a metro area makes them 51% less likely to identify as Indigenous than as Black. Although there is a slight tendency for metro residents to identify as multiracial, this link isn’t statistically significant.
 
-However, when Homeland status is included, this pattern changes. Now, living in a metro area slightly reduces the likelihood (19% ) of identifying as Indigenous over Black, though this effect is insignificant in Table 2. On the other hand, living in a metro area significantly increases the odds of identifying as multiracial versus Black, by 30%.
+However, when Homeland status is included, this pattern changes. Now, living in a metro area slightly reduces the likelihood (19% ) of identifying as Indigenous over Black, though this effect is insignificant in @tbl-2. On the other hand, living in a metro area significantly increases the odds of identifying as multiracial versus Black, by 30%.
 
 For those with both Asian and Indigenous ancestry, the likelihood of identifying as Indigenous rather than Asian alone was 83% lower for those living in metropolitan areas, and 34% lower for those who identified as multiracial instead of Asian. When Homeland status was taken into account, the chance of identifying as Indigenous instead of Asian was still 56% lower. However, the odds of identifying as multiracial versus Asian were not statistically significant, though they were 10% lower.
 
@@ -119,11 +180,11 @@ Overall, Hispanic origin increased the likelihood of identifying as Indigenous o
 
 #### Age
 
-Age as a predictor variable demonstrated significant yet minimal effects on racial response. Amongst respondents with White and Indigenous ancestry it was observed that for every year in age, there was a minimal increase in the likelihood for respondents to identify as Indigenous rather than White by 0.002%, and as Multiracial rather than White by 0.001% For those with Black and Indigneous ancestry, every increase in age was associated with a 0.003% decrease in the likelihood a respondent would identify as multiracial rather than Black. There was a similar trend with respindents with both Asian and Indigneous ancestry as for every increase in age there was a 0.01% increase in the likelihood a respondent would identify as Indigenous alone versus Asian.
+Age as a predictor variable demonstrated significant yet minimal effects on racial response. Among respondents with White and Indigenous ancestry it was observed that for every year in age, there was a minimal increase in the likelihood for respondents to identify as Indigenous rather than White by 0.002%, and as Multiracial rather than White by 0.001% For those with Black and Indigneous ancestry, every increase in age was associated with a 0.003% decrease in the likelihood a respondent would identify as multiracial rather than Black. There was a similar trend with respindents with both Asian and Indigneous ancestry as for every increase in age there was a 0.01% increase in the likelihood a respondent would identify as Indigenous alone versus Asian.
 
 ### **Discussion**
 
-The previously discussed results demonstrated patterns that reaffirmed previous findings related to Indigenous identity and revealed unique deviations. After further reviewing metropolitan status three distinct patterns were identified concerning racial identity responses amongst the three mixed racial ancestry groups after reviewing all models. Initially, in Table 1 Model 1, it was found that living in a metropolitan area was negatively associated with identifying as Indigenous alone and that living in a metro area was more likely to indicate a multiracial identity. However, there was a noticeable change once the Homeland variable was added to the second model in Table 1. When the variable was added to the model it was estimated that for a respondent who lived in a metropolitan area that was also located in a Homeland, there was a 37% increase in the odds of them identifying as Indigenous alone versus multiracial which had increased by 24% from its original 17% to its current 41%. When reviewing Table 2  it was found that for those with Black and Indigenous ancestry, living in a metropolitan area was associated with a different pattern. These respondents tended to move away from an Indigenous identity and towards identifying as Black alone. In contrast, a multiracial identity remained an option at a similar association rate, meaning the one-drop rule appeared to have some saliency in some cases but not all. In Table 3 respondents with Asian and Indigenous ancestry, living in a metropolitan area correlated with a tendency to move away from identifying with their Indigenous ancestry and towards identifying exclusively as Asian rather than multiracial or Indigenous alone. However, once the Homeland variable was added to the second model in Table 3 the likelihood of respondents identifying as Indigenous alone rose by 28% and the likelihood of identifying as multiracial rose by 33% although not significant.
+The previously discussed results demonstrated patterns that reaffirmed previous findings related to Indigenous identity and revealed unique deviations. After further reviewing metropolitan status three distinct patterns were identified concerning racial identity responses among the three mixed racial ancestry groups after reviewing all models. Initially, in @tbl-1 Model 1, it was found that living in a metropolitan area was negatively associated with identifying as Indigenous alone and that living in a metro area was more likely to indicate a multiracial identity. However, there was a noticeable change once the Homeland variable was added to the second model in @tbl-1. When the variable was added to the model it was estimated that for a respondent who lived in a metropolitan area that was also located in a Homeland, there was a 37% increase in the odds of them identifying as Indigenous alone versus multiracial which had increased by 24% from its original 17% to its current 41%. When reviewing @tbl-2  it was found that for those with Black and Indigenous ancestry, living in a metropolitan area was associated with a different pattern. These respondents tended to move away from an Indigenous identity and towards identifying as Black alone. In contrast, a multiracial identity remained an option at a similar association rate, meaning the one-drop rule appeared to have some saliency in some cases but not all. In \@tbl-3 respondents with Asian and Indigenous ancestry, living in a metropolitan area correlated with a tendency to move away from identifying with their Indigenous ancestry and towards identifying exclusively as Asian rather than multiracial or Indigenous alone. However, once the Homeland variable was added to the second model in @tbl-3 the likelihood of respondents identifying as Indigenous alone rose by 28% and the likelihood of identifying as multiracial rose by 33% although not significant.
 
 \
 Additionally, being of Hispanic or Latino origin emerges as a significant predictor of identifying as Indigenous alone. This trend aligns with broader processes of racial classification that shape multiracial Indigenous identity, as discussed in the context of regimes of multiracial classification. The Latinization of Indigenous individuals, particularly within institutional settings like the education system, underscores how identity can be administratively reshaped. These shifts reveal the dual pressures faced by Indigenous people of Hispanic or Latino origin, as both self-identification and institutional classifications are shaped by a racial formation process that does not fully account for the complexity of Indigenous identity. Thus, for Hispanic or Latino Indigenous individuals, identifying as Indigenous alone can serve as a counteraction to these erasures, a means of reasserting their Indigenous identity in a system inclined to categorize them as part of a broader Latino group. This finding connects to the regimes of multiracial classification, where ancestry and historical context both play a critical role in the classification process, impacting Indigenous identity formation amid broader racial and institutional forces.
