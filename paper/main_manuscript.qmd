@@ -9,6 +9,7 @@ csl: ../bibliography/american-sociological-association.csl
 format:
   aog-article-pdf:
     keep-tex: false
+    linestretch: 2  
     include-in-header: 
       text: |
         \usepackage{dcolumn}
@@ -19,6 +20,9 @@ format:
 #       text: |
 #         \usepackage{dcolumn}
   submittable-docx: default
+execute:
+  warning: false
+  message: false
 ---
 
 ```{r}
@@ -91,9 +95,13 @@ DATA$race_response <- factor(DATA$race_response,
                              levels=c("Non-Indigenous Race Alone",
                                       "Indigenous, Alone",
                                       "Consistent"))
+DATA$race_response <- forcats::fct_recode(DATA$race_response,
+                                               "Indigenous" = "Indigenous, Alone", "Consistent" = "Multiracial")
+
 ```
 
 ```{r}
+#| include: false
 #model set up stuff
 cm <- c('(Intercept)' = '(Intercept)',
         'MetroCMetropolitan'    = 'Metro Area',
@@ -105,28 +113,32 @@ cm <- c('(Intercept)' = '(Intercept)',
         'GenderMan' = 'Man',
         'HispanicHispanic' = 'Hispanic',
         'Age' = 'Age')
+model1 <- multinom(race_response~MetroC,
+                  data=subset(DATA, race_ancestry=="Indigenous/White"))
+model2 <- update(model1, .~.+HomelandP)
+model3 <- update(model2, .~.+EducA+Gender+Hispanic+Age)
+model4 <- multinom(race_response~MetroC,
+                  data=subset(DATA, race_ancestry=="Indigenous/Black"))
+model5 <- update(model4, .~.+HomelandP)
+model6 <- update(model5, .~.+EducA+Gender+Hispanic+Age)
+model7 <- multinom(race_response~MetroC,
+                  data=subset(DATA, race_ancestry=="Indigenous/Asian"))
+model8 <- update(model7, .~.+HomelandP)
+model9 <- update(model8, .~.+EducA+Gender+Hispanic+Age)
 ```
 
 ```{r}
 #| label: tbl-1
 #| tbl-cap: Respondents with White and Indigenous Ancestry
 #| results: asis
-model1 <- multinom(race_response~MetroC,
-                  data=subset(DATA, race_ancestry=="Indigenous/White"))
-model2 <- update(model1, .~.+HomelandP)
-model3 <- update(model2, .~.+EducA+Gender+Hispanic+Age)
 modelsummary(list(model1,model2,model3),
-             digits=3, shape = term ~ model+response, stars = TRUE,coef_map = cm, gof_omit = "weights")
+             digits=3, shape = term ~ model+response, stars = TRUE,coef_map = cm)
 ```
 
 ```{r}
 #| label: tbl-2
 #| tbl-cap: Respondents with Black and Indigenous Ancestry
 #| results: asis
-model4 <- multinom(race_response~MetroC,
-                  data=subset(DATA, race_ancestry=="Indigenous/Black"))
-model5 <- update(model4, .~.+HomelandP)
-model6 <- update(model5, .~.+EducA+Gender+Hispanic+Age)
 modelsummary(list(model4,model5,model6),
              digits=3, shape = term ~ model+response, stars = TRUE,
              coef_map = cm)
@@ -136,10 +148,6 @@ modelsummary(list(model4,model5,model6),
 #| label: tbl-3
 #| tbl-cap: Respondents with Asian and Indigenous Ancestry
 #| results: asis
-model7 <- multinom(race_response~MetroC,
-                  data=subset(DATA, race_ancestry=="Indigenous/Asian"))
-model8 <- update(model7, .~.+HomelandP)
-model9 <- update(model8, .~.+EducA+Gender+Hispanic+Age)
 modelsummary(list(model7,model8,model9),
              digits=3, shape = term ~ model+response, stars = TRUE, coef_map = cm)
 ```
@@ -154,7 +162,6 @@ However, when Homeland status is included, this pattern changes. Now, living in 
 
 For people with both Asian and Indigenous ancestry, living in a metropolitan area significantly decreases the likelihood of identifying as Indigenous. Specifically, they are 81% less likely to identify as Indigenous instead of Asian and 34% less likely to identify as multiracial rather than Asian. When Homeland status is included in the model, the likelihood of identifying as Indigenous instead of Asian remains 56% lower. However, the difference in identifying as multiracial versus Asian is no longer statistically significant, although it is still 12% lower.
 
-\
 Accounting for education, gender, Hispanic origin, and age led to minimal changes across all three ancestry groups.
 
 #### Homeland Status
@@ -183,7 +190,7 @@ Age as a predictor variable demonstrated significant yet minimal effects on raci
 
 ### **Discussion**
 
-The previously discussed results demonstrated patterns that reaffirmed previous findings related to Indigenous identity and revealed unique deviations. After further reviewing metropolitan status three distinct patterns were identified concerning racial identity responses among the three mixed racial ancestry groups after reviewing all models. Initially, in @tbl-1 Model 1, it was found that living in a metropolitan area was negatively associated with identifying as Indigenous alone and that living in a metropolitan area was more likely to indicate a multiracial identity. However, there was a noticeable change once the Homeland variable was added to the second model in @tbl-1. When the variable was added to the model it was estimated that for a respondent who lived in a metropolitan area that there was a 47% increase in the likelihood of them identifying as Indigenous alone versus White. This finding potentially indicates that living in a rural area alone does not increase the likelihood of identifying as Indigenous Alone. It is important to distinguish this point since many reservations are located in rural and geographically isolated areas [@huyser2018 ; @snipp_american_1989].
+The previously discussed results demonstrated patterns that reaffirmed previous findings related to Indigenous identity and revealed unique deviations. After further reviewing metropolitan status three distinct patterns were identified concerning racial identity responses among the three mixed racial ancestry groups after reviewing all models. Initially, in @tbl-1 Model 1, it was found that living in a metropolitan area was negatively associated with identifying as Indigenous alone and that living in a metropolitan area was more likely to indicate a multiracial identity. However, there was a noticeable change once the Homeland variable was added to the second model in @tbl-1. When the variable was added to the model it was estimated that for a respondent who lived in a metropolitan area that there was a 47% increase in the likelihood of them identifying as Indigenous alone versus White. This finding potentially indicates that living in a rural area alone does not increase the likelihood of identifying as Indigenous Alone. It is important to distinguish this point since many reservations are located in rural and geographically isolated areas [@huyser2018; @snipp_american_1989].
 
 When reviewing @tbl-2 it was found that for those with Black and Indigenous ancestry, living in a metropolitan area was associated with a different pattern. These respondents tended to move away from an Indigenous identity and towards identifying as Black alone, and it was only after adding Homeland status to the model did multiraciality become statistically significant at a 30% likelihood to identify as multiracial versus Black.
 
