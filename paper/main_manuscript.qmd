@@ -9,7 +9,6 @@ csl: ../bibliography/american-sociological-association.csl
 format:
   aog-article-pdf:
     keep-tex: false
-    linestretch: 2  
     include-in-header: 
       text: |
         \usepackage{dcolumn}
@@ -67,7 +66,7 @@ Educational attainment is known to play a role in multiracial classification. Fo
 
 The goal of this research project is to identify the role that rurality and living on a Homeland affects the racial decision-making process for the adult, multiracial Indigenous population. This is done by analyzing the race reporting of individuals who indicate Indigenous ancestry in addition to another distinct ancestry group. On the ACS, respondents are asked about their ancestry via the question “What is this person's ancestry or ethnic origin,” and have two lines to list their responses which are manually typed and inputted as their responses[@bureau_about_nodate-1]. 
 
-For this study, the term Indigenous is used in place of the American Indian and Alaskan Native (AIAN) category for simplicity's sake as it functions as a collective term since this project does not focus on a specific Nation, reservation, group, and so on. It should be noted that this is not done to imply Indigenous people are a monolith rather is a necessity when conducting a project that seeks to find patterns of racial identification that span across individual groups as evidence of the unique role of settler colonialism in the racialization of Indigenous Peoples in the U.S.
+For this study, the term Indigenous is used in place of the American Indian and Alaskan Native (AIAN) category for simplicity's sake as it functions as a collective term since this project does not focus on a specific Nation, reservation, group, and so on. It should be noted that this is not done to imply Indigenous people are a monolith rather is a necessity when conducting a project that seeks to find patterns of racial identification that span across individual groups as evidence of the unique role of settler colonialism in the racialization of Indigenous people in the U.S.
 
 Part of the data organization of this project required the identification of a multiracial population, specifically an Indigenous multiracial population. The Goldstein and Morning method was adopted, which relies on looking at adults' self-reported ancestry [@goldstein_multiple-race_2000] This approach is beneficial since it does not rely on the race question to identify a multiracial Indigenous population, the multiracial population captured with this approach is aware of their ancestral descent, and takes advantage of the free response nature of the question of the ancestry nature. 
 
@@ -219,7 +218,7 @@ ggplot(data = DATA, aes(x = race_response, fill = race_ancestry, group=race_ance
 
 ### **Conclusion**
 
-The findings from this study revealed patterns of Indigenous identity that align with previous research while also presenting unique deviations. Analysis of metropolitan status across the three multiracial ancestry groups identified distinct patterns in identity responses. In Model 1, metropolitan residence was negatively associated with identifying as Indigenous alone and positively associated with multiracial identification. However, when the Homeland variable was introduced, there was a 47% increase in the likelihood of Indigenous-alone identification among metropolitan respondents, suggesting that rural residence alone does not significantly increase Indigenous-alone identity without the presence of a Homeland connection.
+The findings from this study revealed patterns of Indigenous identity that align with previous research while also presenting unique deviations. Analysis of metropolitan status across the three multiracial ancestry groups identified distinct patterns in identity responses. In the first model in @tbl-1, metropolitan residence was negatively associated with identifying as Indigenous alone and positively associated with multiracial identification. However, when the Homeland variable was introduced, there was a 47% increase in the likelihood of Indigenous-alone identification among metropolitan respondents, suggesting that rural residence alone does not significantly increase Indigenous-alone identity without the presence of a Homeland connection.
 
 For respondents with Black and Indigenous ancestry, metropolitan residence correlated with a shift away from Indigenous identity toward Black-alone identification. After including the Homeland variable, the likelihood of multiracial identification increased by 30%, highlighting the variable's role in maintaining Indigenous identity among this group. Similarly, respondents with Asian and Indigenous ancestry demonstrated a tendency to identify as Asian alone in metropolitan areas. Yet, the addition of the Homeland variable resulted in a 127% increase in Indigenous-alone identity and a 33% increase in multiracial identification, although the latter was not statistically significant.
 
