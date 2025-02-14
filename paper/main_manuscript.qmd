@@ -97,7 +97,7 @@ DATA$race_response <- factor(DATA$race_response,
                                       "Indigenous, Alone",
                                       "Consistent"))
 DATA$race_response <- forcats::fct_recode(DATA$race_response,
-                                               "Indigenous" = "Indigenous, Alone", "Consistent" = "Multiracial")
+                                               "Indigenous" = "Indigenous, Alone")
 
 ```
 

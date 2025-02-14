@@ -110,12 +110,12 @@ modelsummary(list(model7,model8,model9),
 ```
 
 ```{r}
-#| label: fig-race-ancestry
+#| label: fig-1
 #| fig-cap: Comparing listed ancestry and race classification
 ggplot(data = DATA, aes(x = race_response, fill = race_ancestry, group=race_ancestry, y=after_stat(prop))) + 
   geom_bar(position = "dodge") +
   scale_y_continuous(labels = scales::percent) +
-  labs(x = "Self-Identified Racial Classification", y = NULL, fill = "Ancestry")+
+  labs(x = "Racial Calssification by Ancestry", y = NULL, fill = "Ancestry")+
   theme(axis.title.x = element_text(vjust = -1)) 
 ```
 
