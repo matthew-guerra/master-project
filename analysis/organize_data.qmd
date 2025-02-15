@@ -222,11 +222,11 @@ consistent_ai <- c(850,851,852,853,854,905,916,930,940,941,950,960,961,970,971,9
 DATA <- DATA |>
   mutate(race_response=case_when(
     RaceD %in% indigenous_alone ~ "Indigenous, Alone",
-    race_ancestry == "Indigenous/White" & RaceD %in% consistent_wi ~ "Consistent",
+    race_ancestry == "Indigenous/White" & RaceD %in% consistent_wi ~ "Multiracial",
     race_ancestry == "Indigenous/White" & RaceD %in% white_alone ~ "Non-Indigenous Race Alone",
-    race_ancestry == "Indigenous/Black" & RaceD %in% consistent_bi ~ "Consistent",
+    race_ancestry == "Indigenous/Black" & RaceD %in% consistent_bi ~ "Multiracial",
     race_ancestry == "Indigenous/Black" & RaceD %in% black_alone ~ "Non-Indigenous Race Alone",
-    race_ancestry == "Indigenous/Asian" & RaceD %in% consistent_ai~ "Consistent",
+    race_ancestry == "Indigenous/Asian" & RaceD %in% consistent_ai~ "Multiracial",
     race_ancestry == "Indigenous/Asian" & RaceD %in% asian_alone ~ "Non-Indigenous Race Alone",
     TRUE ~ "Inconsistent"
   ))

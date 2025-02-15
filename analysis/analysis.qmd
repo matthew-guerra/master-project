@@ -29,7 +29,7 @@ DATA <- DATA |>
 DATA$race_response <- factor(DATA$race_response,
                              levels=c("Non-Indigenous Race Alone",
                                       "Indigenous, Alone",
-                                      "Consistent"))
+                                      "Multiracial"))
 ```
 
 ```{r}
