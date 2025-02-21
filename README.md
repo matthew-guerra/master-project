@@ -7,3 +7,5 @@ How does proximity to a Homeland shape the racial decision-making process for in
 ## The Data
 
 The data used for this project was compiled from American Community Survey data from 2010-2020. The data was extracted from [IPUMS](https://www.ipums.org/). IPUMS does not allow the redistribution of the data, however for reproducibility, the file `usa_00011.cbk.txt` contains all the information on which variables and which datasets were included in the extract.
+
+The analysis subdirectory contains all of the data and R scripts used for the analysis as well as additional documentation. The products subdirectory contains files used to write the final paper.
