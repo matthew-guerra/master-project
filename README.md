@@ -1,4 +1,4 @@
-# Paper Title (TBD)
+# Navigating Ancestry and Racial Classification Amongst Multiracial Indigenous Americans
 
 Analysis performed in R on Census and American Community Survey data from [IPUMS](https://www.ipums.org/).
 
