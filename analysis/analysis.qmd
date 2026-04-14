@@ -82,7 +82,6 @@ ggplot(subset(temp, race_response!="Non-Indigenous Race Alone"),
   scale_y_continuous(labels = percent_format())
 ```
 
-Looking at model 1, those who listed their ancestry as "Indigenous/White"
 
 ```{r}
 #| label: tbl-2
