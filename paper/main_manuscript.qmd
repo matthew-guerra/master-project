@@ -36,15 +36,60 @@ load(here("data","data_constructed","analytical_data.RData"))
 
 # **Introduction**
 
-On January 1, 1952, the Bureau of Indian Affairs (BIA) launched the Voluntary Relocation Program, and established field offices in Chicago, Salt Lake City, Denver, San Francisco, San Jose, Los Angeles, Oakland, Portland, Dallas, Tulsa, Oklahoma, St. Louis, Minneapolis, Cincinnati, Cleveland, and Joliet and Waukegan, Illinois [@kent-stoll_dispossessory_2024]. The program was advertised as a pathway to economic stability, promising Indigenous Americans better employment opportunities, improved housing, and an overall better quality of life if they decided to leave their rural reservations for urban centers [@rosenthal_reimagining_2012]. However, beneath the promise for a better life was the federal agenda of forced assimilation, which sought to sever the connection between indigenous people from their homelands, cultures, and tribal affiliation in favor of integration into mainstream society.
+On January 1, 1952, the Bureau of Indian Affairs (BIA) launched the Voluntary
+Relocation Program, and established field offices in Chicago, Salt Lake City,
+Denver, San Francisco, San Jose, Los Angeles, Oakland, Portland, Dallas,
+Tulsa, Oklahoma, St. Louis, Minneapolis, Cincinnati, Cleveland, and Joliet and
+Waukegan, Illinois [@kent-stoll_dispossessory_2024]. The program was
+advertised as a pathway to economic stability, promising Indigenous Americans
+better employment opportunities, improved housing, and an overall better
+quality of life if they decided to leave their rural reservations for urban
+centers [@rosenthal_reimagining_2012]. However, beneath the promise for a
+better life was the federal agenda of forced assimilation, which sought to
+sever the connection between indigenous people from their homelands, cultures,
+and tribal affiliation in favor of integration into mainstream society.
 
-In 1956, the federal government continued these policies of assimilation with the passage of the Indian Relocation Act (Public Law 949), which initiated a new program, the Adult Vocational Training program. This program offered housing assistance, vocational training, and job placement services under the BIA. The selection process for the AVT program was meticulous since if the US government was going to pay for Indigenous Americans to gain an education and vocational skills, they wanted to “identify the applicants with the greatest potential for making a clean break from the reservation and assimilating into the city” [@rosenthal_reimagining_2012 p. 53] . This exemplifies how the VRP and the AVT programs not only were meant to serve as economic initiatives but were also deeply rooted in federal policies that were designed to erode Indigenous identity and community ties.
+In 1956, the federal government continued these policies of assimilation with
+the passage of the Indian Relocation Act (Public Law 949), which initiated a
+new program, the Adult Vocational Training program. This program offered
+housing assistance, vocational training, and job placement services under the
+BIA. The selection process for the AVT program was meticulous since if the US
+government was going to pay for Indigenous Americans to gain an education and
+vocational skills, they wanted to “identify the applicants with the greatest
+potential for making a clean break from the reservation and assimilating into
+the city” [@rosenthal_reimagining_2012 p. 53] . This exemplifies how the VRP
+and the AVT programs not only were meant to serve as economic initiatives but
+were also deeply rooted in federal policies that were designed to erode
+Indigenous identity and community ties.
 
-Despite these efforts, the relocation of thousands of Indigenous individuals to urban centers led to the emergence of new forms of Indigenous identity and political consciousness. In many cities, relocated individuals found themselves in shared experiences of marginalization and cultural dislocation, leading to the development of inter-tribal and pan-Indian identities. These urban Indigenous communities established organizations focused on mutual aid, social services, education, and political activism. It was within these very spaces that the Red Power Movement gained momentum, ultimately giving rise to the American Indian Movement (AIM). In response to systemic anti-Indigenous policies, discrimination, and police violence, Indigenous activists mobilized, advocating for self-determination, tribal sovereignty, and Indigenous rights on a national scale [@kent-stoll_dispossessory_2024].
+Despite these efforts, the relocation of thousands of Indigenous individuals
+to urban centers led to the emergence of new forms of Indigenous identity and
+political consciousness. In many cities, relocated individuals found
+themselves in shared experiences of marginalization and cultural dislocation,
+leading to the development of inter-tribal and pan-Indian identities. These
+urban Indigenous communities established organizations focused on mutual aid,
+social services, education, and political activism. It was within these very
+spaces that the Red Power Movement gained momentum, ultimately giving rise to
+the American Indian Movement (AIM). In response to systemic anti-Indigenous
+policies, discrimination, and police violence, Indigenous activists mobilized,
+advocating for self-determination, tribal sovereignty, and Indigenous rights
+on a national scale [@kent-stoll_dispossessory_2024].
 
-Examining the history of both forced and voluntary Indigenous relocation highlights a critical avenue for understanding the role of geographic settings—whether metropolitan,rural, or a homeland—in shaping racial identity and classification. The process by which multiracial Indigenous individuals navigate their identity within these different environments offers key insights into contemporary shifts in racial boundary formation. Investigating these dynamics is essential to understanding how Indigenous and non-Indigenous individuals alike engage in racial decision-making, and how historical and structural forces continue to influence how Indigenous identity is constructed and recognized in the present day.
+Examining the history of both forced and voluntary Indigenous relocation
+highlights a critical avenue for understanding the role of geographic
+settings—whether metropolitan,rural, or a homeland—in shaping racial identity
+and classification. The process by which multiracial Indigenous individuals
+navigate their identity within these different environments offers key
+insights into contemporary shifts in racial boundary formation. Investigating
+these dynamics is essential to understanding how Indigenous and non-Indigenous
+individuals alike engage in racial decision-making, and how historical and
+structural forces continue to influence how Indigenous identity is constructed
+and recognized in the present day.
 
-This research project builds on this historical context by examining how metropolitan status—particularly rurality—and residence on a Homeland continue to shape the racial self-identification process for adult, multiracial Indigenous individuals.
+This research project builds on this historical context by examining how
+metropolitan status—particularly rurality—and residence on a Homeland continue
+to shape the racial self-identification process for adult, multiracial
+Indigenous individuals.
 
 # **The Formation of a Multiracial Indigenous Identity**
 
