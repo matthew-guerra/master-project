@@ -1,7 +1,7 @@
 ---
 title: "Navigating Ancestry and Racial Classification Amongst Multiracial Indigenous Americans"
 shorttitle: "Navigating Ancestry and Racial Classification"
-abstract: How does living on a Homeland shape the racial decision-making process for individuals with mixed Indigenous ancestry? Can rural residency account for the influence of the Homeland variable? Using data from the American Community Survey (ACS) from 2010 to 2020, this study examines relationship between geographic location and Indigenous self-identification by estimating multinomial logistic regression models. Findings reveal that living in a Homeland or being of Hispanic Origin were the strongest predictors of  Indigenous alone identification.These results reinforce previous research on the Homeland variable as a key predictor of Indigenous racial identification while expanding on its application to an adult multiracial population. By examining how structural and spatial factors shape racial decison-making, this study contributes to to a broader discussion on Indigenous identity formation, multiraciality, and the role of place in racial decision-making.  
+abstract: How does living on an Indigenous Homeland (i.e,. tribally affililated ancestral land) shape the racial decision-making process for individuals with mixed Indigenous ancestry? Can rural residency account for the influence of Indigenous Homeland? Using data from the American Community Survey (ACS) from 2010 to 2020, this study examines relationship between geographic location and Indigenous self-identification by estimating multinomial logistic regression models. Findings reveal that living in a Homeland or being of Hispanic Origin were the strongest predictors of  Indigenous alone identification.These results reinforce previous research on the Homeland variable as a key predictor of Indigenous racial identification while expanding on its application to an adult multiracial population. By examining how structural and spatial factors shape racial decison-making, this study contributes to to a broader discussion on Indigenous identity formation, multiraciality, and the role of place in racial decision-making.  
 keywords: [Indigenous identity, Multiracial studies,Ancestry, Racial decision-making, Racial classification]
 reference-section-title: References
 bibliography: ../bibliography/project.bib
@@ -405,43 +405,139 @@ modelsummary(list(model7,model8,model9),
 
 ## Metropolitan Status
 
-Metropolitan status indicates whether someone lives in a metropolitan area or not. For people with both White and Indigenous ancestry, living in a metropolitan area had different effects on their likelihood of identifying as Indigenous. Initially, those in metropolitan areas were 18% less likely to identify as Indigenous Alone rather than White, compared to those in a rural area. However, when controlling for Homeland status (whether they lived in a traditional Indigenous homeland area), those in metropolitan areas became 47% more likely to identify as Indigenous Alone. This suggests that living in a rural area alone does not increase the likelihood of identifying as Indigenous Alone. Additionally, living in a metropolitan area raised the odds of identifying as multiracial rather than White by 17%, and when controlling for Homeland status, it increased by 21%.
+Metropolitan status indicates whether someone lives in a metropolitan area or
+not. For people with both White and Indigenous ancestry, living in a
+metropolitan area had different effects on their likelihood of identifying as
+Indigenous. Initially, those in metropolitan areas were 18% less likely to
+identify as Indigenous Alone rather than White, compared to those in a rural
+area. However, when controlling for Homeland status (whether they lived in a
+traditional Indigenous homeland area), those in metropolitan areas became 47%
+more likely to identify as Indigenous Alone. This suggests that living in a
+rural area alone does not increase the likelihood of identifying as Indigenous
+Alone. Additionally, living in a metropolitan area raised the odds of
+identifying as multiracial rather than White by 17%, and when controlling for
+Homeland status, it increased by 21%.
 
-For respondents with both Black and Indigenous ancestry, living in a metropolitan area is associated with a 51% decrease in the likelihood of identifying as Indigenous rather than Black. While metropolitan residence was positively associated with identifying as multiracial, this effect was not statistically significant.
+For respondents with both Black and Indigenous ancestry, living in a
+metropolitan area is associated with a 51% decrease in the likelihood of
+identifying as Indigenous rather than Black. While metropolitan residence was
+positively associated with identifying as multiracial, this effect was not
+statistically significant.
 
-However, when Homeland status is included, this pattern changes. Now, living in a metropolitan area increases the likelihood (54% ) of identifying as Indigenous over Black, though this effect is insignificant in @tbl-2. On the other hand, living in a metropolitan area significantly increases the odds of identifying as multiracial versus Black, by 22%.
+However, when Homeland status is included, this pattern changes. Now, living
+in a metropolitan area increases the likelihood (54% ) of identifying as
+Indigenous over Black, though this effect is insignificant in @tbl-2. On the
+other hand, living in a metropolitan area significantly increases the odds of
+identifying as multiracial versus Black, by 22%.
 
-For people with both Asian and Indigenous ancestry, living in a metropolitan area significantly decreases the likelihood of identifying as Indigenous. Specifically, they are 81% less likely to identify as Indigenous instead of Asian and 34% less likely to identify as multiracial rather than Asian. When Homeland status is included in the model, the likelihood of identifying as Indigenous instead of Asian remains 56% lower. However, the difference in identifying as multiracial versus Asian is no longer statistically significant, although it is still 12% lower.
+For people with both Asian and Indigenous ancestry, living in a metropolitan
+area significantly decreases the likelihood of identifying as Indigenous.
+Specifically, they are 81% less likely to identify as Indigenous instead of
+Asian and 34% less likely to identify as multiracial rather than Asian. When
+Homeland status is included in the model, the likelihood of identifying as
+Indigenous instead of Asian remains 56% lower. However, the difference in
+identifying as multiracial versus Asian is no longer statistically
+significant, although it is still 12% lower.
 
-Accounting for education, gender, Hispanic origin, and age led to minimal changes across all three ancestry groups.
+Accounting for education, gender, Hispanic origin, and age led to minimal
+changes across all three ancestry groups.
 
 ## Homeland Status
 
-Living in a location with Homeland status indicates that a respondent’s household is in an area officially designated as an American Indian, Alaska Native, or Native Hawaiian Homeland (AIANNH) area [@bureau_glossary_nodate]. For respondents with both White and Indigenous ancestry, living in a Homeland was associated with a 3x higher likelihood of identifying as Indigenous and a 123% likelihood of identifying as multiracial compared to identifying as White. For respondents with Black and Indigenous ancestry, living in a Homeland was associated with a 230% likelihood of identifying as Indigenous versus Black, and a 66% likelihood of identifying as multiracial versus Black. The impact of Homeland status was strongest for respondents with Asian and Indigenous ancestry: living in a Homeland was associated with a 4x higher likelihood of identifying as Indigenous versus Asian and a 71% likelihood of identifying as multiracial versus Asian.
+Living in a location with Homeland status indicates that a respondent’s
+household is in an area officially designated as an American Indian, Alaska
+Native, or Native Hawaiian Homeland (AIANNH) area [@bureau_glossary_nodate].
+For respondents with both White and Indigenous ancestry, living in a Homeland
+was associated with a 3x higher likelihood of identifying as Indigenous and a
+123% likelihood of identifying as multiracial compared to identifying as
+White. For respondents with Black and Indigenous ancestry, living in a
+Homeland was associated with a 230% likelihood of identifying as Indigenous
+versus Black, and a 66% likelihood of identifying as multiracial versus Black.
+The impact of Homeland status was strongest for respondents with Asian and
+Indigenous ancestry: living in a Homeland was associated with a 4x higher
+likelihood of identifying as Indigenous versus Asian and a 71% likelihood of
+identifying as multiracial versus Asian.
 
-Accounting for education, gender, Hispanic origin, and age led to minimal changes across all three ancestry groups
+Accounting for education, gender, Hispanic origin, and age led to minimal
+changes across all three ancestry groups
 
 ## Educational Attainment
 
-Educational attainment significantly influences racial identification across ancestry groups, with three distinct patterns emerging once respondents attain a college degree. For individuals with both White and Indigenous ancestry, a college degree is associated with a shift away from identifying as White. Specifically, there is a 45% likelihood of identifying as Indigenous alone rather than White, and a 39% likelihood of identifying as Multiracial rather than White. Among those with Black and Indigenous ancestry, a college degree decreases the probability of identifying as Indigenous alone by 30% and increased the likelihood of a Multiracial identity by 12%. For respondents with Asian and Indigenous ancestry, earning a college degree had an insignificant impact on racial decision making.
+Educational attainment significantly influences racial identification across
+ancestry groups, with three distinct patterns emerging once respondents attain
+a college degree. For individuals with both White and Indigenous ancestry, a
+college degree is associated with a shift away from identifying as White.
+Specifically, there is a 45% likelihood of identifying as Indigenous alone
+rather than White, and a 39% likelihood of identifying as Multiracial rather
+than White. Among those with Black and Indigenous ancestry, a college degree
+decreases the probability of identifying as Indigenous alone by 30% and
+increased the likelihood of a Multiracial identity by 12%. For respondents
+with Asian and Indigenous ancestry, earning a college degree had an
+insignificant impact on racial decision making.
 
 ## Gender
 
-Gender showed distinct patterns in racial identification across ancestry groups. Among those with White and Indigenous ancestry, men were more likely than women to identify as either Indigenous or Multiracial rather than White, with similar likelihoods for each option (30% and 29%, respectively). For respondents with Black and Indigenous ancestry, gender did not significantly affect the likelihood of identifying as Indigenous versus Black; however, men were 28% more likely than women to identify as Multiracial rather than Black. Among those with Asian and Indigenous ancestry, gender did not have a significant impact.
+Gender showed distinct patterns in racial identification across ancestry
+groups. Among those with White and Indigenous ancestry, men were more likely
+than women to identify as either Indigenous or Multiracial rather than White,
+with similar likelihoods for each option (30% and 29%, respectively). For
+respondents with Black and Indigenous ancestry, gender did not significantly
+affect the likelihood of identifying as Indigenous versus Black; however, men
+were 28% more likely than women to identify as Multiracial rather than Black.
+Among those with Asian and Indigenous ancestry, gender did not have a
+significant impact.
 
 ## Hispanic Origin
 
-In the ACS, Hispanic Origin refers to individuals of Hispanic/Spanish/Latino origin, where the origin is defined by the Census Bureau as ancestry, lineage, heritage, nationality group, or country of birth [@bureau_hispanic_nodate]. Additionally, those of Hispanic Origin can be any race or any combination of races. For respondents with White and Indigenous ancestry who also identify as Hispanic, the likelihood of identifying as Indigenous rather than White is about 8x higher, while the likelihood of identifying as Multiracial rather than White more than 3.6x higher when respondents are of Hispanic Origin. Black and Indigenous respondents of Hispanic Origin had a 4.4x greater likelihood of identifying as Indigenous alone rather than Black, with a similar positive likelihood for identifying as Multiracial rather than Black at a rate of 3.4 x higher. Among respondents with Asian and Indigenous ancestry, Hispanic Origin was insignificant in its impact on racial decision making for the group.
+In the ACS, Hispanic Origin refers to individuals of Hispanic/Spanish/Latino
+origin, where the origin is defined by the Census Bureau as ancestry, lineage,
+heritage, nationality group, or country of birth [@bureau_hispanic_nodate].
+Additionally, those of Hispanic Origin can be any race or any combination of
+races. For respondents with White and Indigenous ancestry who also identify as
+Hispanic, the likelihood of identifying as Indigenous rather than White is
+about 8x higher, while the likelihood of identifying as Multiracial rather
+than White more than 3.6x higher when respondents are of Hispanic Origin.
+Black and Indigenous respondents of Hispanic Origin had a 4.4x greater
+likelihood of identifying as Indigenous alone rather than Black, with a
+similar positive likelihood for identifying as Multiracial rather than Black
+at a rate of 3.4 x higher. Among respondents with Asian and Indigenous
+ancestry, Hispanic Origin was insignificant in its impact on racial decision
+making for the group.
 
-Overall, Hispanic origin increased the likelihood of identifying as Indigenous or Multiracial, with the strongest effect seen in those with White and Indigenous ancestry and those with Black and Indigenous ancestry. Hispanic Origin was insignificant in terms of its influence for those of Asian and Indigenous ancestry.
+Overall, Hispanic origin increased the likelihood of identifying as Indigenous
+or Multiracial, with the strongest effect seen in those with White and
+Indigenous ancestry and those with Black and Indigenous ancestry. Hispanic
+Origin was insignificant in terms of its influence for those of Asian and
+Indigenous ancestry.
 
 ## Age
 
-Age as a predictor variable demonstrated significant yet minimal effects on racial response. Among respondents with White and Indigenous ancestry it was observed that for every year in age, there was a minimal increase in the likelihood for respondents to identify as Indigenous rather than White by 0.002%, and as Multiracial rather than White by 0.001% For those with Black and Indigenous ancestry, every increase in age was associated with a 0.003% decrease in the likelihood a respondent would identify as multiracial rather than Black. There was a similar trend with respondents with both Asian and Indigenous ancestry as for every increase in age there was a 0.01% increase in the likelihood a respondent would identify as Indigenous alone versus Asian.
+Age as a predictor variable demonstrated significant yet minimal effects on
+racial response. Among respondents with White and Indigenous ancestry it was
+observed that for every year in age, there was a minimal increase in the
+likelihood for respondents to identify as Indigenous rather than White by
+0.002%, and as Multiracial rather than White by 0.001% For those with Black
+and Indigenous ancestry, every increase in age was associated with a 0.003%
+decrease in the likelihood a respondent would identify as multiracial rather
+than Black. There was a similar trend with respondents with both Asian and
+Indigenous ancestry as for every increase in age there was a 0.01% increase in
+the likelihood a respondent would identify as Indigenous alone versus Asian.
 
 # **Discussion**
 
-The previously discussed results demonstrated patterns that reaffirmed previous findings related to Indigenous identity and revealed unique deviations. After further reviewing metropolitan status in all three tree tables,three distinct patterns were identified concerning racial identity responses among the three mixed racial ancestry groups. Initially, in @tbl-1 Model 1, it was found that living in a metropolitan area was negatively associated with identifying as Indigenous alone and that living in a metropolitan area was more likely to indicate a multiracial identity. However, there was a noticeable change once the Homeland variable was added to the second model in @tbl-1. When the variable was added to the model it was estimated that for a respondent who lived in a metropolitan area that there was a 47% increase in the likelihood of them identifying as Indigenous alone versus White. This finding potentially indicates that living in a rural area alone does not increase the likelihood of identifying as Indigenous Alone. It is important to distinguish this point since many reservations are located in rural and geographically isolated areas [@huyser2018; @snipp_american_1989].
+The previously discussed results demonstrated patterns that reaffirmed
+previous findings related to Indigenous identity and revealed unique
+deviations. After further reviewing metropolitan status in all three tree
+tables,three distinct patterns were identified concerning racial identity
+responses among the three mixed racial ancestry groups. Initially, in @tbl-1
+Model 1, it was found that living in a metropolitan area was negatively
+associated with identifying as Indigenous alone and that living in a
+metropolitan area was more likely to indicate a multiracial identity. However,
+there was a noticeable change once the Homeland variable was added to the
+second model in @tbl-1. When the variable was added to the model it was
+estimated that for a respondent who lived in a metropolitan area that there
+was a 47% increase in the likelihood of them identifying as Indigenous alone
+versus White. This finding potentially indicates that living in a rural area alone does not increase the likelihood of identifying as Indigenous Alone. It is important to distinguish this point since many reservations are located in rural and geographically isolated areas [@huyser2018; @snipp_american_1989].
 
 When reviewing @tbl-2 it was found that for those with Black and Indigenous
 ancestry, living in a metropolitan area was associated with a different

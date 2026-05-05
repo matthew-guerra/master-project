@@ -19,3 +19,4 @@ _freeze
 # ignore anything in the constructed data directory
 data/data_constructed/*
 
+.positai
