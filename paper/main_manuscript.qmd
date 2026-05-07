@@ -42,24 +42,24 @@ Tulsa, Oklahoma, St. Louis, Minneapolis, Cincinnati, Cleveland, and Joliet and
 Waukegan, Illinois [@kent-stoll_dispossessory_2024]. The program was
 advertised as a pathway to economic stability, promising Indigenous Americans
 better employment opportunities, improved housing, and an overall better
-quality of life if they decided to leave their rural reservations for urban
-centers [@rosenthal_reimagining_2012]. However, beneath the promise for a
-better life was the federal agenda of forced assimilation, which sought to
-sever the connection between indigenous people from their homelands, cultures,
-and tribal affiliation in favor of integration into mainstream society.
+quality of life if they decided to leave their communities on rural
+reservations for faraway urban centers [@rosenthal_reimagining_2012]. However,
+beneath the promise for a better life was the federal agenda of forced
+assimilation which sought to sever the connection between Indigenous people
+from their homelands, cultures, and tribal affiliation in favor of integration
+into mainstream society.
 
 In 1956, the federal government continued these policies of assimilation with
 the passage of the Indian Relocation Act (Public Law 949), which initiated a
 new program, the Adult Vocational Training program. This program offered
 housing assistance, vocational training, and job placement services under the
-BIA. The selection process for the AVT program was meticulous since if the US
-government was going to pay for Indigenous Americans to gain an education and
-vocational skills, they wanted to “identify the applicants with the greatest
-potential for making a clean break from the reservation and assimilating into
-the city” [@rosenthal_reimagining_2012 p. 53] . This exemplifies how the VRP
-and the AVT programs not only were meant to serve as economic initiatives but
-were also deeply rooted in federal policies that were designed to erode
-Indigenous identity and community ties.
+BIA. The selection process for the AVT program was meticulous, because if the
+US government was going to pay for Indigenous Americans to gain an education
+and vocational skills, they wanted to “identify the applicants with the
+greatest potential for making a clean break from the reservation and
+assimilating into the city” [@rosenthal_reimagining_2012 p. 53] . The VRP and
+the AVT programs were deeply rooted in federal policies that were
+designed to erode Indigenous identity and community ties.
 
 Despite these efforts, the relocation of thousands of Indigenous individuals
 to urban centers led to the emergence of new forms of Indigenous identity and
@@ -74,18 +74,18 @@ policies, discrimination, and police violence, Indigenous activists mobilized,
 advocating for self-determination, tribal sovereignty, and Indigenous rights
 on a national scale [@kent-stoll_dispossessory_2024].
 
-Examining the history of both forced and voluntary Indigenous relocation
-highlights a critical avenue for understanding the role of geographic
-settings—whether metropolitan,rural, or a homeland—in shaping racial identity
-and classification (it should be noted that being Indigenous is not only a 
-racial category, but speaks to a specific socio-politcal relationship a 
-community has with a settler-colonial state). The process by which multiracial Indigenous individuals navigate their identity within these different
-environments offers key insights into contemporary shifts in racial boundary
-formation. Investigatingthese dynamics is essential to understanding how 
-Indigenous and non-Indigenous individuals alike engage in racial
-decision-making, and how historical and structural forces continue to
-influence how Indigenous identity is constructed and recognized in the present
-day.
+Examining the history of Indigenous relocation highlights a need to understand
+the role of geographic settings—whether metropolitan,rural, or a homeland—in
+shaping racial identity and classification (it should be noted that being
+Indigenous is not only a racial category, but speaks to a specific
+socio-political relationship a community has with a settler-colonial state).
+Identifying how multiracial Indigenous individuals navigate their
+identity within these different environments offers key insights into
+contemporary shifts in racial boundary formation. Investigating these dynamics
+is essential to understanding how  Indigenous and non-Indigenous individuals
+alike engage in racial decision-making, and how historical and structural
+forces continue to influence how Indigenous identity is constructed and
+recognized in the present day.
 
 This research project builds on this historical context by examining how
 metropolitan status—particularly rurality—and residence on a Homeland continue
@@ -131,21 +131,7 @@ dominant group [@iverson_regimes_2022]. Gullickson and Morning investigated
 what ‘rules’ guided the identification process for multiracial individuals and
 found three distinct regimes of classification: mixed-race individuals of
 Asian descent were more likely to identify as multiracial, those with
-Black/African ancestry followed the regime of hypodescent and a pattern of
-hyperdescent was observed for those with White and American Indian ancestry
-[-@gullickson_choosing_2011]. The authors further divided these regimes into
-‘historical’ and new/immigrant regimes, where those with European, African,
-and American Indian ancestry were assigned a monoracial group and those of
-part Asian ancestry had a multiracial identity, indicating that ancestry
-matters in the classification process as well as history. However, it is
-important to note that these regimes are examples of racial projects,
-explanations of racial identities that do the ideological heavy lifting of
-connecting structure and meaning in the racial formation process, and there
-are other approaches to how racial classification is understood
-[@omi_racial_2015]. Racial appraisals—a classification system that focuses
-more on 'observed race'--have also been offered as one avenue of future focus [@roth_establishing_2018]. The explanation for this shift in focus is that as
-individuals display greater interest in how they are classified, a natural
-divide occurs between these self-classifications and observed race.
+Black/African ancestry followed the regime of hypodescent (more likely to identify as only Black), and those with White and American Indian ancestry were more likely to identify as only White [-@gullickson_choosing_2011]. The authors further divided these regimes into ‘historical’ and new/immigrant regimes, where those with European, African, and American Indian ancestry were assigned a monoracial group and those of part Asian ancestry had a multiracial identity, indicating that ancestry matters in the classification process as well as history. However, it is important to note that these regimes are examples of racial projects, explanations of racial identities that do the ideological heavy lifting of connecting structure and meaning in the racial formation process, and there are other approaches to how racial classification is understood [@omi_racial_2015]. Racial appraisals—a classification system that focuses more on 'observed race'--have also been offered as one avenue of future focus [@roth_establishing_2018]. The explanation for this shift in focus is that as individuals display greater interest in how they are classified, a natural divide occurs between these self-classifications and observed race.
 
 The Latinization of Indigenous individuals also plays a role in the formation
 of a multiracial Indigenous identity. Researchers in Latinx studies have found
