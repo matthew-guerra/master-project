@@ -136,7 +136,7 @@ DATA$race_response <- forcats::fct_recode(DATA$race_response,
 #model set up stuff
 cm <- c('(Intercept)' = '(Intercept)',
         'MetroCMetropolitan'    = 'Metro Area',
-        'MetroCUnknown'    = 'Uknown Area',
+        'MetroCUnknown'    = 'Unknown Area',
         'HomelandPYes' = 'Homeland Area',
         'EducAHS Diploma' = 'HS Diploma',
         'EducASome College' = 'Some College',
