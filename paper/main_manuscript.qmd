@@ -67,7 +67,9 @@ The first U.S. census explicitly excluded Indigenous populations in accordance w
 
 ## **Sample Selection and Data**
 
-<!--# In Sample Selection and Data part, the meaning of race and ancestry are explained in the end. It would be clearer to the reader if this distinction is presented earlier (for example before the ”When reviewing respondents racial ancestry…” paragraph).-Sena -->\
+<!--# In Sample Selection and Data part, the meaning of race and ancestry are explained in the end. It would be clearer to the reader if this distinction is presented earlier (for example before the ”When reviewing respondents racial ancestry…” paragraph).-Sena -->
+
+\
 <!--# Figure 1 could be presented earlier (such as in data & method section)-Sena -->
 
 <!--# A descriptive statistics table would be useful to see the general characteristics of your sample-Sena -->
