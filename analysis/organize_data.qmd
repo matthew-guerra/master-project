@@ -84,9 +84,17 @@ DATA$Hispanic <-factor((ifelse(DATA$Hispan==0,"non-Hispanic",
 table(DATA$Hispan,DATA$Hispanic, exclude = NULL)
 
 # recode Tribe variable
-DATA$Tribal_A <-factor(ifelse(DATA$TribeD==100510,"Inupiat",
-                               ifelse(DATA$TribeD==211000,"Sioux",NA)),
-                       levels=c("Inupiat","Sioux"))
+DATA$Tribal_A <-factor(ifelse(DATA$TribeD==100300,
+                              "Alaskan Athabaskan",
+                              ifelse(DATA$TribeD==100400,"Aleut",
+                              ifelse(DATA$TribeD==100510,"Inupiat",
+                              ifelse(DATA$TribeD==100520, "Yup'ik",
+                              ifelse(DATA$TribeD==100601, "Haida",
+                              ifelse(DATA$TribeD==100603, "Tlingit-Haida",
+                              ifelse(DATA$TribeD==100800, "AN NC",
+                               ifelse(DATA$TribeD==211000,"Sioux",NA)))))))),
+                       levels=c("Alaskan Athabaskan","Aleut","Inupiat","Yup'ik","Haida","Tlingit-Haida","AN NC","Sioux")
+)
 table(DATA$TribeD,DATA$Tribal_A, exclude = NULL)
 ```
 
