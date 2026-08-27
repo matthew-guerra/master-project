@@ -16,13 +16,13 @@ source(here("utils","functions.R"))
 ```{r}
 # loading data into R
 
-DATA <- read_fwf("data/data_raw/usa_00011.dat.gz",
-         col_positions=fwf_positions(start=c(1,55,68,84,85,89,92,96,103,
-                                             112,115),
-                                    end=c(4,55,68,84,87,91,92,98,105,
-                                          114,115),
-                  col_names=c("Year","Metro","Homeland","Sex","Age",
-                              "RaceD","Hispan","Ancestr1","Ancestr2","EDUCD","QRace")),
+DATA <- read_fwf("data/data_raw/usa_00013.dat.gz",
+         col_positions=fwf_positions(start=c(1,55,56,84,85,89,92,96,103,110,
+                                             122,125),
+                                    end=c(4,55,56,84,87,91,92,98,105,
+                                          113,124,125),
+                  col_names=c("Year","Metro","Homeland","Sex","Age","RaceD","Hispan",
+                              "Ancestr1","Ancestr2","Tribe","EDUCD","QRace")),
          col_types=cols(.default = "i"),
          progress=TRUE)
 DATA
