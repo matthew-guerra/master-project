@@ -17,12 +17,12 @@ source(here("utils","functions.R"))
 # loading data into R
 
 DATA <- read_fwf("data/data_raw/usa_00013.dat.gz",
-         col_positions=fwf_positions(start=c(1,55,56,84,85,89,92,96,103,110,
-                                             122,125),
+         col_positions=fwf_positions(start=c(1,55,56,84,85,89,92,96,103,
+                                             114,122,125),
                                     end=c(4,55,56,84,87,91,92,98,105,
-                                          113,124,125),
+                                          119,124,125),
                   col_names=c("Year","Metro","Homeland","Sex","Age","RaceD","Hispan",
-                              "Ancestr1","Ancestr2","Tribe","EDUCD","QRace")),
+                              "Ancestr1","Ancestr2","TribeD","EDUCD","QRace")),
          col_types=cols(.default = "i"),
          progress=TRUE)
 DATA
@@ -33,6 +33,9 @@ DATA
 ```{r}
 # remove allocated race variables
 DATA <- subset(DATA, QRace ==0)
+DATA <- subset(DATA, select=c("Year","Metro","Homeland","Sex","Age","RaceD","Hispan",
+                              "Ancestr1","Ancestr2","TribeD","EDUCD","QRace"))
+DATA
 ```
 
 # Recoding Variables
@@ -79,6 +82,12 @@ DATA$Hispanic <-factor((ifelse(DATA$Hispan==0,"non-Hispanic",
                                      "Hispanic", NA))),
                        levels=c("non-Hispanic", "Hispanic"))
 table(DATA$Hispan,DATA$Hispanic, exclude = NULL)
+
+# recode Tribe variable
+DATA$Tribal_A <-factor(ifelse(DATA$TribeD==100510,"Inupiat",
+                               ifelse(DATA$TribeD==211000,"Sioux",NA)),
+                       levels=c("Inupiat","Sioux"))
+table(DATA$TribeD,DATA$Tribal_A, exclude = NULL)
 ```
 
 ```{r}
