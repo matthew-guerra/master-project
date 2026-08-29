@@ -91,9 +91,14 @@ DATA$Tribal_A <-factor(ifelse(DATA$TribeD==100300,
                               ifelse(DATA$TribeD==100520, "Yup'ik",
                               ifelse(DATA$TribeD==100601, "Haida",
                               ifelse(DATA$TribeD==100603, "Tlingit-Haida",
-                              ifelse(DATA$TribeD==100800, "AN NC",
-                               ifelse(DATA$TribeD==211000,"Sioux",NA)))))))),
-                       levels=c("Alaskan Athabaskan","Aleut","Inupiat","Yup'ik","Haida","Tlingit-Haida","AN NC","Sioux")
+                              ifelse(DATA$TribeD==100800, "AN,other",
+                              ifelse(DATA$TribeD==200300, "Apache",
+                              ifelse(DATA$TribeD==200800, "Blackfoot",
+                              ifelse(DATA$TribeD==201900, "Cherokee",
+                              ifelse(DATA$TribeD==202000, "Cheyenne",
+                                     
+                              ifelse(DATA$TribeD==211000,"Sioux",NA)))))))))))),
+                       levels=c("Alaskan Athabaskan","Aleut","Inupiat","Yup'ik","Haida","Tlingit-Haida","AN, other","Apache","Blackfoot","Cherokee","Cheyenne","Sioux")
 )
 table(DATA$TribeD,DATA$Tribal_A, exclude = NULL)
 ```
