@@ -227,7 +227,7 @@ table(DATA$Rancestry1,DATA$Rancestry1s, exclude = NULL)
 ```
 
 ```{r}
-#recode rancestry2 into big raacial categories
+#recode rancestry2 into big racial categories
 DATA <- DATA %>%
   mutate(
     Rancestry2s = ifelse(Rancestry2 %in% c("European", "North African and Middle Eastern"), "White",
@@ -300,7 +300,8 @@ table(subset(DATA, race_ancestry=="Indigenous/White" & race_response=="Inconsist
 ```{r}
 #Subset Data, make sure all variables are here
 DATA <- subset(DATA, select=c("Year","Age","Gender","MetroC","HomelandP",
-                       "Hispanic", "EducA","race_response","race_ancestry"))
+                       "Hispanic", "EducA","race_response","race_ancestry",
+                       "Tribal_A"))
 DATA
 ```
 
