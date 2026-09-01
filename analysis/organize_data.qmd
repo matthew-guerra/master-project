@@ -84,38 +84,59 @@ DATA$Hispanic <-factor((ifelse(DATA$Hispan==0,"non-Hispanic",
 table(DATA$Hispan,DATA$Hispanic, exclude = NULL)
 
 # recode Tribe variable
-DATA$Tribal_A <-factor(ifelse(DATA$TribeD==100300,
-                              "Alaskan Athabaskan",
-                              ifelse(DATA$TribeD==100400,"Aleut",
-                              ifelse(DATA$TribeD==100510,"Inupiat",
-                              ifelse(DATA$TribeD==100520, "Yup'ik",
-                              ifelse(DATA$TribeD==100601, "Haida",
-                              ifelse(DATA$TribeD==100603, "Tlingit-Haida",
-                              ifelse(DATA$TribeD==100800, "AN,other",
-                              ifelse(DATA$TribeD==200300, "Apache",
-                              ifelse(DATA$TribeD==200800, "Blackfoot",
-                              ifelse(DATA$TribeD==201900, "Cherokee",
-                              ifelse(DATA$TribeD==202000, "Cheyenne",
-                              ifelse(DATA$TribeD==202100, "Chicksaw",       
-                              ifelse(DATA$TribeD==202300, "Chipepewa",
-                              ifelse(DATA$TribeD==202500, "Choctaw",
-                              ifelse(DATA$TribeD==202800, "Colville",
-                              ifelse(DATA$TribeD==202900, "Comanche",
-                              ifelse(DATA$TribeD==203500, "Creek",
-                              ifelse(DATA$TribeD==203700, "Crow",
-                              ifelse(DATA$TribeD==203800, "Delaware",
-                              ifelse(DATA$TribeD==204600, "Iowa",
-                              ifelse(DATA$TribeD==204700, "Iroquois",
-                              ifelse(DATA$TribeD==205703, "Mexican American
-                                     Indian",
-                              ifelse(DATA$TribeD==205705, "South American
-                                     Indian",
-                              ifelse(DATA$TribeD==211000,"Sioux",NA))))))))))))
-                              )))))))))))),
-                       levels=c("Alaskan Athabaskan","Aleut","Inupiat","Yup'ik",
-                                "Haida","Tlingit-Haida","AN, other","Apache",
-                                "Blackfoot","Cherokee","Cheyenne","Sioux")
+tribe_labels <- c(
+  `100300` = "Alaskan Athabaskan",
+  `100400` = "Aleut",
+  `100500` = "Eskimo",
+  `100510` = "Inupiat",
+  `100520` = "Yup'ik",
+  `100601` = "Haida",
+  `100603` = "Tlingit-Haida",
+  `100800` = "AN, other",
+  `200300` = "Apache",
+  `200800` = "Blackfoot",
+  `201900` = "Cherokee",
+  `202000` = "Cheyenne",
+  `202100` = "Chickasaw",
+  `202300` = "Chippewa",
+  `202500` = "Choctaw",
+  `202800` = "Colville",
+  `202900` = "Comanche",
+  `203500` = "Creek",
+  `203700` = "Crow",
+  `203800` = "Delaware",
+  `204600` = "Iowa",
+  `204700` = "Iroquois",
+  `205703` = "Mexican American Indian",
+  `205705` = "South American Indian",
+  `206000` = "Lumbee",
+  `206500` = "Menominee",
+  `207500` = "Navajo",
+  `208400` = "Pauite",
+  `209000` = "Pima",
+  `209400` = "Potawatomie",
+  `209600` = "Pueblo",
+  `209604` = "Pueblo-Hopi",
+  `209700` = "Puget Sound Salish",
+  `210200` = "Seminole",
+  `211000` = "Sioux",
+  `211300` = "Tohono O'Odam",
+  `212600` = "Yakima",
+  `212700` = "Yaqui",
+  `213000` = "Yuman",
+  `213200` = "American Indian, tribe not elsewhere classified",
+  `213300` = "American Indian, tribe not specified",
+  `213400` = "All other specified American Indian tribe combinations",
+  `300100` = "American Indian and Alaska Native, tribe not elsewhere classified",
+  `300200` = "American Indian and Alaska Native, not specified"
+
 )
+
+DATA$Tribal_A <- factor(
+  unname(tribe_labels[as.character(DATA$TribeD)]),
+  levels = unname(tribe_labels)
+)
+
 table(DATA$TribeD,DATA$Tribal_A, exclude = NULL)
 ```
 
