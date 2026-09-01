@@ -35,8 +35,6 @@ DATA$race_response <- factor(DATA$race_response,
 ```{r}
 #model set up stuff
 cm <- c('(Intercept)' = '(Intercept)',
-        'MetroCMetropolitan'    = 'Metro Area',
-        'MetroCUnknown'    = 'Uknown Area',
         'HomelandPYes' = 'Homeland Area',
         'EducAHS Diploma' = 'HS Diploma',
         'EducASome College' = 'Some College',
@@ -50,11 +48,10 @@ cm <- c('(Intercept)' = '(Intercept)',
 #| label: tbl-1
 #| tbl-cap: White/Indigenous Models
 #| results: asis
-model1 <- multinom(race_response~MetroC,
+model1 <- multinom(race_response~HomelandP,
                   data=subset(DATA, race_ancestry=="Indigenous/White"))
-model2 <- update(model1, .~.+HomelandP)
-model3 <- update(model2, .~.+EducA+Gender+Hispanic+Age)
-modelsummary(list(model1,model2,model3),
+model2 <- update(model1, .~.+EducA+Gender+Hispanic+Age)
+modelsummary(list(model1,model2),
              digits=3, shape = term ~ model+response, stars = TRUE,coef_map = cm, title ='Respondents with White and Indigenous Ancestry')
 ```
 
@@ -87,10 +84,9 @@ ggplot(subset(temp, race_response!="Non-Indigenous Race Alone"),
 #| label: tbl-2
 #| tbl-cap: Black/Indigenous Models
 #| results: asis
-model4 <- multinom(race_response~MetroC,
+model3 <- multinom(race_response~HomelandP,
                   data=subset(DATA, race_ancestry=="Indigenous/Black"))
-model5 <- update(model4, .~.+HomelandP)
-model6 <- update(model5, .~.+EducA+Gender+Hispanic+Age)
+model4 <- update(model3, .~.+EducA+Gender+Hispanic+Age)
 modelsummary(list(model4,model5,model6),
              digits=3, shape = term ~ model+response, stars = TRUE,
              coef_map = cm, title = 'Respondents with Black and Indigenous Ancestry' )
