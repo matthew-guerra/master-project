@@ -51,7 +51,7 @@ cm <- c('(Intercept)' = '(Intercept)',
 model1 <- multinom(race_response~HomelandP,
                   data=subset(DATA, race_ancestry=="Indigenous/White"))
 model2 <- update(model1, .~.+EducA+Gender+Hispanic+Age)
-modelsummary(list(model1,model2),
+modelsummary(list(model1,model2),exponentiate = TRUE,
              digits=3, shape = term ~ model+response, stars = TRUE,coef_map = cm, title ='Respondents with White and Indigenous Ancestry')
 ```
 
@@ -78,7 +78,6 @@ ggplot(subset(temp, race_response!="Non-Indigenous Race Alone"),
   geom_col(position = "dodge")+
   scale_y_continuous(labels = percent_format())
 ```
-
 
 ```{r}
 #| label: tbl-2
@@ -120,4 +119,14 @@ ggplot(data = DATA, aes(x = race_response, fill = race_ancestry, group=race_ance
 library(kableExtra)
 kable(race_table, caption = "Frequency of Race Ancestry and Race Response Categories") %>%
   kable_classic(full_width = F)
+```
+
+```{r}
+#| label: fig-1
+#| fig-cap: Comparing listed Hispanic and race classification
+ggplot(data = DATA, aes(x = race_response, fill = Hispanic, group= Hispanic, y=after_stat(prop))) + 
+  geom_bar(position = "dodge") +
+  scale_y_continuous(labels = scales::percent) +
+  labs(x = "Racial Calssification by Hispanic", y = NULL, fill = "Hispanic")+
+  theme(axis.title.x = element_text(vjust = -1)) 
 ```
